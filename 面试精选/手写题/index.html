@@ -1,0 +1,3302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="preload" href="/css/first.css" as="style">
+  
+
+  <!-- 页面元数据 -->
+  
+  <title>手写题 - conjuring</title>
+  
+
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+  
+<script>
+if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
+    document.write(
+	'<style>'+
+		'html{'+
+			'overflow-x: hidden !important;'+
+			'overflow-y: hidden !important;'+
+		'}'+
+		'.kill-ie{'+
+			'text-align:center;'+
+			'height: 100%;'+
+			'margin-top: 15%;'+
+			'margin-bottom: 5500%;'+
+		'}'+
+	'</style>'+
+    '<div class="kill-ie">'+
+        '<h1><b>抱歉，您的浏览器无法访问本站</b></h1>'+
+        '<h3>微软已经于2016年终止了对 Internet Explorer (IE) 10 及更早版本的支持，<br/>'+
+        '继续使用存在极大的安全隐患，请使用当代主流的浏览器进行访问。</h3><br/>'+
+        '<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support"><strong>了解详情 ></strong></a>'+
+    '</div>');
+</script>
+
+
+<noscript>
+	<style>
+		html{
+			overflow-x: hidden !important;
+			overflow-y: hidden !important;
+		}
+		.kill-noscript{
+			text-align:center;
+			height: 100%;
+			margin-top: 15%;
+			margin-bottom: 5500%;
+		}
+	</style>
+    <div class="kill-noscript">
+        <h1><b>抱歉，您的浏览器无法访问本站</b></h1>
+        <h3>本页面需要浏览器支持（启用）JavaScript</h3><br/>
+        <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
+    </div>
+</noscript>
+
+</head>
+
+  <body>
+    
+
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+            conjuring
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-home fa-fw'></i>首页
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fa fa-bars fa-fw'></i>导航
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-home fa-fw'></i>首页
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fa fa-bars fa-fw'></i>导航
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+    
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg="https://bing.ioliu.cn/v1/rand?w=1920&h=1200"></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">conjuring</p>
+    
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+      <div id="safearea">
+        <div class="body-wrapper" id="pjax-container">
+          
+
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        手写题
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' target="_blank" href="https://github.com/conjuringwxq/" rel="nofollow noopener">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png">
+    <p>conjuringwxq</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a><span class="sep"></span><a class="category-link" href="/categories/%E9%9D%A2%E8%AF%95/%E6%89%8B%E5%86%99%E9%A2%98/">手写题</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021年5月25日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="手写题" data-path="/%E9%9D%A2%E8%AF%95%E7%B2%BE%E9%80%89/%E6%89%8B%E5%86%99%E9%A2%98/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <h2 id="数组原型常用方法实现"><a href="#数组原型常用方法实现" class="headerlink" title="数组原型常用方法实现"></a>数组原型常用方法实现</h2><h3 id="Array-prototype-every"><a href="#Array-prototype-every" class="headerlink" title="Array.prototype.every"></a>Array.prototype.every</h3><pre><code class="js">Array.prototype.every2 = function (callback) &#123;
+  for (let i = 0; i &lt; this.length; i++) &#123;
+    if (!callback(this[i], i, this)) &#123;
+      return false;
+    &#125;
+  &#125;
+  return true;
+&#125;;
+
+// example
+var arr = [
+  &#123; name: &quot;zhangsan&quot;, age: 20 &#125;,
+  &#123; name: &quot;lisi&quot;, age: 19 &#125;,
+  &#123; name: &quot;wangwu&quot;, age: 18 &#125;,
+  &#123; name: &quot;liliu&quot;, age: 21 &#125;
+];
+console.log(arr.every2(item =&gt; item.age &gt; 17));
+</code></pre>
+<h3 id="Array-prototype-filter"><a href="#Array-prototype-filter" class="headerlink" title="Array.prototype.filter"></a>Array.prototype.filter</h3><pre><code class="js">Array.prototype.filter2 = function (callback) &#123;
+  let arr = [];
+  for (let i = 0; i &lt; this.length; i++) &#123;
+    if (callback(this[i], i, this)) &#123;
+      arr.push(this[i]);
+    &#125;
+  &#125;
+  return arr;
+&#125;;
+
+// example
+var arr = [
+  &#123; name: &quot;zhangsan&quot;, age: 20 &#125;,
+  &#123; name: &quot;lisi&quot;, age: 19 &#125;,
+  &#123; name: &quot;wangwu&quot;, age: 18 &#125;,
+  &#123; name: &quot;liliu&quot;, age: 21 &#125;
+];
+console.log(arr.filter2(item =&gt; item.age &gt; 19));
+console.log(arr.filter2(item =&gt; item.age &gt; 17));
+</code></pre>
+<h3 id="Array-prototype-forEach"><a href="#Array-prototype-forEach" class="headerlink" title="Array.prototype.forEach"></a>Array.prototype.forEach</h3><pre><code class="js">Array.prototype.forEach2 = function (callback) &#123;
+  for (let i = 0; i &lt; this.length; i++) &#123;
+    callback(this[i], i, this);
+  &#125;
+&#125;;
+
+// example
+var arr = [1, 2, 3, 4];
+arr.forEach2((item, index) =&gt; &#123;
+  console.log(item, index);
+&#125;);
+</code></pre>
+<h3 id="Array-prototype-map"><a href="#Array-prototype-map" class="headerlink" title="Array.prototype.map"></a>Array.prototype.map</h3><pre><code class="js">Array.prototype.map2 = function (callback) &#123;
+  let arr = [];
+  for (let i = 0; i &lt; this.length; i++) &#123;
+    arr.push(callback(this[i], i, this));
+  &#125;
+  return arr;
+&#125;;
+
+// example
+var arr = [
+  &#123; name: &quot;zhangsan&quot;, age: 20 &#125;,
+  &#123; name: &quot;lisi&quot;, age: 19 &#125;
+];
+console.log(arr.map2(item =&gt; item.name));
+console.log(arr.map2(item =&gt; item.age));
+</code></pre>
+<h3 id="Array-prototype-some"><a href="#Array-prototype-some" class="headerlink" title="Array.prototype.some"></a>Array.prototype.some</h3><pre><code class="js">Array.prototype.some2 = function (callback) &#123;
+  let arr = [];
+  for (let i = 0; i &lt; this.length; i++) &#123;
+    arr.push(callback(this[i], i, this));
+  &#125;
+  return arr.indexOf(true) &gt; -1;
+&#125;;
+
+// example
+var arr = [
+  &#123; name: &quot;zhangsan&quot;, age: 20 &#125;,
+  &#123; name: &quot;lisi&quot;, age: 19 &#125;,
+  &#123; name: &quot;wangwu&quot;, age: 18 &#125;,
+  &#123; name: &quot;liliu&quot;, age: 21 &#125;
+];
+console.log(arr.some2(item =&gt; item.age === 22));
+console.log(arr.some2(item =&gt; item.age === 21));
+console.log(arr.some2(item =&gt; item.age &gt;= 19));
+</code></pre>
+<h3 id="Array-prototype-reduce"><a href="#Array-prototype-reduce" class="headerlink" title="Array.prototype.reduce"></a>Array.prototype.reduce</h3><pre><code class="js">Array.prototype.reduce2 = function (callback, initValue) &#123;
+  if (!Array.isArray(this) || !this.length || typeof callback !== &quot;function&quot;) return [];
+  var hasInitValue = initValue !== undefined;
+  var val = hasInitValue ? initValue : this[0];
+  for (var i = hasInitValue ? 0 : 1; i &lt; this.length; i++) &#123;
+    val = callback(val, this[i], i, this);
+  &#125;
+  return val;
+&#125;;
+
+var arr = [
+  &#123; name: &quot;zhangsan&quot;, age: 20 &#125;,
+  &#123; name: &quot;lisi&quot;, age: 19 &#125;,
+  &#123; name: &quot;wangwu&quot;, age: 18 &#125;,
+  &#123; name: &quot;liliu&quot;, age: 21 &#125;
+];
+console.log(arr.reduce2((prev, cur) =&gt; prev + cur.age, 0));
+console.log(arr.reduce2((prev, cur) =&gt; [...prev, cur.name], []));
+</code></pre>
+<h2 id="长列表虚拟滚动实现"><a href="#长列表虚拟滚动实现" class="headerlink" title="长列表虚拟滚动实现"></a>长列表虚拟滚动实现</h2><h3 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h3><pre><code class="vue">&lt;template&gt;
+  &lt;div class=&quot;virtual-list&quot;&gt;
+    &lt;section class=&quot;container&quot; ref=&quot;container&quot; @scroll=&quot;scrollView&quot;&gt;
+      &lt;div class=&quot;scroll-bar&quot; ref=&quot;scrollBar&quot;&gt;&lt;/div&gt;
+      &lt;ul ref=&quot;list&quot; class=&quot;list&quot;&gt;
+        &lt;li v-for=&quot;item in showList&quot; :key=&quot;item&quot;&gt;
+          &#123;&#123; item &#125;&#125;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+export default &#123;
+  name: &quot;App&quot;,
+  data() &#123;
+    return &#123;
+      list: [],
+      childHeight: 30,
+      maxCount: 10,
+      start: 0,
+      end: 10
+    &#125;;
+  &#125;,
+  mounted() &#123;
+    this.list = Array.from(&#123; length: 100000 &#125;, (k, v) =&gt; v);
+    // 计算滚动容器高度
+    this.$refs.container.style.height = this.childHeight * this.maxCount + &quot;px&quot;;
+    // 计算总的数据需要的高度，构造滚动条高度
+    this.$refs.scrollBar.style.height = this.childHeight * this.list.length + &quot;px&quot;;
+  &#125;,
+  computed: &#123;
+    showList() &#123;
+      return this.list.slice(this.start, this.end);
+    &#125;
+  &#125;,
+  methods: &#123;
+    scrollView() &#123;
+      let scrollTop = this.$refs.container.scrollTop;
+      this.start = Math.floor(scrollTop / this.childHeight);
+      this.end = this.start + this.maxCount;
+      this.$refs.list.style.top = this.start * this.childHeight + &quot;px&quot;;
+    &#125;
+  &#125;
+&#125;;
+&lt;/script&gt;
+&lt;style&gt;
+.virtual-list &#123;
+  text-align: center;
+&#125;
+
+ul,
+li &#123;
+  list-style: none;
+&#125;
+
+.container &#123;
+  position: relative;
+  overflow: scroll;
+  border-bottom: 1px solid #ddd;
+&#125;
+
+.list &#123;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  text-align: left;
+&#125;
+
+.list li &#123;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  width: 100%;
+  border-bottom: 1px dashed #1890ff;
+  color: #52c41a;
+  font-weight: bold;
+&#125;
+&lt;/style&gt;
+</code></pre>
+<h3 id="react"><a href="#react" class="headerlink" title="react"></a>react</h3><pre><code class="jsx">import &#123; useState, useRef, useMemo, useEffect &#125; from &quot;react&quot;;
+import &quot;./styles.css&quot;;
+
+export default function App() &#123;
+  const containerRef = useRef();
+  const scrollBarRef = useRef();
+  const listRef = useRef();
+  const [list, setList] = useState([]);
+  const [options, setOptions] = useState(&#123;
+    childrenHeight: 30,
+    maxCount: 10,
+    start: 0,
+    end: 10
+  &#125;);
+
+  const sliceList = useMemo(() =&gt; &#123;
+    const &#123; start, end &#125; = options;
+    return list.slice(start, end);
+  &#125;, [list, options]);
+
+  useEffect(() =&gt; &#123;
+    const virtualList = Array.from(&#123; length: 10000 &#125;, (k, v) =&gt; v);
+    setList(virtualList);
+  &#125;, []);
+
+  useEffect(() =&gt; &#123;
+    const &#123; childrenHeight, maxCount &#125; = options;
+    containerRef.current.style.height = `$&#123;childrenHeight * maxCount&#125;px`;
+    scrollBarRef.current.style.height = `$&#123;childrenHeight * list.length&#125;px`;
+  &#125;, [list.length, options]);
+
+  const scrollView = () =&gt; &#123;
+    const &#123; childrenHeight, maxCount, start &#125; = options;
+    let scrollTop = containerRef.current.scrollTop;
+    const startIndex = Math.floor(scrollTop / childrenHeight);
+    setOptions(prevOptions =&gt; (&#123; ...prevOptions, start: startIndex &#125;));
+    const endIndex = startIndex + maxCount;
+    setOptions(prevOptions =&gt; (&#123; ...prevOptions, end: endIndex &#125;));
+    listRef.current.style.top = `$&#123;start * childrenHeight&#125;px`;
+  &#125;;
+
+  return (
+    &lt;div className=&quot;App&quot;&gt;
+      &lt;section className=&quot;container&quot; ref=&#123;containerRef&#125; onScroll=&#123;scrollView&#125;&gt;
+        &lt;div className=&quot;scroll-bar&quot; ref=&#123;scrollBarRef&#125;&gt;&lt;/div&gt;
+        &lt;ul className=&quot;list&quot; ref=&#123;listRef&#125;&gt;
+          &#123;sliceList.map(item =&gt; (
+            &lt;li key=&#123;item&#125;&gt;&#123;item&#125;&lt;/li&gt;
+          ))&#125;
+        &lt;/ul&gt;
+      &lt;/section&gt;
+    &lt;/div&gt;
+  );
+&#125;
+</code></pre>
+<h2 id="发布订阅模式"><a href="#发布订阅模式" class="headerlink" title="发布订阅模式"></a>发布订阅模式</h2><pre><code class="js">class EventBus &#123;
+  constructor() &#123;
+    this.events = &#123;&#125;;
+    // 最大监听数量
+    // this.maxListeners = maxListeners || Infinity;
+  &#125;
+  // 触发
+  emit(event, ...args) &#123;
+    const cbs = this.events[event];
+
+    if (!cbs) &#123;
+      console.log(&quot;没有这个事件!&quot;);
+      return this;
+    &#125;
+
+    cbs.forEach(cb =&gt; cb.apply(this, args));
+
+    return this;
+  &#125;
+  // 监听
+  on(event, cb) &#123;
+    if (!this.events[event]) &#123;
+      this.events[event] = [];
+    &#125;
+
+    // TODO 拦截最大监听
+    // if (this.maxListeners !== Infinity &amp;&amp; this.events[event].length &gt;= this.maxListeners) &#123;
+    //   console.log(`当前事件$&#123;event&#125;超过最大监听数`);
+    //   return this;
+    // &#125;
+
+    this.events[event].push(cb);
+    return this; // 链式调用，则需要返回 this
+  &#125;
+  // 移除监听
+  off(event, cb) &#123;
+    if (!cb) &#123;
+      this.events[event] = null;
+    &#125; else &#123;
+      this.events[event] = this.events[event].filter(item =&gt; item !== cb);
+    &#125;
+    return this; // 链式调用，则需要返回 this
+  &#125;
+  // 只执行一次
+  once(event, cb) &#123;
+    const func = (...args) =&gt; &#123;
+      this.off(event, func);
+      cb.apply(this, args);
+    &#125;;
+    this.on(event, func);
+    return this;
+  &#125;
+&#125;
+
+// 测试
+const add = (a, b) =&gt; console.log(a + b);
+const log = (...args) =&gt; console.log(...args);
+const event = new EventBus();
+event.on(&quot;add&quot;, add);
+event.on(&quot;log&quot;, log);
+event.emit(&quot;add&quot;, 1, 2); // 3
+event.emit(&quot;log&quot;, &quot;hi&quot;); // hi
+event.off(&quot;add&quot;);
+event.emit(&quot;add&quot;, 1, 2); // Error: add event is not registered
+event.once(&quot;once&quot;, add);
+event.emit(&quot;once&quot;, 1, 2); // 3
+event.emit(&quot;once&quot;, 1, 2);
+event.emit(&quot;once&quot;, 1, 2);
+</code></pre>
+<h2 id="Promise-实现"><a href="#Promise-实现" class="headerlink" title="Promise 实现"></a>Promise 实现</h2><pre><code class="js">const PENDING = &quot;pending&quot;;
+const FULFILLED = &quot;fulfilled&quot;;
+const REJECTED = &quot;rejected&quot;;
+
+class Promise &#123;
+  constructor(executor) &#123;
+    // 状态
+    this.status = PENDING;
+    // success
+    this.value = undefined;
+    // error
+    this.reason = undefined;
+    // callback
+    this.onResolvedCallbackList = [];
+    this.onRejectedCallbackList = [];
+    // success cb
+    const resolve = value =&gt; &#123;
+      if (this.status === PENDING) &#123;
+        this.status = FULFILLED;
+        this.value = value;
+        this.onResolvedCallbackList.forEach(fn =&gt; fn());
+      &#125;
+    &#125;;
+    // error cb
+    const reject = reason =&gt; &#123;
+      if (this.status === PENDING) &#123;
+        this.status = FULFILLED;
+        this.reason = reason;
+        this.onRejectedCallbackList.forEach(fn =&gt; fn());
+      &#125;
+    &#125;;
+
+    // 捕获异常
+    try &#123;
+      executor(resolve, reject);
+    &#125; catch (err) &#123;
+      reject(err);
+    &#125;
+  &#125;
+
+  resolvePromise(promise, next, resolve, reject) &#123;
+    // 避免循环引用
+    if (next === promise) &#123;
+      return reject(new TypeError(&quot;Chaining cycle detected for promise #&lt;Promise&gt;&quot;));
+    &#125;
+    // 判断是否被调用过
+    let called;
+    // 判定类型
+    if ((next !== null &amp;&amp; typeof next === &quot;object&quot;) || typeof next === &quot;function&quot;) &#123;
+      try &#123;
+        if (typeof next.then === &quot;function&quot;) &#123;
+          const resolveArg = next =&gt; &#123;
+            if (called) return;
+            called = true;
+            this.resolvePromise(promise, next, resolve, reject);
+          &#125;;
+          const rejectArg = err =&gt; &#123;
+            if (called) return;
+            called = true;
+            this.resolvePromise(promise, next, resolve, reject);
+          &#125;;
+          // 改变作用域 context
+          next.then.call(next, resolveArg, rejectArg);
+        &#125; else &#123;
+          resolve(next);
+        &#125;
+      &#125; catch (err) &#123;
+        if (called) return;
+        called = true;
+        reject(err);
+      &#125;
+    &#125; else &#123;
+      // next 以参数执行 promise
+      reject(next);
+    &#125;
+  &#125;
+
+  then(onFulfilled, onRejected) &#123;
+    // 判断是否为函数, 不是则被忽略
+    onFulfilled =
+      typeof onFulfilled === &quot;funciton&quot;
+        ? onFulfilled
+        : function (val) &#123;
+            return val;
+          &#125;;
+
+    onRejected =
+      typeof onRejected === &quot;function&quot;
+        ? onRejected
+        : function (err) &#123;
+            throw new Error(err);
+          &#125;;
+
+    // 每次调用 then 都会返回新的 Promise
+    const promise = new Promise((resolve, reject) =&gt; &#123;
+      const resolveCb = () =&gt; &#123;
+        try &#123;
+          let next = onFulfilled(this.value);
+          this.resolvePromise(promise, next, resolve, reject);
+        &#125; catch (err) &#123;
+          reject(err);
+        &#125;
+      &#125;;
+      const rejectCb = () =&gt; &#123;
+        try &#123;
+          let next = onRejected(this.reason);
+          this.resolvePromise(promise, next, resolve, reject);
+        &#125; catch (err) &#123;
+          reject(err);
+        &#125;
+      &#125;;
+      if (this.status === FULFILLED) setTimeout(resolveCb, 0);
+      if (this.status === REJECTED) setTimeout(rejectCb, 0);
+      if (this.status === PENDING) &#123;
+        this.onResolvedCallbackList.push(resolveCb);
+        this.onRejectedCallbackList.push(rejectCb);
+      &#125;
+    &#125;);
+    return promise;
+  &#125;
+
+  catch(cb) &#123;
+    return this.then(null, cb);
+  &#125;
+
+  static resolve(value) &#123;
+    if (value instanceof Promsie) return value;
+    return new Promise((resolve, reject) =&gt; resolve(value));
+  &#125;
+
+  static reject(reason) &#123;
+    return new Promise((_, reject) =&gt; reject(reason));
+  &#125;
+
+  /**
+   * @desc 成功返回 list, 失败返回最先失败的结果
+   */
+  static all(promiseList) &#123;
+    let index = 0,
+      result = [];
+    return new Promise((resolve, reject) =&gt; &#123;
+      let len = promiseList.length;
+      for (let i = 0; i &lt; len; i++) &#123;
+        let item = promiseList[i];
+        Promise.resolve(item).then(
+          value =&gt; &#123;
+            index++;
+            result[i] = value;
+            if (index === len) &#123;
+              return resolve(result);
+            &#125;
+          &#125;,
+          err =&gt; reject(err)
+        );
+      &#125;
+    &#125;);
+  &#125;
+  /**
+   * @desc 哪个跑得快先返回哪个，无论成功/失败
+   */
+  static race(promiseList) &#123;
+    return new Promise((resolve, reject) =&gt; &#123;
+      let len = promiseList.length;
+      for (let i = 0; i &lt; len; i++) &#123;
+        let item = promiseList[i];
+        Promise.resolve(item).then(
+          value =&gt; reoslve(value),
+          err =&gt; reject(err)
+        );
+      &#125;
+    &#125;);
+  &#125;
+  /**
+   * @desc 不管成功 or 失败，会等所有实例都返回结果
+   */
+  static allSettled(promiseList) &#123;
+    return new Promise((resolve, reject) =&gt; &#123;
+      let len = promiseList.length;
+      for (let i = 0; i &lt; len; i++) &#123;
+        let item = promiseList[i];
+        Promise.resolve(item).then(
+          value =&gt; &#123;
+            result.push(&#123; status: &quot;fulfilled&quot;, value &#125;);
+            if (result.length === len) return resolve(result);
+          &#125;,
+          err =&gt; &#123;
+            result.push(&#123; status: &quot;rejected&quot;, reason: err &#125;);
+            if (result.length === len) return reject(result);
+          &#125;
+        );
+      &#125;
+    &#125;);
+  &#125;
+  /**
+   * @desc 全部失败才会失败，有一个成功则返回第一个成功的实例
+   */
+  static any(promiseList) &#123;
+    let index = 0;
+    return new Promise((resolve, reject) =&gt; &#123;
+      let len = promiseList.length;
+      if (len === 0) return;
+      for (let i = 0; i &lt; len; i++) &#123;
+        let item = promiseList[i];
+        Promise.resolve(item).then(
+          value =&gt; resolve(value),
+          err =&gt; &#123;
+            index++;
+            if (index === len) return reject(new Error(&quot;All promises were rejected&quot;));
+          &#125;
+        );
+      &#125;
+    &#125;);
+  &#125;
+&#125;
+
+console.log(4);
+Promise.resolve()
+  .then(() =&gt; &#123;
+    console.log(1);
+    setTimeout(() =&gt; &#123;
+      console.log(3);
+    &#125;, 0);
+  &#125;)
+  .then(() =&gt; &#123;
+    console.log(2);
+  &#125;);
+setTimeout(() =&gt; &#123;
+  console.log(5);
+&#125;, 0);
+</code></pre>
+<h2 id="防抖和节流"><a href="#防抖和节流" class="headerlink" title="防抖和节流"></a>防抖和节流</h2><h3 id="防抖和节流对比"><a href="#防抖和节流对比" class="headerlink" title="防抖和节流对比"></a>防抖和节流对比</h3><ul>
+<li>防抖</li>
+</ul>
+<blockquote>
+<p>设置了固定时间触发的时候，在触发高频事件后如果达到了设置的时间间隔，将执行一次，如果在设置的时间间隔内再次触发就会重新计算时间。</p>
+</blockquote>
+<blockquote>
+<p>常用场景: input 输入</p>
+</blockquote>
+<ul>
+<li>节流</li>
+</ul>
+<blockquote>
+<p>设置了固定时间触发的时候，在触发高频事件过程中如果达到了设置的时间间隔，将执行一次。</p>
+</blockquote>
+<blockquote>
+<p>常用场景: resize scroll 等一定会触发的高频率时间中</p>
+</blockquote>
+<ul>
+<li>两者对比</li>
+</ul>
+<blockquote>
+<p>防抖是最后一个执行事件才会触发函数，节流在一定时间内会触发函数。</p>
+</blockquote>
+<h3 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h3><ul>
+<li>简单版</li>
+</ul>
+<pre><code class="js">function shallowDebounce(func, wait) &#123;
+  let timeout;
+  return function (...args) &#123;
+    let context = this;
+    if (timeout) clearTimeout(timeout);
+    timeout = setTimeout(function () &#123;
+      func.apply(context, args);
+    &#125;, wait);
+  &#125;;
+&#125;
+</code></pre>
+<ul>
+<li>复杂版</li>
+</ul>
+<pre><code class="js">function debounce(func, wait, immediate) &#123;
+  let timeout = null;
+  let fn = function (...args) &#123;
+    let context = this;
+    if (timeout) clearTimeout(timeout);
+    if (immediate) &#123;
+      let callNow = !timeout;
+      timeout = setTimeout(function () &#123;
+        timeout = null;
+      &#125;, wait);
+      if (callNow) &#123;
+        func.apply(context, args);
+      &#125;
+    &#125; else &#123;
+      timeout = setTimeout(function () &#123;
+        func.apply(context, args);
+      &#125;, wait);
+    &#125;
+  &#125;;
+  fn.cancel = function () &#123;
+    clearTimeout(timeout);
+    timeout = null;
+  &#125;;
+  return fn;
+&#125;
+</code></pre>
+<h3 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h3><ul>
+<li>简单版</li>
+</ul>
+<pre><code class="js">// 第一次立即执行, 时间戳法
+function shallowThrottle(func, wait) &#123;
+  let previous = 0;
+  return function (...args) &#123;
+    let now = +new Date();
+    let context = this;
+    if (now - previous &gt; wait) &#123;
+      func.apply(context, args);
+      previous = now;
+    &#125;
+  &#125;;
+&#125;
+
+// 第一次不立即执行，定时器法
+function shallowThrottle(func, wait) &#123;
+  let timer = null;
+  return function () &#123;
+    let context = this;
+    let args = arguments;
+    if (!timer) &#123;
+      timer = setTimeout(function () &#123;
+        func.apply(context, args);
+        timer = null;
+      &#125;, wait);
+    &#125;
+  &#125;;
+&#125;
+
+// 结合时间戳法和定时器法，保证第一次和最后一次都执行
+function shallowThrottle(func, wait) &#123;
+  let timer = null;
+  let startTime = Date.now();
+
+  return function () &#123;
+    let currentTime = Date.now();
+    let remainningTime = wait - (currentTime - startTime);
+    let context = this;
+    let args = arguments;
+    clearTimeout(timer);
+    if (remainning &lt;= 0) &#123;
+      func.apply(context, args);
+      startTime = Date.now();
+    &#125; else &#123;
+      timer = setTimeout(func, remaining);
+    &#125;
+  &#125;;
+&#125;
+</code></pre>
+<ul>
+<li>复杂版</li>
+</ul>
+<pre><code class="js">/**
+ * @desc leading 立即执行一次
+ * @desc trailing 执行结束后是否再执一次
+ */
+function throttle(func, wait, leading = true, trailing = true) &#123;
+  let timeout = null,
+    previous = 0;
+  let fn = function (...args) &#123;
+    let now = +new Date();
+    let context = this;
+    if (!previous &amp;&amp; !leading) previous = now;
+    // 剩余时间
+    let remaining = wait - (now - previous);
+    if (timeout) &#123;
+      clearTimeout(timeout);
+      timeout = null;
+    &#125; else &#123;
+      if (remaining &lt;= 0 || remaining &gt; wait) &#123;
+        previous = now;
+        func.apply(context, args);
+      &#125; else if (!timeout &amp;&amp; trailing) &#123;
+        timeout = setTimeout(function () &#123;
+          previous = !leading ? 0 : +new Date();
+          timeout = null;
+          func.apply(context, args);
+        &#125;, remaining);
+      &#125;
+    &#125;
+  &#125;;
+  fn.cancel = function () &#123;
+    clearTimeout(timeout);
+    previous = 0;
+    timeout = null;
+  &#125;;
+  return fn;
+&#125;
+</code></pre>
+<h2 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h2><h3 id="利用-filter-indexOf-去重"><a href="#利用-filter-indexOf-去重" class="headerlink" title="利用 filter + indexOf 去重"></a>利用 filter + indexOf 去重</h3><pre><code class="js">const arr = [1, 2, 3, 4, 4, 3, 65, 16, 24, null, undefined, undefined];
+const filter = arr.filter((item, index, array) =&gt; array.indexOf(item) === index);
+console.log(filter);
+</code></pre>
+<h3 id="利用-reduce-includes-去重"><a href="#利用-reduce-includes-去重" class="headerlink" title="利用 reduce + includes 去重"></a>利用 reduce + includes 去重</h3><pre><code class="js">const arr = [1, 2, 3, 4, 4, 3, 65, 16, 24, null, undefined, undefined];
+const filter = arr.reduce((prev, cur) =&gt; (prev.includes(cur) ? prev : [...prev, cur]), []);
+console.log(filter);
+</code></pre>
+<h3 id="利用-Set-数据结构去重"><a href="#利用-Set-数据结构去重" class="headerlink" title="利用 Set 数据结构去重"></a>利用 Set 数据结构去重</h3><pre><code class="js">const arr = [1, 2, 3, 4, 4, 3, 65, 16, 24, null, undefined, undefined];
+const filter = Array.from(new Set(arr));
+console.log(filter);
+</code></pre>
+<h2 id="数组扁平化"><a href="#数组扁平化" class="headerlink" title="数组扁平化"></a>数组扁平化</h2><h3 id="递归实现"><a href="#递归实现" class="headerlink" title="递归实现"></a>递归实现</h3><pre><code class="js">const arr = [1, [2, [3]]];
+const flatten = arr =&gt; &#123;
+  let result = [];
+  for (let i = 0; i &lt; arr.length; i++) &#123;
+    if (arr[i] &amp;&amp; arr[i].length) &#123;
+      result = result.concat(flatten(arr[i]));
+    &#125; else &#123;
+      result.push(arr[i]);
+    &#125;
+  &#125;
+  return result;
+&#125;;
+console.log(flatten(arr));
+</code></pre>
+<h3 id="利用-while-实现"><a href="#利用-while-实现" class="headerlink" title="利用 while 实现"></a>利用 while 实现</h3><pre><code class="js">const arr = [1, [2, [3]]];
+const flatten = arr =&gt; &#123;
+  while (arr.some(item =&gt; Array.isArray(item))) &#123;
+    arr = [].concat(...arr);
+  &#125;
+  return arr;
+&#125;;
+console.log(flatten(arr));
+</code></pre>
+<h3 id="利用-reduce-实现"><a href="#利用-reduce-实现" class="headerlink" title="利用 reduce 实现"></a>利用 reduce 实现</h3><pre><code class="js">const arr = [1, [2, [3]]];
+const flatten = arr =&gt; &#123;
+  return arr.reduce((prev, cur) =&gt; prev.concat(Array.isArray(cur) ? flatten(cur) : cur), []);
+&#125;;
+console.log(flatten(arr));
+</code></pre>
+<h2 id="函数柯理化"><a href="#函数柯理化" class="headerlink" title="函数柯理化"></a>函数柯理化</h2><blockquote>
+<p>使函数从一次调用传入多个参数变成多次调用每次传一个参数</p>
+</blockquote>
+<pre><code class="js">function curry(fn) &#123;
+  const judge = (...args) =&gt; &#123;
+    if (args.length === fn.length) return fn(...args);
+    return (...arg) =&gt; judge(...args, ...arg);
+  &#125;;
+  return judge;
+&#125;
+
+function add(a, b, c) &#123;
+  return a + b + c;
+&#125;
+
+let addCurry = curry(add);
+console.log(addCurry(1)(2)(3));
+</code></pre>
+<h2 id="解析-url-参数"><a href="#解析-url-参数" class="headerlink" title="解析 url 参数"></a>解析 url 参数</h2><pre><code class="js">function getParams(url) &#123;
+  const str = /.+\?(.+)$/.exec(url)[1];
+  const arr = str.split(&quot;&amp;&quot;);
+  let obj = &#123;&#125;;
+  arr.forEach(item =&gt; &#123;
+    if (/=/.test(item)) &#123;
+      let [key, value] = item.split(&quot;=&quot;);
+      value = decodeURIComponent(value);
+      value = /^\d+$/.test(value) ? parseFloat(value) : value;
+      if (obj.hasOwnProperty(key)) &#123;
+        obj[key] = [].concat(obj[key], value);
+      &#125; else if (typeof value === &quot;string&quot; &amp;&amp; value.split(&quot;,&quot;).length &gt; 1) &#123;
+        obj[key] = value.split(&quot;,&quot;);
+      &#125; else &#123;
+        obj[key] = value;
+      &#125;
+    &#125; else &#123;
+      obj[item] = ture;
+    &#125;
+    return obj;
+  &#125;);
+&#125;
+
+console.log(getParams(&quot;https://www.baidu.com?name=1&amp;age=20&amp;hobby=1,2,3&amp;name=2&amp;name=3&quot;));
+</code></pre>
+<h2 id="实现-new-关键字"><a href="#实现-new-关键字" class="headerlink" title="实现 new 关键字"></a>实现 new 关键字</h2><blockquote>
+<p>新对象需要能够访问到构造函数的属性，因此需重新指定它的原型</p>
+</blockquote>
+<pre><code class="js">function ObjectFactory() &#123;
+  let constructor = [].shift.call(arguments);
+  let obj = &#123;&#125;;
+  obj.__proto__ = constructor.prototype;
+  constructor.apply(obj, arguments);
+  return obj;
+&#125;
+
+function Person(name, age) &#123;
+  this.name = name;
+  this.age = age;
+&#125;
+
+let person = ObjectFactory(Person, &quot;zhangsan&quot;, 12);
+console.log(person);
+</code></pre>
+<h2 id="实现-jsonp"><a href="#实现-jsonp" class="headerlink" title="实现 jsonp"></a>实现 jsonp</h2><pre><code class="js">const jsonp = (&#123; url, params, callback &#125;) =&gt; &#123;
+  const generateUrl = () =&gt; &#123;
+    let dataSrc = &quot;&quot;;
+    for (let key in params) &#123;
+      if (params.hasOwnProperty(key)) &#123;
+        dataSrc += `$&#123;key&#125;=$&#123;params[key]&#125;&amp;`;
+      &#125;
+    &#125;
+    dataSrc += `callback=$&#123;callback&#125;`;
+    return `$&#123;url&#125;?$&#123;dataSrc&#125;`;
+  &#125;;
+  return new Promise((resolve, reject) =&gt; &#123;
+    const scriptElement = document.createElement(&quot;script&quot;);
+    scriptElement.src = generateUrl();
+    document.body.appendChild(scriptElement);
+    window.callback = data =&gt; &#123;
+      resolve(data);
+      document.removeChild(scriptElement);
+    &#125;;
+  &#125;);
+&#125;;
+</code></pre>
+<h2 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a>深浅拷贝</h2><h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><pre><code class="js">function shallowCopy(obj) &#123;
+  let newObj = obj instanceof Array ? [] : &#123;&#125;;
+  for (let key in obj) &#123;
+    if (obj.hasOwnproperty(key)) &#123;
+      newObj[key] = obj[key];
+    &#125;
+  &#125;
+  return newObj;
+&#125;
+
+let obj1 = &#123;
+  a: 1,
+  b: 2,
+  c: &#123;
+    d: 3
+  &#125;
+&#125;;
+
+let obj2 = shallowCopy(obj1);
+obj2.a = 3;
+obj2.c.d = 4;
+console.log(obj1.a); // 1
+console.log(obj2.a); // 3
+console.log(obj1.c.d); // 4
+console.log(obj2.c.d); // 4
+</code></pre>
+<h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><pre><code class="js">/**
+ * @desc 只考虑普通对象属性，不考虑内置对象和函数。
+ */
+function deepCopy(obj) &#123;
+  let newObj = Array.isArray(obj) ? [] : &#123;&#125;;
+  if (obj &amp;&amp; typeof obj === &quot;object&quot;) &#123;
+    for (let key in obj) &#123;
+      if (obj[key] &amp;&amp; typeof obj[key] === &quot;object&quot;) &#123;
+        newObj[key] = deepClone(obj[key]);
+      &#125; else &#123;
+        newObj[key] = obj[key];
+      &#125;
+    &#125;
+  &#125;
+  return newObj;
+&#125;
+
+let obj1 = &#123;
+  a: 1,
+  b: 2,
+  c: &#123;
+    d: 3
+  &#125;
+&#125;;
+
+let obj2 = deepClone(obj1);
+obj2.a = 3;
+obj2.c.d = 4;
+console.log(obj1.a); // 1
+console.log(obj2.a); // 3
+console.log(obj1.c.d); // 3
+console.log(obj2.c.d); // 4
+</code></pre>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><h3 id="寄生组合继承"><a href="#寄生组合继承" class="headerlink" title="寄生组合继承"></a>寄生组合继承</h3><blockquote>
+<p>为了解决组合式继承调用两次构造函数的问题<br>解决方案:<br>不直接调用父类构造函数给子类原型赋值, 而是通过创建空函数 F 获取父类原型的副本</p>
+</blockquote>
+<pre><code class="js">function Animal(name) &#123;
+  this.name = name;
+  this.colors = [&quot;black&quot;, &quot;white&quot;];
+&#125;
+
+Animal.prototype.getName = function () &#123;
+  return this.name;
+&#125;;
+
+function Dog(name, age) &#123;
+  Animal.call(this, name);
+  this.age = age;
+&#125;
+
+// Dog.prototype = new Animal();
+// Dog.prototype.constructor = Dog;
+
+// 最简单的替换
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+
+let dog1 = new Dog(&quot;奶昔&quot;, 2);
+dog1.colors.push(&quot;yellow&quot;);
+
+let dog2 = new Dog(&quot;奶茶&quot;, 1);
+console.log(dog2);
+</code></pre>
+<h3 id="借用构造函数继承"><a href="#借用构造函数继承" class="headerlink" title="借用构造函数继承"></a>借用构造函数继承</h3><blockquote>
+<p>解决了原型链继承的 2 个问题: 引用类型共享问题、传参问题<br>问题:<br>方法都定义在构造函数中，无法复用；每次创建子类实例都会重新创建一边方法，性能问题。</p>
+</blockquote>
+<pre><code class="js">function Animal() &#123;
+  this.colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;];
+  this.getColors = function () &#123;
+    return this.colors;
+  &#125;;
+&#125;
+
+function Dog() &#123;
+  Animal.call(this);
+&#125;
+
+let dog1 = new Dog();
+dog1.colors.push(&quot;white&quot;);
+console.log(dog1.getColors());
+
+let dog2 = new Dog();
+console.log(dog2.getColors());
+</code></pre>
+<h3 id="原型式继承"><a href="#原型式继承" class="headerlink" title="原型式继承"></a>原型式继承</h3><blockquote>
+<p>问题:<br>原型包含的引用类型的属性将被所有实例共享<br>子类实例化时不能给父类构造函数传递参数</p>
+</blockquote>
+<pre><code class="js">function Animal() &#123;
+  this.colors = [&quot;black&quot;, &quot;white&quot;];
+&#125;
+
+Animal.prototype.getColor = function () &#123;
+  return this.colors;
+&#125;;
+
+function Dog() &#123;&#125;
+Dog.prototype = new Animal();
+
+let dog1 = new Dog();
+dog1.colors.push(&quot;yellow&quot;);
+let dog2 = new Dog();
+console.log(dog2.colors);
+</code></pre>
+<h3 id="组合式继承"><a href="#组合式继承" class="headerlink" title="组合式继承"></a>组合式继承</h3><blockquote>
+<p>问题:<br>调用了两次构造函数 new 和 Animal.call</p>
+</blockquote>
+<pre><code class="js">// 结合原型链和借用构造函数
+function Animal(name) &#123;
+  this.name = name;
+  this.colors = [&quot;black&quot;, &quot;white&quot;];
+&#125;
+
+Animal.prototype.getName = function () &#123;
+  return this.name;
+&#125;;
+
+function Dog(name, age) &#123;
+  Animal.call(this, name);
+  this.age = age;
+&#125;
+
+Dog.prototype = new Animal();
+Dog.prototype.constructor = Dog;
+
+let dog1 = new Dog(&quot;奶昔&quot;, 2);
+dog1.colors.push(&quot;yellow&quot;);
+
+let dog2 = new Dog(&quot;奶茶&quot;, 1);
+console.log(dog2);
+</code></pre>
+<h3 id="class-继承"><a href="#class-继承" class="headerlink" title="class 继承"></a>class 继承</h3><pre><code class="js">class Animal &#123;
+  constructor(name) &#123;
+    this.name = name;
+    this.colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;];
+  &#125;
+  getName() &#123;
+    return this.name;
+  &#125;
+&#125;
+
+class Dog extends Animal &#123;
+  constructor(name, age) &#123;
+    super(name);
+    this.age = age;
+  &#125;
+&#125;
+
+let dog1 = new Dog(&quot;奶昔&quot;, 2);
+dog1.colors.push(&quot;yellow&quot;);
+
+let dog2 = new Dog(&quot;奶茶&quot;, 1);
+console.log(dog2);
+</code></pre>
+<h2 id="使用-setTimeout-模拟-setInterval"><a href="#使用-setTimeout-模拟-setInterval" class="headerlink" title="使用 setTimeout 模拟 setInterval"></a>使用 setTimeout 模拟 setInterval</h2><pre><code class="js">function mySetInterval(fn, timeout) &#123;
+  let timer = &#123; flag: true &#125;;
+  function interval() &#123;
+    if (timer.flag) &#123;
+      fn();
+      setTimeout(interval, timeout);
+    &#125;
+    setTimeout(interval, timeout);
+    return timer;
+  &#125;
+&#125;
+</code></pre>
+<h2 id="异步串行输出"><a href="#异步串行输出" class="headerlink" title="异步串行输出"></a>异步串行输出</h2><blockquote>
+<p>实现 createFlow 按照 a, b, 延时 1s, c, 延时 1s, d, e, done 顺序打印</p>
+</blockquote>
+<pre><code class="js">const log = console.log;
+const delay = ms =&gt; new Promise(resolve =&gt; setTimeout(resolve, ms));
+const subFlow = createFlow([() =&gt; delay(1000).then(() =&gt; log(&quot;c&quot;))]);
+createFlow([() =&gt; log(&quot;a&quot;), () =&gt; log(&quot;b&quot;), subFlow, [() =&gt; delay(1000).then(() =&gt; log(&quot;d&quot;)), () =&gt; log(&quot;e&quot;)]]).run(() =&gt; &#123;
+  log(&quot;done&quot;);
+&#125;);
+
+function createFlow(iterator = []) &#123;
+  return &#123;
+    run(cb = () =&gt; &#123;&#125;) &#123;
+      return [...iterator, cb].reduce((prev, cur) =&gt; &#123;
+        return prev.then(Array.isArray(cur) ? createFlow(cur).run : cur.hasOwnProperty(&quot;run&quot;) ? cur.run : cur);
+      &#125;, Promise.resolve());
+    &#125;
+  &#125;;
+&#125;
+</code></pre>
+<h2 id="场景题"><a href="#场景题" class="headerlink" title="场景题"></a>场景题</h2><h3 id="如果一段-js-执行时间非常长，怎么去分析"><a href="#如果一段-js-执行时间非常长，怎么去分析" class="headerlink" title="如果一段 js 执行时间非常长，怎么去分析"></a>如果一段 js 执行时间非常长，怎么去分析</h3><blockquote>
+<p>利用装饰器打印某个方法的执行时间</p>
+</blockquote>
+<h3 id="阿里云-oss-支持通过链接后面拼参数来做图片的格式转换，尝试写一下把任意图片格式转换为-webp"><a href="#阿里云-oss-支持通过链接后面拼参数来做图片的格式转换，尝试写一下把任意图片格式转换为-webp" class="headerlink" title="阿里云 oss 支持通过链接后面拼参数来做图片的格式转换，尝试写一下把任意图片格式转换为 webp"></a>阿里云 oss 支持通过链接后面拼参数来做图片的格式转换，尝试写一下把任意图片格式转换为 webp</h3><blockquote>
+<p>需要注意 webp 的兼容性</p>
+</blockquote>
+<pre><code class="js">function checkWebp() &#123;
+  try &#123;
+    return document.createElement(&quot;canvas&quot;).toDataURL(&quot;image/webp&quot;).indexOf(&quot;data:image/webp&quot;) === 0;
+  &#125; catch (e) &#123;
+    return false;
+  &#125;
+&#125;
+
+const supportWebp = checkWebp();
+
+export function getWebpImageUrl(url) &#123;
+  // 边界条件: url 是否为空
+  if (!url) &#123;
+    throw new Error(&quot;url 不能为空&quot;);
+  &#125;
+  // 边界条件: base64
+  if (url.startWith(&quot;data:&quot;)) &#123;
+    return url;
+  &#125;
+  // 边界条件: 浏览器是否支持 webp
+  if (!supportWebp) &#123;
+    return url;
+  &#125;
+  return url + &quot;?x-oss-processxxx&quot;;
+&#125;
+</code></pre>
+<h3 id="如果有巨量的图片需要展示，除了懒加载的方式，有没有其他方法限制一下同时加载的图片数量"><a href="#如果有巨量的图片需要展示，除了懒加载的方式，有没有其他方法限制一下同时加载的图片数量" class="headerlink" title="如果有巨量的图片需要展示，除了懒加载的方式，有没有其他方法限制一下同时加载的图片数量"></a>如果有巨量的图片需要展示，除了懒加载的方式，有没有其他方法限制一下同时加载的图片数量</h3><blockquote>
+<p>代码题，实现 promise 的并发控制</p>
+</blockquote>
+<pre><code class="js">function limitLoad(urls, handler, limit) &#123;
+  const sequence = [].cancat(urls);
+  let promises = [];
+  promises = sequence.splice(0, limit).map((url, index) =&gt; &#123;
+    return handler(url).then(() =&gt; &#123;
+      // 哪一个执行完了
+      return index;
+    &#125;);
+  &#125;);
+
+  let p = Promise.race(promises);
+  for (let i = 0; i &lt; sequence.length; i++) &#123;
+    p = p.then(res =&gt; &#123;
+      promises[res] = handler(sequence[i]).then(() =&gt; &#123;
+        return res;
+      &#125;);
+      return Promise.race(promises);
+    &#125;);
+  &#125;
+&#125;
+
+// 设置要执行的任务
+function loadImage(url) &#123;
+  return new Promise((resolve, reject) =&gt; &#123;
+    console.log(&quot;---&quot; + url.info + &quot; start!&quot;);
+    setTimeout(() =&gt; &#123;
+      console.log(url.info + &quot; OK!!!&quot;);
+      resolve();
+    &#125;, url.time);
+  &#125;);
+&#125;
+
+limitLoad(urls, loadImage, 3);
+</code></pre>
+<h3 id="实现-sizeof-函数，传入一个参数-object-计算这个-object-占用的多少-bytes"><a href="#实现-sizeof-函数，传入一个参数-object-计算这个-object-占用的多少-bytes" class="headerlink" title="实现 sizeof 函数，传入一个参数 object, 计算这个 object 占用的多少 bytes"></a>实现 sizeof 函数，传入一个参数 object, 计算这个 object 占用的多少 bytes</h3><pre><code class="js">const testData = &#123;
+  a: 111,
+  b: &quot;ccc&quot;,
+  2222: false
+&#125;;
+
+// number: 8 字节
+// string: 每个长度 2 字节
+// boolean: 4 字节
+
+// 存储已经计算过的内存，避免相同引用造成的问题
+const seen = new WeakSet();
+
+function sizeOfObject(object) &#123;
+  if (object === null) &#123;
+    return 0;
+  &#125;
+  let bytes = 0;
+  // 对象里的 key 也是占用内存
+  const properties = Object.keys(object);
+  for (let i = 0; i &lt; properties.length; i++) &#123;
+    const key = properties[i];
+    bytes += calculator(key);
+    if (typeof object[key] === &quot;object&quot; &amp;&amp; object[key] !== null) &#123;
+      if (seen.has(object[key])) &#123;
+        // 坑点，key 一定要被算上, 因此 bytes += calculator(key); 要放到前面
+        continue;
+      &#125;
+      seen.add(object[key]);
+    &#125;
+    bytes += calculator(object[key]);
+  &#125;
+  return bytes;
+&#125;
+
+function calculator(object) &#123;
+  const objectType = typeof object;
+
+  switch (objectType) &#123;
+    case &quot;string&quot;:
+      return object.length * 2;
+    case &quot;boolean&quot;:
+      return 4;
+    case &quot;number&quot;:
+      return 8;
+    case &quot;object&quot;:
+      if (Array.isArray(object)) &#123;
+        // 递归处理数组
+        return object.map(calculator).reduce((pre, cur) =&gt; pre + cur, 0);
+      &#125; else &#123;
+        // 对对象的处理
+        return sizeOfObject(object);
+      &#125;
+    default:
+      return 0;
+  &#125;
+&#125;
+</code></pre>
+<h3 id="给-xhr-添加-hook-实现在各个阶段打印日志"><a href="#给-xhr-添加-hook-实现在各个阶段打印日志" class="headerlink" title="给 xhr 添加 hook, 实现在各个阶段打印日志"></a>给 xhr 添加 hook, 实现在各个阶段打印日志</h3><blockquote>
+<p>重写 xhr 的属性和方法</p>
+</blockquote>
+<pre><code class="js">class XhrHook &#123;
+  constructor(beforeHooks = &#123;&#125;, afterHooks = &#123;&#125;) &#123;
+    this.XHR = window.XMLHttpRequest;
+    this.beforeHooks = beforeHooks;
+    this.afterHooks = afterHooks;
+    this.init();
+  &#125;
+  init() &#123;
+    let _this = this;
+    // 此处不用箭头函数的问题是因为 this 指向问题，因为实例化后需要指向新构造出的实例上
+    window.XMLHttpRequest = function () &#123;
+      this._xhr = new _this.XHR();
+      _this.overwrite(this);
+    &#125;;
+  &#125;
+  overwrite(proxyXHR) &#123;
+    for (let key in proxyXHR._xhr) &#123;
+      if (typeof proxyXHR._xhr[key] === &quot;function&quot;) &#123;
+        this.overwriteMethod(key, proxyXHR);
+        continue;
+      &#125;
+      this.overwriteAttributes(key, proxyXHR);
+    &#125;
+  &#125;
+  // 重写方法
+  overwriteMethod(key, proxyXHR) &#123;
+    let beforeHooks = this.beforeHooks; // 我们应该可以拦截原有行为
+    let afterHooks = this.afterHooks;
+
+    proxyXHR[key] = (...args) =&gt; &#123;
+      // 拦截
+      if (beforeHooks[key]) &#123;
+        const res = beforeHooks[key].call(proxyXHR, args);
+        if (res === false) &#123;
+          return;
+        &#125;
+      &#125;
+      const res = proxyXHR._xhr[key].apply(proxyXHR._xhr, args);
+      afterHooks[key] &amp;&amp; afterHooks[key].call(proxyXHR._xhr, res);
+      return res;
+    &#125;;
+  &#125;
+  // 重写属性
+  overwriteAttributes(key, proxyXHR) &#123;
+    Object.defineProperties(proxyXHR, key, this.setPropertyDescriptor(key, proxyXHR));
+  &#125;
+  setPropertyDescriptor(key, proxyXHR) &#123;
+    let obj = Object.create(null); // 得到一个非常干净的对象
+    let _this = this;
+    obj.set = function (val) &#123;
+      if (!key.startsWith(&quot;on&quot;)) &#123;
+        proxyXHR[&quot;__&quot; + key] = val;
+        return;
+      &#125;
+
+      if (_this.beforeHooks[key]) &#123;
+        this._xhr[key] = function (...args) &#123;
+          _this.beforeHooks[key].call(proxyXHR);
+          val.apply(proxyXHR, args);
+        &#125;;
+        return;
+      &#125;
+
+      this._xhr[key] = val;
+    &#125;;
+    obj.get = function () &#123;
+      return proxyXHR[&quot;__&quot; + key] || this._xhr[key];
+    &#125;;
+    return obj;
+  &#125;
+&#125;
+</code></pre>
+<h2 id="简易版-Vue-实现"><a href="#简易版-Vue-实现" class="headerlink" title="简易版 Vue 实现"></a>简易版 Vue 实现</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><h4 id="1-index-html-主页面"><a href="#1-index-html-主页面" class="headerlink" title="1, index.html 主页面"></a>1, index.html 主页面</h4><h4 id="2-vue-js-Vue-主文件"><a href="#2-vue-js-Vue-主文件" class="headerlink" title="2. vue.js Vue 主文件"></a>2. vue.js Vue 主文件</h4><pre><code class="js">// vue.js
+import Observer from &quot;./observer.js&quot;;
+import Compiler from &quot;./compiler.js&quot;;
+
+/**
+ * 包括 vue 构造函数，接收各种配置参数等
+ */
+export default class Vue &#123;
+  constructor(options = &#123;&#125;) &#123;
+    this.$options = options;
+    this.$data = options.data;
+    this.$methods = options.methods;
+
+    this.initRootElement(options);
+    this._proxyData(this.$data);
+
+    // 实例化 Observer 对象，监听数据变化
+    new Observer(this.$data);
+    // 实例化 Compiler 对象，解析指令和模版表达式
+    new Compiler(this);
+  &#125;
+
+  /**
+   * 获取根元素，并存储到 vue 实例，简单检查一下传入的 el 是否合规
+   */
+  initRootElement(options) &#123;
+    if (typeof options.el === &quot;string&quot;) &#123;
+      // id / class
+      this.$el = document.querySelector(options.el);
+    &#125; else if (options.el instanceof HTMLElement) &#123;
+      this.$el = options.el;
+    &#125;
+
+    if (!this.$el) &#123;
+      throw new Error(&quot;传入的 el 不合法, 请传入 css selector 或 HTMLElement&quot;);
+    &#125;
+  &#125;
+
+  /**
+   * 利用 Object.defineProxy 将 data 的属性注入到 vue 实例中
+   */
+  _proxyData(data) &#123;
+    Object.keys(data).forEach(key =&gt; &#123;
+      Object.defineProperty(this, key, &#123;
+        enumerable: true,
+        configurable: true,
+        get() &#123;
+          return data[key];
+        &#125;,
+        set(newVal) &#123;
+          if (data[key] === newVal) &#123;
+            return;
+          &#125;
+          data[key] = newVal;
+        &#125;
+      &#125;);
+    &#125;);
+  &#125;
+&#125;
+</code></pre>
+<h4 id="3-compiler-js-解析模版，解析指令，如-v-model-v-html"><a href="#3-compiler-js-解析模版，解析指令，如-v-model-v-html" class="headerlink" title="3. compiler.js 解析模版，解析指令，如 v-model v-html"></a>3. compiler.js 解析模版，解析指令，如 v-model v-html</h4><pre><code class="js">// compiler.js
+import Watcher from &quot;./watcher.js&quot;;
+
+export default class Compiler &#123;
+  constructor(vm) &#123;
+    this.el = vm.$el;
+    this.vm = vm;
+    this.methods = vm.$methods;
+
+    this.compile(vm.$el);
+  &#125;
+
+  /** 编译模版  */
+  compile(el) &#123;
+    const childNodes = el.childNodes;
+    Array.from(childNodes).forEach(node =&gt; &#123;
+      if (this.isTextNode(node)) &#123;
+        // 文本节点
+        this.compileText(node);
+      &#125; else if (this.isElementNode(node)) &#123;
+        // 元素节点
+        this.compileElement(node);
+      &#125;
+      // 有子节点，递归调用
+      if (node.childNodes &amp;&amp; node.childNodes.length &gt; 0) &#123;
+        this.compile(node);
+      &#125;
+    &#125;);
+  &#125;
+
+  compileText(node) &#123;
+    // &#123;&#123; msg &#125;&#125;
+    const reg = /\&#123;\&#123;(.+?)\&#125;\&#125;/;
+    const value = node.textContent;
+
+    if (reg.test(value)) &#123;
+      // 匹配 msg
+      const key = RegExp.$1.trim();
+      node.textContent = value.replace(reg, this.vm[key]);
+
+      // 用来响应式的展示
+      new Watcher(this.vm, key, newValue =&gt; &#123;
+        node.textContent = newValue;
+      &#125;);
+    &#125;
+  &#125;
+
+  compileElement(node) &#123;
+    if (node.attributes.length) &#123;
+      Array.from(node.attributes).forEach(attr =&gt; &#123;
+        // 遍历元素节点的所有属性
+        const attrName = attr.name; // v-model v-html v-on:click
+        if (this.isDirective(attrName)) &#123;
+          let directiveName = attrName.indexOf(&quot;:&quot;) &gt; -1 ? attrName.substr(5) : attrName.substr(2);
+          let key = attr.value;
+          this.update(node, key, directiveName);
+        &#125;
+      &#125;);
+    &#125;
+  &#125;
+
+  /**
+   * 更新元素节点
+   * @param &#123;*&#125; node
+   * @param &#123;*&#125; key
+   * @param &#123;*&#125; directiveName 指令名
+   */
+  update(node, key, directiveName) &#123;
+    // v-model v-text v-html v-on:click
+    const updateFn = this[directiveName + &quot;Updater&quot;];
+    updateFn &amp;&amp; updateFn.call(this, node, this.vm[key], key, directiveName);
+  &#125;
+
+  /** 解析 v-text */
+  textUpdater(node, value, key) &#123;
+    node.textContent = value;
+    new Watcher(this.vm, key, newValue =&gt; &#123;
+      node.textContent = newValue;
+    &#125;);
+  &#125;
+
+  /** 解析 v-model */
+  modelUpdater(node, value, key) &#123;
+    node.value = value;
+    new Watcher(this.vm, key, newValue =&gt; &#123;
+      node.value = newValue;
+    &#125;);
+
+    // 更新值，双向绑定
+    node.addEventListener(&quot;input&quot;, () =&gt; &#123;
+      this.vm[key] = node.value;
+    &#125;);
+  &#125;
+
+  /** 解析 v-html */
+  htmlUpdater(node, value, key) &#123;
+    node.innerHTML = value;
+    new Watcher(this.vm, key, newValue =&gt; &#123;
+      node.innerHTML = newValue;
+    &#125;);
+  &#125;
+
+  /** 解析 v-on */
+  clickUpdater(node, value, key, directiveName) &#123;
+    node.addEventListener(directiveName, this.methods[key]);
+  &#125;
+
+  /**
+   * 判断元素属性是否是指令
+   */
+  isDirective(attrName) &#123;
+    return attrName.startsWith(&quot;v-&quot;);
+  &#125;
+
+  /**
+   * 判断是否是文本节点
+   */
+  isTextNode(node) &#123;
+    return node.nodeType === 3;
+  &#125;
+
+  /**
+   * 判断是否是元素节点
+   */
+  isElementNode(node) &#123;
+    return node.nodeType === 1;
+  &#125;
+&#125;
+</code></pre>
+<h4 id="4-dep-js-收集依赖关系，存储观察者-以发布订阅的形式实现"><a href="#4-dep-js-收集依赖关系，存储观察者-以发布订阅的形式实现" class="headerlink" title="4. dep.js 收集依赖关系，存储观察者(以发布订阅的形式实现)"></a>4. dep.js 收集依赖关系，存储观察者(以发布订阅的形式实现)</h4><pre><code class="js">// dep.js
+/**
+ * 发布订阅模式
+ * 存储所有观察者，watcher
+ * 每个 watcher 都有一个 update
+ * 通知 subs 里的每个 watcher 实例，触发 update 方法
+ */
+
+export default class Dep &#123;
+  constructor() &#123;
+    // 存储所有的观察者
+    this.subs = [];
+  &#125;
+
+  /**
+   * 添加观察者
+   */
+  addSub(watcher) &#123;
+    if (watcher &amp;&amp; watcher.update) &#123;
+      this.subs.push(watcher);
+    &#125;
+  &#125;
+
+  /**
+   * 发送通知
+   */
+  notify() &#123;
+    this.subs.forEach(watcher =&gt; &#123;
+      watcher.update();
+    &#125;);
+  &#125;
+&#125;
+</code></pre>
+<h4 id="5-observer-js-数据劫持实现-递归遍历所有属性"><a href="#5-observer-js-数据劫持实现-递归遍历所有属性" class="headerlink" title="5. observer.js 数据劫持实现(递归遍历所有属性)"></a>5. observer.js 数据劫持实现(递归遍历所有属性)</h4><pre><code class="js">// observer.js
+import Dep from &quot;./dep.js&quot;;
+
+export default class Observer &#123;
+  constructor(data) &#123;
+    this.traverse(data);
+  &#125;
+
+  /**
+   * 递归遍历 data 里的所有属性
+   */
+  traverse(data) &#123;
+    if (!data || typeof data !== &quot;object&quot;) return;
+    Object.keys(data).forEach(key =&gt; &#123;
+      this.defineReactive(data, key, data[key]);
+    &#125;);
+  &#125;
+
+  /**
+   * 数据劫持，给传入的数据设置 getter/setter
+   */
+  defineReactive(obj, key, val) &#123;
+    // val 可能是 object
+    this.traverse(val);
+
+    const that = this;
+    // Dep 在此处实例化, 因为要在 setter 中调用 dep.notify()
+    const dep = new Dep();
+
+    Object.defineProperty(obj, key, &#123;
+      enumerable: true,
+      configurable: true,
+      get() &#123;
+        // 获取的时候收集依赖
+        Dep.target &amp;&amp; dep.addSub(Dep.target); // Dep.target 就是为了在此处添加依赖收集用的，添加之后就可以删除了，所以为 null
+        return val;
+      &#125;,
+      set(newValue) &#123;
+        if (newValue === val) &#123;
+          return;
+        &#125;
+        val = newValue;
+        // 设置的时候可能设置了一个对象，因此要递归
+        that.traverse(newValue);
+        // 最后发送通知
+        dep.notify();
+      &#125;
+    &#125;);
+  &#125;
+&#125;
+</code></pre>
+<h4 id="6-watcher-js-观察者对象类-需要有-update-方法"><a href="#6-watcher-js-观察者对象类-需要有-update-方法" class="headerlink" title="6. watcher.js 观察者对象类(需要有 update 方法)"></a>6. watcher.js 观察者对象类(需要有 update 方法)</h4><pre><code class="js">// watcher.js
+import Dep from &quot;./dep.js&quot;;
+
+export default class Watcher &#123;
+  /**
+   *
+   * @param &#123;*&#125; vm Vue 实例
+   * @param &#123;*&#125; key data 属性名
+   * @param &#123;*&#125; cb 负责更新视图的回调
+   */
+  constructor(vm, key, cb) &#123;
+    this.vm = vm;
+    this.key = key;
+    this.cb = cb;
+
+    // 同一时间只维持一个 Watcher
+    Dep.target = this;
+
+    // 触发 get 方法，在 get 方法里去做一些操作
+    this.oldValue = vm[key];
+
+    // 为了避免重复的添加 Watcher, 将其设置为 null
+    Dep.target = null;
+  &#125;
+
+  /** 当数据变化时，更新视图 */
+  update() &#123;
+    // 需要判断新旧两个值的关系
+    let newValue = this.vm[this.key];
+    if (this.oldValue === newValue) &#123;
+      return;
+    &#125;
+    this.cb(newValue);
+  &#125;
+&#125;
+</code></pre>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://conjuringwxq.github.io/%E9%9D%A2%E8%AF%95%E7%B2%BE%E9%80%89/%E6%89%8B%E5%86%99%E9%A2%98/>https://conjuringwxq.github.io/%E9%9D%A2%E8%AF%95%E7%B2%BE%E9%80%89/%E6%89%8B%E5%86%99%E9%A2%98/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-31T14:33:38+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2021年7月31日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://conjuringwxq.github.io/%E9%9D%A2%E8%AF%95%E7%B2%BE%E9%80%89/%E6%89%8B%E5%86%99%E9%A2%98/&title=手写题 - conjuring&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://conjuringwxq.github.io/%E9%9D%A2%E8%AF%95%E7%B2%BE%E9%80%89/%E6%89%8B%E5%86%99%E9%A2%98/&title=手写题 - conjuring&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://conjuringwxq.github.io/%E9%9D%A2%E8%AF%95%E7%B2%BE%E9%80%89/%E6%89%8B%E5%86%99%E9%A2%98/&title=手写题 - conjuring&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/%E9%9D%A2%E8%AF%95%E7%B2%BE%E9%80%89/Vue/'>
+          <p class='title'>Vue 面试精选<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>为什么 Vue 使用异步渲染vue 是组件级更新，如果不采用异步更新，那么每次更新数据都会对当前组件重新渲染，为了性能考虑，vue 会在本轮数据更新后，再去异步更新视图
+Vue2 和 Vue3 ...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%8E%9F%E5%9E%8B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0"><span class="toc-text">数组原型常用方法实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-every"><span class="toc-text">Array.prototype.every</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-filter"><span class="toc-text">Array.prototype.filter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-forEach"><span class="toc-text">Array.prototype.forEach</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-map"><span class="toc-text">Array.prototype.map</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-some"><span class="toc-text">Array.prototype.some</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-reduce"><span class="toc-text">Array.prototype.reduce</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%95%BF%E5%88%97%E8%A1%A8%E8%99%9A%E6%8B%9F%E6%BB%9A%E5%8A%A8%E5%AE%9E%E7%8E%B0"><span class="toc-text">长列表虚拟滚动实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vue"><span class="toc-text">vue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react"><span class="toc-text">react</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F"><span class="toc-text">发布订阅模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise-%E5%AE%9E%E7%8E%B0"><span class="toc-text">Promise 实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81"><span class="toc-text">防抖和节流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81%E5%AF%B9%E6%AF%94"><span class="toc-text">防抖和节流对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E6%8A%96"><span class="toc-text">防抖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8A%82%E6%B5%81"><span class="toc-text">节流</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D"><span class="toc-text">数组去重</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8-filter-indexOf-%E5%8E%BB%E9%87%8D"><span class="toc-text">利用 filter + indexOf 去重</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8-reduce-includes-%E5%8E%BB%E9%87%8D"><span class="toc-text">利用 reduce + includes 去重</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8-Set-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%8E%BB%E9%87%8D"><span class="toc-text">利用 Set 数据结构去重</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E6%89%81%E5%B9%B3%E5%8C%96"><span class="toc-text">数组扁平化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0"><span class="toc-text">递归实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8-while-%E5%AE%9E%E7%8E%B0"><span class="toc-text">利用 while 实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8-reduce-%E5%AE%9E%E7%8E%B0"><span class="toc-text">利用 reduce 实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E6%9F%AF%E7%90%86%E5%8C%96"><span class="toc-text">函数柯理化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90-url-%E5%8F%82%E6%95%B0"><span class="toc-text">解析 url 参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-new-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">实现 new 关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-jsonp"><span class="toc-text">实现 jsonp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D"><span class="toc-text">深浅拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D"><span class="toc-text">浅拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-text">深拷贝</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF"><span class="toc-text">继承</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%84%E7%94%9F%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF"><span class="toc-text">寄生组合继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%80%9F%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%BB%A7%E6%89%BF"><span class="toc-text">借用构造函数继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B%E5%BC%8F%E7%BB%A7%E6%89%BF"><span class="toc-text">原型式继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E5%BC%8F%E7%BB%A7%E6%89%BF"><span class="toc-text">组合式继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#class-%E7%BB%A7%E6%89%BF"><span class="toc-text">class 继承</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-setTimeout-%E6%A8%A1%E6%8B%9F-setInterval"><span class="toc-text">使用 setTimeout 模拟 setInterval</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5%E4%B8%B2%E8%A1%8C%E8%BE%93%E5%87%BA"><span class="toc-text">异步串行输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E9%A2%98"><span class="toc-text">场景题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E4%B8%80%E6%AE%B5-js-%E6%89%A7%E8%A1%8C%E6%97%B6%E9%97%B4%E9%9D%9E%E5%B8%B8%E9%95%BF%EF%BC%8C%E6%80%8E%E4%B9%88%E5%8E%BB%E5%88%86%E6%9E%90"><span class="toc-text">如果一段 js 执行时间非常长，怎么去分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%BF%E9%87%8C%E4%BA%91-oss-%E6%94%AF%E6%8C%81%E9%80%9A%E8%BF%87%E9%93%BE%E6%8E%A5%E5%90%8E%E9%9D%A2%E6%8B%BC%E5%8F%82%E6%95%B0%E6%9D%A5%E5%81%9A%E5%9B%BE%E7%89%87%E7%9A%84%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%EF%BC%8C%E5%B0%9D%E8%AF%95%E5%86%99%E4%B8%80%E4%B8%8B%E6%8A%8A%E4%BB%BB%E6%84%8F%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%E4%B8%BA-webp"><span class="toc-text">阿里云 oss 支持通过链接后面拼参数来做图片的格式转换，尝试写一下把任意图片格式转换为 webp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E6%9C%89%E5%B7%A8%E9%87%8F%E7%9A%84%E5%9B%BE%E7%89%87%E9%9C%80%E8%A6%81%E5%B1%95%E7%A4%BA%EF%BC%8C%E9%99%A4%E4%BA%86%E6%87%92%E5%8A%A0%E8%BD%BD%E7%9A%84%E6%96%B9%E5%BC%8F%EF%BC%8C%E6%9C%89%E6%B2%A1%E6%9C%89%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95%E9%99%90%E5%88%B6%E4%B8%80%E4%B8%8B%E5%90%8C%E6%97%B6%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%9B%BE%E7%89%87%E6%95%B0%E9%87%8F"><span class="toc-text">如果有巨量的图片需要展示，除了懒加载的方式，有没有其他方法限制一下同时加载的图片数量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-sizeof-%E5%87%BD%E6%95%B0%EF%BC%8C%E4%BC%A0%E5%85%A5%E4%B8%80%E4%B8%AA%E5%8F%82%E6%95%B0-object-%E8%AE%A1%E7%AE%97%E8%BF%99%E4%B8%AA-object-%E5%8D%A0%E7%94%A8%E7%9A%84%E5%A4%9A%E5%B0%91-bytes"><span class="toc-text">实现 sizeof 函数，传入一个参数 object, 计算这个 object 占用的多少 bytes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%99-xhr-%E6%B7%BB%E5%8A%A0-hook-%E5%AE%9E%E7%8E%B0%E5%9C%A8%E5%90%84%E4%B8%AA%E9%98%B6%E6%AE%B5%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97"><span class="toc-text">给 xhr 添加 hook, 实现在各个阶段打印日志</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E6%98%93%E7%89%88-Vue-%E5%AE%9E%E7%8E%B0"><span class="toc-text">简易版 Vue 实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text">思路</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-index-html-%E4%B8%BB%E9%A1%B5%E9%9D%A2"><span class="toc-text">1, index.html 主页面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-vue-js-Vue-%E4%B8%BB%E6%96%87%E4%BB%B6"><span class="toc-text">2. vue.js Vue 主文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-compiler-js-%E8%A7%A3%E6%9E%90%E6%A8%A1%E7%89%88%EF%BC%8C%E8%A7%A3%E6%9E%90%E6%8C%87%E4%BB%A4%EF%BC%8C%E5%A6%82-v-model-v-html"><span class="toc-text">3. compiler.js 解析模版，解析指令，如 v-model v-html</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-dep-js-%E6%94%B6%E9%9B%86%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB%EF%BC%8C%E5%AD%98%E5%82%A8%E8%A7%82%E5%AF%9F%E8%80%85-%E4%BB%A5%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%AE%9E%E7%8E%B0"><span class="toc-text">4. dep.js 收集依赖关系，存储观察者(以发布订阅的形式实现)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-observer-js-%E6%95%B0%E6%8D%AE%E5%8A%AB%E6%8C%81%E5%AE%9E%E7%8E%B0-%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86%E6%89%80%E6%9C%89%E5%B1%9E%E6%80%A7"><span class="toc-text">5. observer.js 数据劫持实现(递归遍历所有属性)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-watcher-js-%E8%A7%82%E5%AF%9F%E8%80%85%E5%AF%B9%E8%B1%A1%E7%B1%BB-%E9%9C%80%E8%A6%81%E6%9C%89-update-%E6%96%B9%E6%B3%95"><span class="toc-text">6. watcher.js 观察者对象类(需要有 update 方法)</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+		  
+		  <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="手写题";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  // header 这里无论是否开启pjax都需要
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
+    
+  
+</script>
+
+        </div>
+        
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener external nofollow noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        
+          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+</div>
+        
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename">Volantis</a>
+        作为主题
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2017-2020 XXX</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+        <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+/************这个文件存放不需要重载的全局变量和全局函数*********/
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/******************** Pjax ********************************/
+function VPjax(){
+	this.list=[] // 存放回调函数
+	this.start=()=>{
+	  for(var i=0;i<this.list.length;i++){
+		this.list[i].run();
+	  }
+	}
+	this.push=(fn,name)=>{
+		var f=new PjaxItem(fn,name);
+		this.list.push(f);
+	}
+	// 构造一个可以run的对象
+	function PjaxItem(fn,name){
+		// 函数名称
+		this.name = name || fn.name
+		// run方法
+		this.run=()=>{
+			fn()
+		}
+	}
+}
+volantis.pjax={}
+volantis.pjax.method={
+	complete: new VPjax(),
+	error: new VPjax(),
+	send: new VPjax()
+}
+volantis.pjax={
+	...volantis.pjax,
+	push: volantis.pjax.method.complete.push,
+	error: volantis.pjax.method.error.push,
+	send: volantis.pjax.method.send.push
+}
+/********************脚本懒加载函数********************************/
+// 已经加入了setTimeout
+function loadScript(src, cb) {
+	setTimeout(function() {
+		var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+		var script = document.createElement('script');
+		script.setAttribute('type','text/javascript');
+		if (cb) script.onload = cb;
+		script.setAttribute('src', src);
+		HEAD.appendChild(script);
+	});
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+  loadCSS("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/styles/atom-one-dark.min.css", window.volantis.loadcss);
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+  function Pjax_SCload_fancybox(){
+	if (typeof $.fancybox == "undefined") {
+	 SCload_fancybox();
+    } else {
+	 pjax_fancybox();
+    }
+  }
+  volantis.pjax.push(Pjax_SCload_fancybox)
+  volantis.pjax.send(()=>{
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+  },'fancybox')
+</script>
+
+
+<!-- internal -->
+
+
+
+  
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class='option'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick="document.execCommand('copy')"><i class='fa fa-copy fa-fw'></i>复制文本</a>
+        <hr id='hr-text'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>复制链接</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>在新标签页打开</a>
+        <hr id='hr-href'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>复制图片地址</a>
+        <hr id='hr-src'>
+      </li>
+      
+        <li class='navigation'>
+          <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
+        </li>
+      
+      <hr>
+      
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default ' 
+        
+        
+        
+          onclick="document.execCommand('print')"
+        
+        >
+        <i class='fa fa-print fa-fw'></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default toggle-mode-btn' 
+        
+        
+        
+        >
+        <i class='fas fa-moon fa-fw'></i> Dark mode
+      </a>
+    </li>
+  
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          if ('true' == 'true') {
+            copyText.style.display = 'block';
+            hrText.style.display = 'block';
+          }
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+
+
+<script>
+  function loadIssuesJS() {
+    if ($(".md").find(".issues-api").length == 0) return;
+	
+	  loadScript('/js/issues.js');
+	
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  volantis.pjax.push(()=>{
+	if (typeof IssuesAPI == "undefined") {
+	  loadIssuesJS();
+	}
+  },"IssuesJS")
+</script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: [],
+	maxRPS: 5,
+	hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+	volantis.pjax.push(pjax_initCopyCode)
+</script>
+
+
+
+
+
+
+
+
+  
+  
+<script src="/js/valine.js"></script>
+
+
+<script>
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+    var valine = new Valine();
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":null,"appKey":null,"meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
+      el: '#valine_container',
+      path: path,
+      placeholder: pagePlaceholder,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps,
+    }))
+  }
+  $(function () {
+    pjax_valine();
+  });
+  volantis.pjax.push(pjax_valine);
+</script>
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/js/search/hexo.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+volantis.pjax.push(()=>{
+	document.querySelectorAll('pre code').forEach((block) => {
+	  hljs.highlightBlock(block);
+	});
+},"highlightjs")
+</script>
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI',
+    app_key: 'jfHtEKVE24j0IVCGHbvuFClp',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'https://conjuringwxq.github.io' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'https://conjuringwxq.github.io' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'https://conjuringwxq.github.io' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+var btn=$("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn");
+function bindToggleButton() {
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+volantis.pjax.push(bindToggleButton);
+volantis.pjax.send(()=>{
+	btn.unbind('click');
+},'toggle-mode-btn-unbind');
+</script>
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+ 
+	   
+	    
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+		// 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+		volantis.pjax.method.complete.start();
+      } catch (e) {
+        console.log(e);
+      }
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.error.start();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+ 
+	  
+    </div>
+  </body>
+</html>

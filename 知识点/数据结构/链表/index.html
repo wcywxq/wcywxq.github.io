@@ -1,0 +1,2406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="preload" href="/css/first.css" as="style">
+  
+
+  <!-- 页面元数据 -->
+  
+  <title>链表 - conjuring</title>
+  
+
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+  
+<script>
+if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
+    document.write(
+	'<style>'+
+		'html{'+
+			'overflow-x: hidden !important;'+
+			'overflow-y: hidden !important;'+
+		'}'+
+		'.kill-ie{'+
+			'text-align:center;'+
+			'height: 100%;'+
+			'margin-top: 15%;'+
+			'margin-bottom: 5500%;'+
+		'}'+
+	'</style>'+
+    '<div class="kill-ie">'+
+        '<h1><b>抱歉，您的浏览器无法访问本站</b></h1>'+
+        '<h3>微软已经于2016年终止了对 Internet Explorer (IE) 10 及更早版本的支持，<br/>'+
+        '继续使用存在极大的安全隐患，请使用当代主流的浏览器进行访问。</h3><br/>'+
+        '<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support"><strong>了解详情 ></strong></a>'+
+    '</div>');
+</script>
+
+
+<noscript>
+	<style>
+		html{
+			overflow-x: hidden !important;
+			overflow-y: hidden !important;
+		}
+		.kill-noscript{
+			text-align:center;
+			height: 100%;
+			margin-top: 15%;
+			margin-bottom: 5500%;
+		}
+	</style>
+    <div class="kill-noscript">
+        <h1><b>抱歉，您的浏览器无法访问本站</b></h1>
+        <h3>本页面需要浏览器支持（启用）JavaScript</h3><br/>
+        <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
+    </div>
+</noscript>
+
+</head>
+
+  <body>
+    
+
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+            conjuring
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-home fa-fw'></i>首页
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fa fa-bars fa-fw'></i>导航
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-home fa-fw'></i>首页
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fa fa-bars fa-fw'></i>导航
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+    
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg="https://bing.ioliu.cn/v1/rand?w=1920&h=1200"></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">conjuring</p>
+    
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+      <div id="safearea">
+        <div class="body-wrapper" id="pjax-container">
+          
+
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        链表
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' target="_blank" href="https://github.com/conjuringwxq/" rel="nofollow noopener">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png">
+    <p>conjuringwxq</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/">知识点</a><span class="sep"></span><a class="category-link" href="/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><span class="sep"></span><a class="category-link" href="/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/">链表</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年12月1日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="链表" data-path="/%E7%9F%A5%E8%AF%86%E7%82%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <p>链表用来存储有序的元素集合，与数组不同，链表中的元素并非保存在连续的存储空间内，每个元素由一个存储元素本身的节点和一个指向下一个元素的指针构成。当要移动或删除元素时，只需要修改相应元素上的指针就可以了。对链表元素的操作要比对数组元素的操作效率更高。下面是链表数据结构的示意图<br><img src="https://cdn.nlark.com/yuque/0/2020/png/732231/1608704346914-b3d8a713-634d-45fe-ad2c-e040f9985485.png#align=left&display=inline&height=118&margin=%5Bobject%20Object%5D&name=linkList.png&originHeight=118&originWidth=687&size=6139&status=done&style=none&width=687" class="lazyload" data-srcset="https://cdn.nlark.com/yuque/0/2020/png/732231/1608704346914-b3d8a713-634d-45fe-ad2c-e040f9985485.png#align=left&display=inline&height=118&margin=%5Bobject%20Object%5D&name=linkList.png&originHeight=118&originWidth=687&size=6139&status=done&style=none&width=687" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="linkList.png"></p>
+<ul>
+<li>上面链表中每一个元素只有一个 <code>next</code> 指针，用来指向下一个节点，这样的链表称之为单向链表，我们只能从链表的头部开始遍历整个链表，任何一个节点只能找到它的下一个节点，而不能找到它的上一个节点。双向链表中的每一个元素拥有两个指针，一个用来指向下一个节点，一个用来指向上一个节点。在双向链表中，除了可以像单向链表一样从头部开始遍历之外，还可以从尾部进行遍历。下面是双向链表的数据结构示意图：</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/732231/1608704367520-532d5db4-3fde-4ac4-8de5-4fd3e1d287e1.png#align=left&display=inline&height=123&margin=%5Bobject%20Object%5D&name=doubleLinkList.png&originHeight=123&originWidth=811&size=8281&status=done&style=none&width=811" class="lazyload" data-srcset="https://cdn.nlark.com/yuque/0/2020/png/732231/1608704367520-532d5db4-3fde-4ac4-8de5-4fd3e1d287e1.png#align=left&display=inline&height=123&margin=%5Bobject%20Object%5D&name=doubleLinkList.png&originHeight=123&originWidth=811&size=8281&status=done&style=none&width=811" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="doubleLinkList.png"></p>
+<h2 id="单向链表"><a href="#单向链表" class="headerlink" title="单向链表"></a>单向链表</h2><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><blockquote>
+<p>要实现链表数据结构，关键在于保存 <code>head</code> 元素（即链表的头元素）以及每一个元素的 <code>next</code> 指针，有这两部分我们就可以很方便地遍历链表从而操作所有的元素。可以把链表想象成一条锁链，锁链中的每一个节点都是相互连接的，我们只要找到锁链的头，整条锁链就都可以找到了。让我们来看一下具体的实现方式。</p>
+</blockquote>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ul>
+<li>首先我们需要一个辅助类，用来描述链表中的节点。这个类很简单，只需要两个属性，一个用来保存节点的值，一个用来保存指向下一个节点的指针。</li>
+</ul>
+<pre><code class="javascript">function ListNode(element) &#123;
+  this.element = element;
+  this.next = null;
+&#125;
+</code></pre>
+<ul>
+<li>下面是链表类的基本骨架</li>
+</ul>
+<pre><code class="javascript">class LinkList &#123;
+  constructor() &#123;
+    this.length = 0;
+    this.head = null;
+  &#125;
+  // 向链表中添加节点
+  append(element) &#123;
+    var node = new ListNode(element);
+    if (this.head === null) &#123;
+      this.head = node;
+    &#125; else &#123;
+      var current = this.getElementAt(this.length - 1);
+      current.next = node;
+    &#125;
+    this.length++;
+  &#125;
+  // 在链表的指定位置插入节点
+  insert(position, element) &#123;
+    if (position &lt; 0 || position &gt; this.length - 1) &#123;
+      return false;
+    &#125;
+    var node = new ListNode(element);
+    if (position === 0) &#123;
+      node.next = this.head;
+      this.head = node;
+    &#125; else &#123;
+      var previous = this.getElementAt(position - 1);
+      node.next = previous.next;
+      previous.next = node;
+    &#125;
+    this.length++;
+    return true;
+  &#125;
+  // 删除链表中指定位置的元素，并返回这个元素的值
+  removeAt(position) &#123;
+    if (position &lt; 0 || position &gt; this.length - 1) &#123;
+      return null;
+    &#125;
+    var current = this.head;
+    if (position === 0) &#123;
+      this.head = current.next;
+    &#125; else &#123;
+      var previous = this.getElementAt(position - 1);
+      current = previous.next;
+      previous.next = current.next;
+    &#125;
+    this.length--;
+    return current.element;
+  &#125;
+  // 删除链表中对应的元素
+  remove(element) &#123;
+    var index = this.indexOf(element);
+    return this.removeAt(index);
+  &#125;
+  // 在链表中查找给定元素的索引
+  indexOf(element) &#123;
+    var current = this.head;
+    for (var i = 0; i &lt; this.length; i++) &#123;
+      if (current.element === element) &#123;
+        return i;
+      &#125;
+      current = current.next;
+    &#125;
+    return -1;
+  &#125;
+  // 返回链表中索引所对应的元素
+  getElementAt(position) &#123;
+    if (position &lt; 0 || position &gt; this.length - 1) &#123;
+      return null;
+    &#125;
+    var current = this.head;
+    for (var i = 0; i &lt; position; i++) &#123;
+      current = current.next;
+    &#125;
+    return current;
+  &#125;
+  // 判断链表是否为空
+  isEmpty() &#123;
+    // return this.head === null;
+    return this.length === 0;
+  &#125;
+  // 返回链表的长度
+  size() &#123;
+    return this.length;
+  &#125;
+  // 返回头节点
+  getHead() &#123;
+    return this.head;
+  &#125;
+  // 清空链表
+  clear() &#123;
+    this.head = null;
+    this.length = 0;
+  &#125;
+  // 辅助方法，按指定格式输出链表中的所有元素，方便测试验证结果
+  toString() &#123;
+    var current = this.head;
+    var s = &quot;&quot;;
+
+    while (current) &#123;
+      var next = current.next;
+      next = next ? next.element : &quot;null&quot;;
+      s += `[element: $&#123;current.element&#125;, next: $&#123;next&#125;] `;
+      current = current.next;
+    &#125;
+
+    return s;
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>让我们从查找链表元素的方法 <code>getElementAt()</code> 开始，因为后面我们会多次用到它。</li>
+</ul>
+<pre><code class="javascript">getElementAt(position) &#123;
+  if (position &lt; 0 || position &gt; this.length - 1) &#123;
+    return null;
+  &#125;
+  var current = this.head;
+  for (var i = 0; i &lt; position; i++) &#123;
+    current = current.next;
+  &#125;
+  return current;
+&#125;
+</code></pre>
+<blockquote>
+<p>首先判断参数 <code>position</code> 的边界值，如果值超出了索引的范围（小于 <code>0</code> 或者大于<code>length - 1</code>），则返回 <code>null</code>。我们从链表的 <code>head</code> 开始，遍历整个链表直到找到对应索引位置的节点，然后返回这个节点。是不是很简单？和所有有序数据集合一样，链表的索引默认从 <code>0</code> 开始，只要找到了链表的头（所以我们必须在 <code>LinkList</code> 类中保存 <code>head</code> 值），然后就可以遍历找到索引所在位置的元素。</p>
+</blockquote>
+<ul>
+<li>有了 <code>getElementAt()</code> 方法，接下来我们就可以很方便地实现 <code>append()</code> 方法，用来在链表的尾部添加新节点。</li>
+</ul>
+<pre><code class="javascript">append(element) &#123;
+  var node = new ListNode(element);
+  // 如果当前链表为空，则将 head 指向 node
+  if (this.head === null) &#123;
+    this.head = node;
+  &#125; else &#123;
+    // 否则，找到链表尾部的元素，然后添加新元素
+    var current = this.getElementAt(this.length - 1);
+    current.next = node;
+  &#125;
+  this.length++;
+&#125;
+</code></pre>
+<blockquote>
+<p>如果链表的 <code>head</code> 为 <code>null</code>（这种情况表示链表为空），则直接将 <code>head</code> 指向新添加的元素。否则，通过 <code>getElementAt()</code> 方法找到链表的最后一个节点，将该节点的 <code>next</code> 指针指向新添加的元素。新添加的元素的 <code>next</code> 指针默认为 <code>null</code>，链表最后一个元素的 <code>next</code> 值为 <code>null</code>。将节点挂到链表上之后，不要忘记将链表的长度加 <code>1</code>，我们需要通过<code>length</code> 属性来记录链表的长度。</p>
+</blockquote>
+<ul>
+<li>接下来我们要实现 <code>insert()</code> 方法，可以在链表的任意位置添加节点。</li>
+</ul>
+<pre><code class="javascript">insert(position, element) &#123;
+  // position 不能超过边界值
+  if (position &lt; 0 || position &gt; this.length - 1) &#123;
+    return false;
+  &#125;
+
+  var node = new ListNode(element);
+
+  if (position === 0) &#123;
+    node.next = this.head;
+    this.head = node;
+  &#125; else &#123;
+    var previous = this.getElementAt(position - 1);
+    node.next = previous.next;
+    previous.next = node;
+  &#125;
+  this.length++;
+  return true;
+&#125;
+</code></pre>
+<blockquote>
+<p>首先也是要判断参数 <code>position</code> 的边界值，不能越界。当 <code>position</code> 的值为 <code>0</code> 时，表示要在链表的头部插入新节点，对应的操作如下图所示。将新插入节点的 <code>next</code> 指针指向现在的 <code>head</code>，然后更新 <code>head</code> 的值为新插入的节点。</p>
+</blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/732231/1608704395087-c23664dd-c205-44d5-9e63-870bf14ec0b1.png#align=left&display=inline&height=205&margin=%5Bobject%20Object%5D&name=linkList_insert1.png&originHeight=205&originWidth=687&size=11778&status=done&style=none&width=687" class="lazyload" data-srcset="https://cdn.nlark.com/yuque/0/2020/png/732231/1608704395087-c23664dd-c205-44d5-9e63-870bf14ec0b1.png#align=left&display=inline&height=205&margin=%5Bobject%20Object%5D&name=linkList_insert1.png&originHeight=205&originWidth=687&size=11778&status=done&style=none&width=687" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="linkList_insert1.png"></p>
+<blockquote>
+<p>如果要插入的节点在链表的中间或者尾部，对应的操作如下图。假设链表长度为 <code>3</code>，要在位置 <code>2</code> 插入新节点，我们首先找到位置 <code>2</code> 的前一个节点 <code>previous node</code>，将新节点 <code>new node</code> 的 <code>next</code> 指针指向 <code>previous node</code> 的 <code>next</code> 所对应的节点，然后再将<code>previous node</code> 的 <code>next</code> 指针指向 <code>new node</code>，这样就把新节点挂到链表中了。考虑一下，当插入的节点在链表的尾部，这种情况也是适用的。而如果链表为空，即链表的 <code>head</code> 为 <code>null</code>，则参数 <code>position</code> 会超出边界条件，从而 <code>insert()</code> 方法会直接返回 <code>false</code>。</p>
+</blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/732231/1608704419032-051f8ebf-b913-43a0-8473-afb6535e64f9.png#align=left&display=inline&height=205&margin=%5Bobject%20Object%5D&name=linkList_insert2.png&originHeight=205&originWidth=687&size=12178&status=done&style=none&width=687" class="lazyload" data-srcset="https://cdn.nlark.com/yuque/0/2020/png/732231/1608704419032-051f8ebf-b913-43a0-8473-afb6535e64f9.png#align=left&display=inline&height=205&margin=%5Bobject%20Object%5D&name=linkList_insert2.png&originHeight=205&originWidth=687&size=12178&status=done&style=none&width=687" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="linkList_insert2.png"></p>
+<blockquote>
+<p>最后，别忘了更新 <code>length</code> 属性的值，将链表的长度加 <code>1</code>。</p>
+</blockquote>
+<ul>
+<li>按照相同的方式，我们可以很容易地写出 <code>removeAt()</code> 方法，用来删除链表中指定位置的节点。</li>
+</ul>
+<pre><code class="javascript">removeAt(position) &#123;
+  // position 不能超出边界值
+  if (position &lt; 0 || position &gt; this.length - 1) &#123;
+    return null;
+  &#125;
+  var current = this.head;
+  if (position === 0) &#123;
+    this.head = current.next;
+  &#125; else &#123;
+    var previous = this.getElementAt(position - 1);
+    current = previous.next;
+    previous.next = current.next;
+  &#125;
+  this.length--;
+  return current.element;
+&#125;
+</code></pre>
+<blockquote>
+<p>下面两张示意图说明了从链表头部和其它位置删除节点的情况。</p>
+</blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/732231/1608705111553-9ff6c07c-5b98-408d-952e-625082c91c70.png#align=left&display=inline&height=205&margin=%5Bobject%20Object%5D&name=linkList_removeAt1.png&originHeight=205&originWidth=687&size=10618&status=done&style=none&width=687" class="lazyload" data-srcset="https://cdn.nlark.com/yuque/0/2020/png/732231/1608705111553-9ff6c07c-5b98-408d-952e-625082c91c70.png#align=left&display=inline&height=205&margin=%5Bobject%20Object%5D&name=linkList_removeAt1.png&originHeight=205&originWidth=687&size=10618&status=done&style=none&width=687" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="linkList_removeAt1.png"><br><img src="https://cdn.nlark.com/yuque/0/2020/png/732231/1608705120449-8a4c3bff-e7e3-4338-883f-c230e291392b.png#align=left&display=inline&height=205&margin=%5Bobject%20Object%5D&name=linkList_removeAt2.png&originHeight=205&originWidth=687&size=8551&status=done&style=none&width=687" class="lazyload" data-srcset="https://cdn.nlark.com/yuque/0/2020/png/732231/1608705120449-8a4c3bff-e7e3-4338-883f-c230e291392b.png#align=left&display=inline&height=205&margin=%5Bobject%20Object%5D&name=linkList_removeAt2.png&originHeight=205&originWidth=687&size=8551&status=done&style=none&width=687" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="linkList_removeAt2.png"></p>
+<blockquote>
+<p>如果要删除的节点为链表的头部，只需要将 <code>head</code> 移到下一个节点即可。如果当前链表只有一个节点，那么下一个节点为 <code>null</code>，此时将 <code>head</code> 指向下一个节点等同于将 <code>head</code> 设置成 <code>null</code>，删除之后链表为空。如果要删除的节点在链表的中间部分，我们需要找出 <code>position</code> 所在位置的前一个节点，将它的 <code>next</code> 指针指向 <code>position</code> 所在位置的下一个节点。总之，删除节点只需要修改相应节点的指针，使断开位置左右相邻的节点重新连接上。被删除的节点由于再也没有其它部分的引用而被丢弃在内存中，等待垃圾回收器来清除。</p>
+</blockquote>
+<blockquote>
+<p>最后，别忘了将链表的长度减 <code>1</code>。</p>
+</blockquote>
+<ul>
+<li>下面我们来看看 <code>indexOf()</code> 方法，该方法返回给定元素在链表中的索引位置。</li>
+</ul>
+<pre><code class="javascript">indexOf(element) &#123;
+  var current = this.head;
+
+  for (var i = 0; i &lt; this.length; i++) &#123;
+    if (current.element === element) &#123;
+      return i;
+    &#125;
+    current = current.next;
+  &#125;
+
+  return -1;
+&#125;
+</code></pre>
+<blockquote>
+<p>我们从链表的头部开始遍历，直到找到和给定元素相同的元素，然后返回对应的索引号。如果没有找到对应的元素，则返回 <code>-1</code>。</p>
+</blockquote>
+<ul>
+<li>在 <code>isEmpty()</code> 方法中，我们可以根据 <code>length</code> 是否为 <code>0</code> 来判断链表是否为空，当然也可以根据 <code>head</code> 是否为 <code>null</code> 来进行判断，前提是所有涉及到链表节点添加和移除的方法都要正确地更新 <code>length</code> 和 <code>head</code>。<code>toString()</code> 方法只是为了方便测试而编写的，我们来看看几个测试用例：</li>
+</ul>
+<pre><code class="javascript">var linkList = new LinkList();
+linkList.append(10);
+linkList.append(15);
+linkList.append(20);
+console.log(linkList.toString());
+
+linkList.insert(0, 9);
+linkList.insert(2, 11);
+linkList.insert(5, 25);
+console.log(linkList.toString());
+
+console.log(linkList.removeAt(0));
+console.log(linkList.removeAt(1));
+console.log(linkList.removeAt(3));
+console.log(linkList.toString());
+
+console.log(linkList.indexOf(20));
+
+linkList.remove(20);
+
+console.log(linkList.toString());
+
+linkList.clear();
+console.log(linkList.size());
+</code></pre>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/732231/1608705261819-5917b870-8756-4de9-8e66-be0548d56213.png#align=left&display=inline&height=171&margin=%5Bobject%20Object%5D&name=linkList_test.png&originHeight=171&originWidth=1306&size=14507&status=done&style=none&width=1306" class="lazyload" data-srcset="https://cdn.nlark.com/yuque/0/2020/png/732231/1608705261819-5917b870-8756-4de9-8e66-be0548d56213.png#align=left&display=inline&height=171&margin=%5Bobject%20Object%5D&name=linkList_test.png&originHeight=171&originWidth=1306&size=14507&status=done&style=none&width=1306" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="linkList_test.png"></p>
+<h2 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h2><h3 id="步骤-1"><a href="#步骤-1" class="headerlink" title="步骤"></a>步骤</h3><blockquote>
+<p>由于双向链表具有单向链表的所有特性，因此我们的双向链表类可以继承自前面的单向链表类，不过辅助类 <code>Node</code> 需要添加一个 <code>prev</code> 属性，用来指向前一个节点。</p>
+</blockquote>
+<pre><code class="javascript">function Node(element) &#123;
+  this.element = element;
+  this.next = null;
+  this.prev = null;
+&#125;
+</code></pre>
+<ul>
+<li>下面是继承自 <code>LinkList</code> 类的双向链表类的基本骨架</li>
+</ul>
+<pre><code class="javascript">class DoubleLinkList extends LinkList &#123;
+  constructor() &#123;
+    super();
+    this.tail = null; // 尾节点
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>先来看看 <code>append()</code> 方法的实现。当链表为空时，除了要将 <code>head</code> 指向当前添加的节点外，还要将 <code>tail</code> 也指向当前要添加的节点。当链表不为空时，直接将 <code>tail</code> 的 <code>next</code> 指向当前要添加的节点 <code>node</code>，然后修改 <code>node</code> 的 <code>prev</code> 指向旧的 <code>tail</code>，最后修改 <code>tail</code> 为新添加的节点。我们不需要从头开始遍历整个链表，而通过 <code>tail</code> 可以直接找到链表的尾部，这一点比单向链表的操作要更方便。最后将 <code>length</code> 的值加 <code>1</code>，修改链表的长度。</li>
+</ul>
+<pre><code class="javascript">append(element) &#123;
+  var node = new Node(element);
+
+  // 如果链表为空，则将 head 和 tail 都指向当前添加的节点
+  if (this.head === null) &#123;
+    this.head = node;
+    this.tail = node;
+  &#125; else &#123;
+    // 否则，将当前节点添加到链表的尾部
+    this.tail.next = node;
+    node.prev = this.tail;
+    this.tail = node;
+  &#125;
+  this.length++;
+&#125;
+</code></pre>
+<ul>
+<li>由于双向链表可以从链表的尾部往前遍历，所以我们修改了 <code>getElementAt()</code> 方法，对基类中单向链表的方法进行了改写。当要查找的元素的索引号大于链表长度的一半时，从链表的尾部开始遍历。</li>
+</ul>
+<pre><code class="javascript">getELementAt(position) &#123;
+  if (position &lt; 0 || position &gt; this.length - 1) return null;
+  // 从后向前遍历
+  if (position &gt; Math.floor(this.length / 2)) &#123;
+    var current = this.tail;
+    for (var i = this.length - 1; i &gt; position; i--) &#123;
+      current = current.prev;
+    &#125;
+    return current;
+  &#125; else &#123;
+    return super.getELementAt(position);
+  &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>有两种遍历方式，从前往后遍历调用的是基类单向链表里的方法，从后往前遍历需要用到节点的 <code>prev</code> 指针，用来查找前一个节点。</p>
+</blockquote>
+<ul>
+<li>我们同时还需要修改 <code>insert()</code> 和 <code>removeAt()</code> 这两个方法。记住，与单向链表唯一的区别就是要同时维护 <code>head</code> 和 <code>tail</code>，以及每一个节点上的 <code>next</code> 和 <code>prev</code> 指针。</li>
+</ul>
+<pre><code class="javascript">insert(position, element) &#123;
+  if (position &lt; 0 || position &gt; this.length - 1) return false;
+
+  // 插入到尾部
+  if (position === this.length) &#123;
+    this.append(element);
+  &#125; else &#123;
+    var node = new ListNode(element);
+    // 插入到头部
+    if (position === 0) &#123;
+      if (this.head === null) &#123;
+        this.head = node;
+        this.tail = node;
+      &#125; else &#123;
+        node.next = this.head;
+        this.head.prev = node;
+        this.head = node;
+      &#125;
+    &#125; else &#123;
+      // 插入到中间位置
+      var current = this.getElementAt(position);
+      var previous = current.prev;
+      node.next = current;
+      node.prev = previous;
+      previous.next = node;
+      current.prev = node;
+    &#125;
+  &#125;
+  this.length++;
+  return true;
+&#125;
+
+removeAt(position) &#123;
+  if (position &lt; 0 || position &gt; this.length - 1) return null;
+
+  var current = this.head;
+  var previous;
+
+  // 移除头部元素
+  if (position === 0) &#123;
+    this.head = current.next;
+    this.head.prev = null;
+    if (this.length === 1) &#123;
+      this.tail = null;
+    &#125;
+  &#125; else if (position === this.length - 1) &#123;
+    // 移除尾部元素
+    current = this.tail;
+    this.tail = current.prev;
+    this.tail.next = null;
+  &#125; else &#123;
+    // 移除中间元素
+    current = this.getELementAt(position);
+    previous = current.prev;
+    previous.next = current.next;
+    current.next.prev = previous;
+  &#125;
+  this.length--;
+  return current.element;
+&#125;
+</code></pre>
+<ul>
+<li>操作过程中需要判断一些特殊情况，例如链表的头和尾，以及当前链表是否为空等等，否则程序可能会在某些特殊情况下导致越界和报错。下面是一个完整的双向链表类的代码</li>
+</ul>
+<pre><code class="javascript">class DoubleLinkList extends LinkList &#123;
+  constructor() &#123;
+    super();
+    this.tail = null;
+  &#125;
+  append(element) &#123;
+    var node = new ListNode(element);
+    if (this.head === null) &#123;
+      this.head = node;
+      this.tail = node;
+    &#125; else &#123;
+      this.tail.next = node;
+      node.prev = this.tail;
+      this.tail = node;
+    &#125;
+    this.length++;
+  &#125;
+  getElementAt(position) &#123;
+    if (position &lt; 0 || position &gt; this.length - 1) return null;
+    if (position &gt; Math.floor(this.length / 2)) &#123;
+      var current = this.tail;
+      for (var i = this.length - 1; i &gt; position; i--) &#123;
+        current = current.prev;
+      &#125;
+      return current;
+    &#125; else &#123;
+      super.getElementAt(position);
+    &#125;
+  &#125;
+  insert(position, element) &#123;
+    if (position &lt; 0 || position &gt; this.length - 1) return false;
+
+    if (position === this.length) &#123;
+      this.append(element);
+    &#125; else &#123;
+      var node = new ListNode(element);
+      if (position === 0) &#123;
+        if (this.head === null) &#123;
+          this.head = node;
+          this.tail = node;
+        &#125; else &#123;
+          node.next = this.head;
+          this.head.prev = node;
+          this.head = node;
+        &#125;
+      &#125; else &#123;
+        var current = this.getElementAt(position);
+        var previous = current.prev;
+        node.next = current;
+        node.prev = previous;
+        previous.next = node;
+        current.prev = node;
+      &#125;
+    &#125;
+    this.length++;
+    return true;
+  &#125;
+  removeAt(position) &#123;
+    if (position &lt; 0 || position &gt; this.length - 1) return null;
+    var current = this.head;
+    var previous;
+    if (position === 0) &#123;
+      this.head = current.next;
+      this.head.prev = null;
+      if (this.length === 1) &#123;
+        this.tail = null;
+      &#125;
+    &#125; else if (position === this.length - 1) &#123;
+      current = this.tail;
+      this.tail = current.prev;
+      this.tail.next = null;
+    &#125; else &#123;
+      current = this.getElementAt(position);
+      previous = current.prev;
+      previous.next = current.next;
+      current.next.prev = previous;
+    &#125;
+    this.length--;
+    return current.element;
+  &#125;
+  getTail() &#123;
+    return this.tail;
+  &#125;
+  clear() &#123;
+    super.clear();
+    this.tail = null;
+  &#125;
+  toString() &#123;
+    var current = this.head;
+    var s = &quot;&quot;;
+
+    while (current) &#123;
+      var next = current.next;
+      var previous = current.prev;
+      next = next ? next.element : &quot;null&quot;;
+      previous = previous ? previous.element : &quot;null&quot;;
+      s += `[element: $&#123;current.element&#125;, prev: $&#123;previous&#125;, next: $&#123;next&#125;]`;
+      current = current.next;
+    &#125;
+
+    return s;
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>我们重写了 <code>toString()</code> 方法以方便更加清楚地查看测试结果。下面是一些测试用例：</li>
+</ul>
+<pre><code class="javascript">let doubleLinkList = new DoubleLinkList();
+doubleLinkList.append(10);
+doubleLinkList.append(15);
+doubleLinkList.append(20);
+doubleLinkList.append(25);
+doubleLinkList.append(30);
+console.log(doubleLinkList.toString());
+console.log(doubleLinkList.getElementAt(1).element);
+console.log(doubleLinkList.getElementAt(2).element);
+console.log(doubleLinkList.getElementAt(3).element);
+
+doubleLinkList.insert(0, 9);
+doubleLinkList.insert(4, 24);
+doubleLinkList.insert(7, 35);
+console.log(doubleLinkList.toString());
+
+console.log(doubleLinkList.removeAt(0));
+console.log(doubleLinkList.removeAt(1));
+console.log(doubleLinkList.removeAt(5));
+console.log(doubleLinkList.toString());
+</code></pre>
+<p>-　对应的结果如下</p>
+<pre><code class="javascript">[element: 10, prev: null, next: 15] [element: 15, prev: 10, next: 20] [element: 20, prev: 15, next: 25] [element: 25, prev: 20, next: 30] [element: 30, prev: 25, next: null]
+20
+[element: 9, prev: null, next: 10] [element: 10, prev: 9, next: 15] [element: 15, prev: 10, next: 20] [element: 20, prev: 15, next: 24] [element: 24, prev: 20, next: 25] [element: 25, prev: 24, next: 30] [element: 30, prev: 25, next: 35] [element: 35, prev: 30, next: null]
+15
+[element: 10, prev: null, next: 20] [element: 20, prev: 10, next: 24] [element: 24, prev: 20, next: 25] [element: 25, prev: 24, next: 35] [element: 35, prev: 25, next: null]
+</code></pre>
+<h2 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><blockquote>
+<p>顾名思义，循环链表的尾部指向它自己的头部。循环链表可以有单向循环链表，也可以有双向循环链表。下面是单向循环链表和双向循环链表的数据结构示意图</p>
+</blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/732231/1608705287564-4531cdeb-9452-4e71-a303-44e9c7c6e029.png#align=left&display=inline&height=299&margin=%5Bobject%20Object%5D&name=linkList_around.png&originHeight=299&originWidth=813&size=13882&status=done&style=none&width=813" class="lazyload" data-srcset="https://cdn.nlark.com/yuque/0/2020/png/732231/1608705287564-4531cdeb-9452-4e71-a303-44e9c7c6e029.png#align=left&display=inline&height=299&margin=%5Bobject%20Object%5D&name=linkList_around.png&originHeight=299&originWidth=813&size=13882&status=done&style=none&width=813" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="linkList_around.png"></p>
+<blockquote>
+<p>在实现循环链表时，需要确保最后一个元素的 <code>next</code> 指针指向 <code>head</code>。下面是单向循环链表的完整代码</p>
+</blockquote>
+<pre><code class="javascript">class CircularLinkList extends LinkList &#123;
+  constructor() &#123;
+    super();
+  &#125;
+  append(element) &#123;
+    let node = new ListNode(element);
+    if (this.head === null) this.head = node;
+    else &#123;
+      let current = this.getElementAt(this.length - 1);
+      current.next = node;
+    &#125;
+    // 将新添加的元素的 next 指向 head
+    node.next = this.head;
+    this.length++;
+  &#125;
+  insert(element, position) &#123;
+    if (position &lt; 0 || position &gt; this.length - 1) return false;
+    let node = new ListNode(element);
+    if (position === 0) &#123;
+      node.next = this.head;
+      let current = this.getElementAt(this.length - 1);
+      current.next = node;
+      this.head = node;
+    &#125; else &#123;
+      var previous = this.getElementAt(position - 1);
+      node.next = previous.next;
+      previous.next = node;
+    &#125;
+    this.length++;
+    return true;
+  &#125;
+  removeAt(position) &#123;
+    if (position &lt; 0 || position &gt; this.length - 1) return null;
+    let current = this.head;
+    if (position === 0) this.head = current.next;
+    else &#123;
+      let previous = this.getElementAt(position - 1);
+      current = previous.next;
+      previous.next = current.next;
+    &#125;
+    this.length--;
+    if (this.length &gt; 1) &#123;
+      let last = this.getElementAt(this.length - 1);
+      last.next = this.head;
+    &#125;
+    return current.element;
+  &#125;
+  toString() &#123;
+    let current = this.head;
+    let s = &quot;&quot;;
+    for (let i = 0; i &lt; this.length; i++) &#123;
+      let next = current.next;
+      next = next ? next.element : &quot;null&quot;;
+      s += `[element: $&#123;current.element&#125;, next: $&#123;next&#125;]`;
+      current = current.next;
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>单向循环链表的测试用例</li>
+</ul>
+<pre><code class="javascript">let circularLinkList = new CircularLinkList();
+circularLinkList.append(10);
+circularLinkList.append(15);
+circularLinkList.append(20);
+
+console.log(circularLinkList.toString());
+
+circularLinkList.insert(0, 9);
+circularLinkList.insert(3, 25);
+console.log(circularLinkList.toString());
+
+console.log(circularLinkList.removeAt(0));
+console.log(circularLinkList.toString());
+</code></pre>
+<p>-　对应的结果如下<br><img src="https://cdn.nlark.com/yuque/0/2020/png/732231/1608705316856-b6b81605-b48c-462c-adc6-57b21fecd1bf.png#align=left&display=inline&height=87&margin=%5Bobject%20Object%5D&name=linList_around_result.png&originHeight=87&originWidth=1086&size=9699&status=done&style=none&width=1086" class="lazyload" data-srcset="https://cdn.nlark.com/yuque/0/2020/png/732231/1608705316856-b6b81605-b48c-462c-adc6-57b21fecd1bf.png#align=left&display=inline&height=87&margin=%5Bobject%20Object%5D&name=linList_around_result.png&originHeight=87&originWidth=1086&size=9699&status=done&style=none&width=1086" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="linList_around_result.png"></p>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://conjuringwxq.github.io/%E7%9F%A5%E8%AF%86%E7%82%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/>https://conjuringwxq.github.io/%E7%9F%A5%E8%AF%86%E7%82%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-31T14:33:38+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2021年7月31日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://conjuringwxq.github.io/%E7%9F%A5%E8%AF%86%E7%82%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/&title=链表 - conjuring&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://conjuringwxq.github.io/%E7%9F%A5%E8%AF%86%E7%82%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/&title=链表 - conjuring&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://conjuringwxq.github.io/%E7%9F%A5%E8%AF%86%E7%82%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/&title=链表 - conjuring&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/%E7%9F%A5%E8%AF%86%E7%82%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E7%BB%84/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>数组</p>
+          <p class='content'>1. 检测是否为数组2. 操作数组方法 - 不改变原数组2.1 拼接两个数组
+concat
+
+2.2 数组转字符串
+join
+
+
+参数: 分割符
+
+
+toString
+
+2.3 数组切片
+sli...</p>
+        </a>
+      
+      
+        <a class='next' href='/JavaScript/%E4%BB%8E%E5%9B%BE%E7%89%87%E8%A3%81%E5%89%AA%E4%BA%86%E8%A7%A3%20js%20%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%B8%B8%E7%94%A8%20api/'>
+          <p class='title'>从图片裁剪了解 js 二进制常用 api<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>需求分析二进制模块之间的关系
+步骤
+获取文件并读取文件
+获取裁剪坐标
+裁剪图片
+读取裁剪后的图片预览并上传
+
+接下来先了解下二进制相关的 API  以方便实现本需求。
+FileReader
+HT...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8"><span class="toc-text">单向链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-text">说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-text">步骤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8"><span class="toc-text">双向链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-1"><span class="toc-text">步骤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8"><span class="toc-text">循环链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-text">介绍</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+		  
+		  <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="链表";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  // header 这里无论是否开启pjax都需要
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
+    
+  
+</script>
+
+        </div>
+        
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener external nofollow noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        
+          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+</div>
+        
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename">Volantis</a>
+        作为主题
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2017-2020 XXX</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+        <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+/************这个文件存放不需要重载的全局变量和全局函数*********/
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/******************** Pjax ********************************/
+function VPjax(){
+	this.list=[] // 存放回调函数
+	this.start=()=>{
+	  for(var i=0;i<this.list.length;i++){
+		this.list[i].run();
+	  }
+	}
+	this.push=(fn,name)=>{
+		var f=new PjaxItem(fn,name);
+		this.list.push(f);
+	}
+	// 构造一个可以run的对象
+	function PjaxItem(fn,name){
+		// 函数名称
+		this.name = name || fn.name
+		// run方法
+		this.run=()=>{
+			fn()
+		}
+	}
+}
+volantis.pjax={}
+volantis.pjax.method={
+	complete: new VPjax(),
+	error: new VPjax(),
+	send: new VPjax()
+}
+volantis.pjax={
+	...volantis.pjax,
+	push: volantis.pjax.method.complete.push,
+	error: volantis.pjax.method.error.push,
+	send: volantis.pjax.method.send.push
+}
+/********************脚本懒加载函数********************************/
+// 已经加入了setTimeout
+function loadScript(src, cb) {
+	setTimeout(function() {
+		var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+		var script = document.createElement('script');
+		script.setAttribute('type','text/javascript');
+		if (cb) script.onload = cb;
+		script.setAttribute('src', src);
+		HEAD.appendChild(script);
+	});
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+  loadCSS("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/styles/atom-one-dark.min.css", window.volantis.loadcss);
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+  function Pjax_SCload_fancybox(){
+	if (typeof $.fancybox == "undefined") {
+	 SCload_fancybox();
+    } else {
+	 pjax_fancybox();
+    }
+  }
+  volantis.pjax.push(Pjax_SCload_fancybox)
+  volantis.pjax.send(()=>{
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+  },'fancybox')
+</script>
+
+
+<!-- internal -->
+
+
+
+  
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class='option'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick="document.execCommand('copy')"><i class='fa fa-copy fa-fw'></i>复制文本</a>
+        <hr id='hr-text'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>复制链接</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>在新标签页打开</a>
+        <hr id='hr-href'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>复制图片地址</a>
+        <hr id='hr-src'>
+      </li>
+      
+        <li class='navigation'>
+          <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
+        </li>
+      
+      <hr>
+      
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default ' 
+        
+        
+        
+          onclick="document.execCommand('print')"
+        
+        >
+        <i class='fa fa-print fa-fw'></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default toggle-mode-btn' 
+        
+        
+        
+        >
+        <i class='fas fa-moon fa-fw'></i> Dark mode
+      </a>
+    </li>
+  
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          if ('true' == 'true') {
+            copyText.style.display = 'block';
+            hrText.style.display = 'block';
+          }
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+
+
+<script>
+  function loadIssuesJS() {
+    if ($(".md").find(".issues-api").length == 0) return;
+	
+	  loadScript('/js/issues.js');
+	
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  volantis.pjax.push(()=>{
+	if (typeof IssuesAPI == "undefined") {
+	  loadIssuesJS();
+	}
+  },"IssuesJS")
+</script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: [],
+	maxRPS: 5,
+	hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+	volantis.pjax.push(pjax_initCopyCode)
+</script>
+
+
+
+
+
+
+
+
+  
+  
+<script src="/js/valine.js"></script>
+
+
+<script>
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+    var valine = new Valine();
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":null,"appKey":null,"meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
+      el: '#valine_container',
+      path: path,
+      placeholder: pagePlaceholder,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps,
+    }))
+  }
+  $(function () {
+    pjax_valine();
+  });
+  volantis.pjax.push(pjax_valine);
+</script>
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/js/search/hexo.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+volantis.pjax.push(()=>{
+	document.querySelectorAll('pre code').forEach((block) => {
+	  hljs.highlightBlock(block);
+	});
+},"highlightjs")
+</script>
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI',
+    app_key: 'jfHtEKVE24j0IVCGHbvuFClp',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'https://conjuringwxq.github.io' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'https://conjuringwxq.github.io' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'https://conjuringwxq.github.io' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+var btn=$("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn");
+function bindToggleButton() {
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+volantis.pjax.push(bindToggleButton);
+volantis.pjax.send(()=>{
+	btn.unbind('click');
+},'toggle-mode-btn-unbind');
+</script>
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+ 
+	   
+	    
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+		// 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+		volantis.pjax.method.complete.start();
+      } catch (e) {
+        console.log(e);
+      }
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.error.start();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+ 
+	  
+    </div>
+  </body>
+</html>

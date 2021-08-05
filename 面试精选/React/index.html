@@ -1,0 +1,2157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="preload" href="/css/first.css" as="style">
+  
+
+  <!-- 页面元数据 -->
+  
+  <title>React 面试精选 - conjuring</title>
+  
+
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+  
+<script>
+if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
+    document.write(
+	'<style>'+
+		'html{'+
+			'overflow-x: hidden !important;'+
+			'overflow-y: hidden !important;'+
+		'}'+
+		'.kill-ie{'+
+			'text-align:center;'+
+			'height: 100%;'+
+			'margin-top: 15%;'+
+			'margin-bottom: 5500%;'+
+		'}'+
+	'</style>'+
+    '<div class="kill-ie">'+
+        '<h1><b>抱歉，您的浏览器无法访问本站</b></h1>'+
+        '<h3>微软已经于2016年终止了对 Internet Explorer (IE) 10 及更早版本的支持，<br/>'+
+        '继续使用存在极大的安全隐患，请使用当代主流的浏览器进行访问。</h3><br/>'+
+        '<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support"><strong>了解详情 ></strong></a>'+
+    '</div>');
+</script>
+
+
+<noscript>
+	<style>
+		html{
+			overflow-x: hidden !important;
+			overflow-y: hidden !important;
+		}
+		.kill-noscript{
+			text-align:center;
+			height: 100%;
+			margin-top: 15%;
+			margin-bottom: 5500%;
+		}
+	</style>
+    <div class="kill-noscript">
+        <h1><b>抱歉，您的浏览器无法访问本站</b></h1>
+        <h3>本页面需要浏览器支持（启用）JavaScript</h3><br/>
+        <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
+    </div>
+</noscript>
+
+</head>
+
+  <body>
+    
+
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+            conjuring
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-home fa-fw'></i>首页
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fa fa-bars fa-fw'></i>导航
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-home fa-fw'></i>首页
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fa fa-bars fa-fw'></i>导航
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+    
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg="https://bing.ioliu.cn/v1/rand?w=1920&h=1200"></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">conjuring</p>
+    
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+      <div id="safearea">
+        <div class="body-wrapper" id="pjax-container">
+          
+
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        React 面试精选
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' target="_blank" href="https://github.com/conjuringwxq/" rel="nofollow noopener">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png">
+    <p>conjuringwxq</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a><span class="sep"></span><a class="category-link" href="/categories/%E9%9D%A2%E8%AF%95/React/">React</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021年4月19日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="React 面试精选" data-path="/%E9%9D%A2%E8%AF%95%E7%B2%BE%E9%80%89/React/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <h2 id="react-的优势"><a href="#react-的优势" class="headerlink" title="react 的优势"></a>react 的优势</h2><ol>
+<li>前端框架发展说起(业务量的增长)</li>
+<li>react 是用于构建用户界面的 JavaScript 库<ul>
+<li>库: 自己实现功能</li>
+<li>框架：直接使用功能即可</li>
+</ul>
+</li>
+<li>社区</li>
+<li>适用场景，设计理念</li>
+<li>高内聚，低耦合</li>
+</ol>
+<h2 id="React-中-keys-的作用"><a href="#React-中-keys-的作用" class="headerlink" title="React 中 keys 的作用"></a>React 中 keys 的作用</h2><p>在 React Diff 算法中 React 会借助元素的 Key 值来判断该元素是最新创建的还是被移动而来的元素，从而减少不必要的元素重渲染</p>
+<h2 id="如何避免组件的重新渲染"><a href="#如何避免组件的重新渲染" class="headerlink" title="如何避免组件的重新渲染"></a>如何避免组件的重新渲染</h2><p>React 中最常见的问题之一是组件不必要地重新渲染。React 提供了两个方法，在这些情况下非常有用</p>
+<ul>
+<li>React.memo(): 这可以防止不必要地重新渲染函数组件</li>
+<li>PureComponent: 这可以防止不必要地重新渲染类组件</li>
+</ul>
+<p>这两种方法都依赖于对传递给组件的 props 的浅比较，如果 props 没有改变，那么组件将不会重新渲染。虽然这两种工具都非常有用，但是浅比较会带来额外的性能损失，因此如果使用不当，这两种方法都会对性能产生负面影响。</p>
+<h2 id="react-组件通信如何实现"><a href="#react-组件通信如何实现" class="headerlink" title="react 组件通信如何实现"></a>react 组件通信如何实现</h2><ul>
+<li>父 -&gt; 子: props</li>
+<li>子 -&gt; 父: props + 回调</li>
+<li>兄弟组件之间通信: 找到两个兄弟节点共同的父节点，结合 props</li>
+<li>跨层级通信: Context</li>
+<li>发布订阅模式: 发布者发布事件，订阅者监听事件并做出回应，通过引入 event 模块进行通信</li>
+<li>全局状态管理工具: 借助 Redux 或 Mobx 等全局状态管理工具进行通信，这种工具会维护一个全局状态中心 Store，并根据不同的事件产生新的状态</li>
+</ul>
+<h2 id="react-生命周期"><a href="#react-生命周期" class="headerlink" title="react 生命周期"></a>react 生命周期</h2><h3 id="挂载阶段"><a href="#挂载阶段" class="headerlink" title="挂载阶段"></a>挂载阶段</h3><ul>
+<li>constructor: 通常用来初始化 state 和绑定 this</li>
+<li>getDerivedStateFromProps: 静态方法, 接收新属性想去修改 state(配合 componentDidUpdate，可覆盖 componentWillReveiveProps 所有用法</li>
+<li>render: 返回只需要渲染的内容</li>
+<li>componentDidMount: 组件装载后调用，可以获取 DOM 节点并操作</li>
+</ul>
+<h3 id="更新阶段"><a href="#更新阶段" class="headerlink" title="更新阶段"></a>更新阶段</h3><ul>
+<li>getDerivedStateFromProps(在更新各挂载阶段都会调用)</li>
+<li>shouldComponentUpdate: 是否触发重渲染，返回一个 boolean，通常用来优化性能</li>
+<li>render: 更新阶段也会触发此生命周期</li>
+<li>getSnapshotBeforeUpdate: 返回值会作为第三个参数传递给 componentDidUpdate (static getSnapshotBeforeUpdate -&gt; 代替 componentWillUpdate (在最终 render 前被调用)))</li>
+<li>componentDidUpdate: 三个参数，prevProps、prevState、snapshot，最后在 componentDidUpdate 中统一触发回调或更新状态</li>
+</ul>
+<h3 id="卸载阶段"><a href="#卸载阶段" class="headerlink" title="卸载阶段"></a>卸载阶段</h3><ul>
+<li>componentWillUnmount: 当组件被卸载或销毁时调用，通常用于清除一些定时器，取消网络请求，清理无效 DOM 元素等垃圾清理工作</li>
+</ul>
+<h2 id="react-项目中有哪些细节可以优化？实际开发中都做过哪些性能优化"><a href="#react-项目中有哪些细节可以优化？实际开发中都做过哪些性能优化" class="headerlink" title="react 项目中有哪些细节可以优化？实际开发中都做过哪些性能优化"></a>react 项目中有哪些细节可以优化？实际开发中都做过哪些性能优化</h2><p>分为: 开发过程中、上线之后的首屏、运行过程的状态</p>
+<h3 id="上线之后的首屏及运行状态"><a href="#上线之后的首屏及运行状态" class="headerlink" title="上线之后的首屏及运行状态:"></a>上线之后的首屏及运行状态:</h3><ul>
+<li><p>首屏优化一般涉及到几个指标 FP、FCP、FMP；要有一个良好的体验是尽可能的把 FCP 提前，需要做一些工程化的处理，去优化资源的加载</p>
+<ul>
+<li>FP: 页面在导航后首次呈现出不同于导航前内容的时间点;</li>
+<li>FCP: 首次绘制任何文本，图像，非空白 canvas 或 SVG 的时间点;</li>
+<li>FMP: 是由 Google 工程师引入的一种现代性能指标，它告诉我们页面何时 <strong>有用</strong>。其本质上是通过一种算法来猜测某个时间点可能是 FMP</li>
+</ul>
+</li>
+<li><p>方式及分包策略，资源的减少是最有效的加快首屏打开的方式</p>
+</li>
+<li><p>对于 CSR 的应用，FCP 的过程一般是首先加载 js 与 css 资源，js 在本地执行完成，然后加载数据回来，做内容初始化渲染，这中间就有几次的网络反复请求的过程；所以 CSR 可以考虑使用骨架屏及预渲染（部分结构预渲染）、suspence 与 lazy 做懒加载动态组件的方式</p>
+</li>
+<li><p>当然还有另外一种方式就是 SSR 的方式，SSR 对于首屏的优化有一定的优势，但是这种瓶颈一般在 Node 服务端的处理，建议使用 stream 流的方式来处理，对于体验与 node 端的内存管理等，都有优势；</p>
+</li>
+<li><p>不管对于 CSR 或者 SSR，都建议配合使用 Service worker，来控制资源的调配及骨架屏秒开的体验</p>
+</li>
+<li><p>react 项目上线之后，首先需要保障的是可用性，所以可以通过 React.Profiler 分析组件的渲染次数及耗时的一些任务，但是 Profile 记录的是 commit 阶段的数据，所以对于 react 的调和阶段就需要结合 performance API 一起分析</p>
+</li>
+<li><p>由于 React 是父级 props 改变之后，所有与 props 不相关子组件在没有添加条件控制的情况之下，也会触发 render 渲染，这是没有必要的，可以结合 React 的 PureComponent 以及 React.memo 等做浅比较处理，这中间有涉及到不可变数据的处理，当然也可以结合使用 ShouldComponentUpdate 做深比较处理</p>
+</li>
+<li><p>所有的运行状态优化，都是减少不必要的 render，React.useMemo 与 React.useCallback 也是可以做很多优化的地方</p>
+</li>
+<li><p>在很多应用中，都会涉及到使用 redux 以及使用 context，这两个都可能造成许多不必要的 render，所以在使用的时候，也需要谨慎的处理一些数据</p>
+</li>
+<li><p>最后就是保证整个应用的可用性，为组件创建错误边界，可以使用 componentDidCatch 来处理</p>
+</li>
+</ul>
+<h3 id="实际项目中开发过程中还有很多其他的优化点"><a href="#实际项目中开发过程中还有很多其他的优化点" class="headerlink" title="实际项目中开发过程中还有很多其他的优化点"></a>实际项目中开发过程中还有很多其他的优化点</h3><ul>
+<li>保证数据的不可变性</li>
+<li>使用唯一的键值迭代</li>
+<li>使用 web worker 做密集型的任务处理</li>
+<li>不在 render 中处理数据</li>
+<li>不必要的标签，使用 React.Fragments</li>
+</ul>
+<h2 id="react-最新版本解决了什么问题-加了哪些东西"><a href="#react-最新版本解决了什么问题-加了哪些东西" class="headerlink" title="react 最新版本解决了什么问题 加了哪些东西"></a>react 最新版本解决了什么问题 加了哪些东西</h2><h3 id="React-16-x-的三大新特性-Time-Slicing-Suspense，hooks"><a href="#React-16-x-的三大新特性-Time-Slicing-Suspense，hooks" class="headerlink" title="React 16.x 的三大新特性 Time Slicing, Suspense，hooks"></a>React 16.x 的三大新特性 Time Slicing, Suspense，hooks</h3><ul>
+<li>Time Slicing</li>
+</ul>
+<p>（解决 CPU 速度问题）使得在执行任务的期间可以随时暂停，跑去干别的事情，这个特性使得 react 能在性能极其差的机器跑时，仍然保持有良好的性能</p>
+<ul>
+<li>Suspense</li>
+</ul>
+<p>（解决网络 IO 问题）和 lazy 配合，实现异步加载组件。 能暂停当前组件的渲染, 当完成某件事以后再继续渲染，解决从 react 出生到现在都存在的「异步副作用」的问题，而且解决得非常的优雅，使用的是「异步但是同步的写法」，我个人认为，这是最好的解决异步问题的方式</p>
+<ul>
+<li>componentDidCatch</li>
+</ul>
+<p>此外，还提供了一个内置函数 componentDidCatch，当有错误发生时, 我们可以友好地展示 fallback 组件；可以捕捉到它的子元素（包括嵌套子元素）抛出的异常；可以复用错误组件。</p>
+<h3 id="React16-8"><a href="#React16-8" class="headerlink" title="React16.8"></a>React16.8</h3><ul>
+<li>加入 hooks，让 React 函数式组件更加灵活</li>
+<li>hooks 之前，React 存在很多问题<ul>
+<li>在组件间复用状态逻辑很难</li>
+<li>复杂组件变得难以理解，高阶组件和函数组件的嵌套过深。</li>
+<li>class 组件的 this 指向问题 (如果在 render 中 bind(this)，会造成每次都返回一个新函数，造成对应组件的重渲染; 如果使用 () =&gt; func() 也会每次都造成组件的重渲染)</li>
+<li>难以记忆的生命周期</li>
+</ul>
+</li>
+<li>hooks 很好的解决了上述问题，hooks 提供了很多方法<ul>
+<li>useState 返回有状态值，以及更新这个状态值的函数</li>
+<li>useEffect 接受包含命令式，可能有副作用代码的函数。</li>
+<li>useContext 接受上下文对象（从 React.createContext 返回的值）并返回当前上下文值，</li>
+<li>useReducer useState 的替代方案。接受类型为(state，action) =&gt; newState 的 reducer，并返回与 dispatch 方法配对的当前状态。</li>
+<li>useCallback 返回一个回忆的 memoized 版本，该版本仅在其中一个输入发生更改时才会更改。纯函数的输入输出确定性</li>
+<li>useMemo 纯的一个记忆函数</li>
+<li>useRef 返回一个可变的 ref 对象，其.current 属性被初始化为传递的参数，返回的 ref 对象在组件的整个生命周期内保持不变。</li>
+<li>useImperativeMethods 自定义使用 ref 时公开给父组件的实例值</li>
+<li>useMutationEffect 更新兄弟组件之前，它在 React 执行其 DOM 改变的同一阶段同步触发</li>
+<li>useLayoutEffect DOM 改变后同步触发。使用它来从 DOM 读取布局并同步重新渲染</li>
+</ul>
+</li>
+</ul>
+<h2 id="react-事件合成"><a href="#react-事件合成" class="headerlink" title="react 事件合成"></a>react 事件合成</h2><p><img src="/images/%E4%BA%8B%E4%BB%B6%E5%90%88%E6%88%90.png" class="lazyload" data-srcset="/images/%E4%BA%8B%E4%BB%B6%E5%90%88%E6%88%90.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="高阶组件"></p>
+<p>react 根据 w3c 规范定义了每个事件处理函数的参数，即合成事件。react 在合成事件做了两件事，分别为事件委派和自动绑定。</p>
+<ul>
+<li>事件委派</li>
+</ul>
+<ol>
+<li>事件处理程序将会传递 SyntheticEvent(事件合成) 的实例，这是一个跨浏览器原生事件包装器，它具有与浏览器原生事件相同的接口，支持 stopProgation 和 preventDefault，可以通过使用 nativeEvent 属性来访问原生事件对象，同时在所有浏览器中它们的工作方式都相同。</li>
+<li>react 合成的 SyntheticEvent 采用了事件池，这样做可以大大节省内存，而不会频繁的创建和销毁事件对象。</li>
+<li>react 并不会把事件处理函数直接绑定到真实的节点上，而是把所有事件放到统一的事件队列中，用监听器做监听。</li>
+<li>通过监听器上的映射来保存所有组件内部的事件监听和处理函数</li>
+<li>组件挂载或卸载时，改变这个监听器，通过对象的方式插入 or 删除</li>
+<li>事件发生时，先被监听器处理，然后通过映射调用真正的事件处理函数</li>
+</ol>
+<ul>
+<li>自动绑定</li>
+</ul>
+<ol>
+<li>在 react 组件中，每个方法的上下文都会指向改组件的实例，即自动绑定 this 为当前组件</li>
+<li>react 会对这种引用做缓存，从而优化 cpu 和 内存</li>
+<li>在使用 类组件或函数组件时，需手动实现 this 绑定</li>
+</ol>
+<h3 id="react-和-原生事件的执行顺序"><a href="#react-和-原生事件的执行顺序" class="headerlink" title="react 和 原生事件的执行顺序"></a>react 和 原生事件的执行顺序</h3><ol>
+<li><p>原生事件，依次冒泡执行</p>
+</li>
+<li><p>react 合成事件，依次冒泡执行</p>
+</li>
+<li><p>document 上挂载的事件执行</p>
+</li>
+</ol>
+<pre><code class="js">/*
+ * 执行结果：
+ * 1. dom child
+ * 2. dom parent
+ * 3. react child
+ * 4. react parent
+ * 5. dom document
+ * */
+</code></pre>
+<h3 id="react-事件与原生事件可以混用么"><a href="#react-事件与原生事件可以混用么" class="headerlink" title="react 事件与原生事件可以混用么"></a>react 事件与原生事件可以混用么</h3><p>React 事件和原生事件最好不要混用。原生事件中如果执行了 stopPropagation 方法，则会导致其他 React 事件失效。因为所有元素的事件将无法冒泡到 document 上，导致所有的 React 事件都将无法被触发</p>
+<h2 id="虚拟-dom-是什么"><a href="#虚拟-dom-是什么" class="headerlink" title="虚拟 dom 是什么"></a>虚拟 dom 是什么</h2><p>在原生的 JavaScript 程序中，我们直接对 DOM 进行创建和更改，而 DOM 元素通过我们监听的事件和我们的应用程序进行通讯。</p>
+<p>而 React 会先将你的代码转换成一个 JavaScript 对象，然后这个 JavaScript 对象再转换成真实 DOM。这个 JavaScript 对象就是所谓的虚拟 DOM。</p>
+<p>当我们需要创建或更新元素时， React 首先会让这个 VitrualDom 对象进行创建和更改，然后再将 VitrualDom 对象渲染成真实 DOM。</p>
+<p>当我们需要对 DOM 进行事件监听时，首先对 VitrualDom 进行事件监听， VitrualDom 会代理原生的 DOM 事件从而做出响应。</p>
+<h2 id="react-如何进行组件-逻辑复用"><a href="#react-如何进行组件-逻辑复用" class="headerlink" title="react 如何进行组件/逻辑复用"></a>react 如何进行组件/逻辑复用</h2><ol>
+<li>HOC(高阶组件)</li>
+<li>react-hooks</li>
+<li>渲染属性(render props): 即通过 render 属性传递渲染内容</li>
+</ol>
+<h2 id="高阶组件"><a href="#高阶组件" class="headerlink" title="高阶组件"></a>高阶组件</h2><p><img src="/images/%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6.png" class="lazyload" data-srcset="/images/%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="高阶组件"></p>
+<p>高阶组件就是一个函数，且该函数接受一个组件作为参数，并返回一个新的组件。</p>
+<h3 id="通过属性代理实现高阶组件"><a href="#通过属性代理实现高阶组件" class="headerlink" title="通过属性代理实现高阶组件"></a>通过属性代理实现高阶组件</h3><p>函数返回一个我们自己定义的组件，然后在 render 中返回要包裹的组件，这样我们就可以代理所有传入的 props，并且决定如何渲染</p>
+<pre><code class="jsx">function proxyHOC(WrappedComponent) &#123;
+  return class extends Component &#123;
+    render() &#123;
+      return &lt;WrappedComponent &#123;...this.props&#125; /&gt;;
+    &#125;
+  &#125;;
+&#125;
+</code></pre>
+<p>对比原生组件增强的项:</p>
+<ul>
+<li>可操作所有传入的 props</li>
+<li>可操作组件的生命周期</li>
+<li>可操作组件的 static 方法</li>
+<li>获取 refs</li>
+</ul>
+<h3 id="通过反向继承实现高阶组件"><a href="#通过反向继承实现高阶组件" class="headerlink" title="通过反向继承实现高阶组件"></a>通过反向继承实现高阶组件</h3><p>返回一个组件，继承原组件，在 render 中调用原组件的 render。由于继承了原组件，能通过 this 访问到原组件的 生命周期、props、state、render 等，相比属性代理它能操作更多的属性</p>
+<pre><code class="jsx">function inheritHOC(WrappedComponent) &#123;
+  return class extends WrappedComponent &#123;
+    render() &#123;
+      return super.render();
+    &#125;
+  &#125;;
+&#125;
+</code></pre>
+<p>对比原生组件增强的项:</p>
+<ul>
+<li>可操作所有传入的 props</li>
+<li>可操作组件的生命周期</li>
+<li>可操作组件的 static 方法</li>
+<li>获取 refs</li>
+<li>可操作 state</li>
+<li>可以渲染劫持</li>
+</ul>
+<h3 id="HOC-在业务场景中有哪些实际应用场景"><a href="#HOC-在业务场景中有哪些实际应用场景" class="headerlink" title="HOC 在业务场景中有哪些实际应用场景"></a>HOC 在业务场景中有哪些实际应用场景</h3><p>HOC 可以实现的功能：</p>
+<ul>
+<li>组合渲染</li>
+<li>条件渲染</li>
+<li>操作 props</li>
+<li>获取 refs</li>
+<li>状态管理</li>
+<li>操作 state</li>
+<li>渲染劫持</li>
+</ul>
+<p>HOC 在业务中的实际应用场景：</p>
+<ul>
+<li>日志打点</li>
+<li>权限控制</li>
+<li>双向绑定</li>
+<li>表单校验</li>
+</ul>
+<h2 id="react-hooks"><a href="#react-hooks" class="headerlink" title="react hooks"></a>react hooks</h2><h3 id="使用-react-hooks-好处是什么"><a href="#使用-react-hooks-好处是什么" class="headerlink" title="使用 react hooks 好处是什么"></a>使用 react hooks 好处是什么</h3><p>hooks 通常支持提取和重用跨多个组件通用的有状态逻辑，而无需承担高阶组件或渲染 props 的负担。hooks 可以轻松地操作函数组件的状态，而不需要将它们转换为类组件</p>
+<p>Hooks 在类中不起作用，通过使用它们，咱们可以完全避免使用生命周期方法，例如 componentDidMount、componentDidUpdate、componentWillUnmount。相反，使用像 useEffect 这样的内置钩子。</p>
+<h3 id="React-Hooks-的使用注意事项和问题"><a href="#React-Hooks-的使用注意事项和问题" class="headerlink" title="React Hooks 的使用注意事项和问题"></a>React Hooks 的使用注意事项和问题</h3><ul>
+<li>只能在函数内部的最外层调用 hook，不要在循环、条件判断或者子函数中调用</li>
+</ul>
+<blockquote>
+<p>因为 react hooks 内部是通过单项链表实现的，其内部的顺序是极其关键的，如果不按照规则使用，就会造成取值出现偏移的问题</p>
+</blockquote>
+<ul>
+<li><p>只能在 React 的函数组件中调用 Hook，不要在其他的 js 函数里调用</p>
+</li>
+<li><p>为什么 useEffect 的第二个参数是空数组，就相当于 componentDidMount 只执行一次</p>
+</li>
+<li><p>自定义的 hook 是怎样操作组件的</p>
+</li>
+</ul>
+<h3 id="react-hooks-如何保存状态"><a href="#react-hooks-如何保存状态" class="headerlink" title="react hooks 如何保存状态"></a>react hooks 如何保存状态</h3><ul>
+<li>react hooks 和 类组件的状态值都被挂载在组件实例对象 FiberNode 的 memoizedState 属性中</li>
+<li>react hooks 和 类组件的数据结构完全不同。类组件是直接把 state 属性中挂载的这个开发者自定义的对象给保存到 memoizedState 属性中；而 React Hooks 是用链表来保存状态的，memoizedState 属性保存的实际上是这个链表的头指针。</li>
+<li>所有的 hooks 都以链表的形式挂载在 FiberNode.updateQueue 中</li>
+</ul>
+<h3 id="react-hooks-常用-api"><a href="#react-hooks-常用-api" class="headerlink" title="react hooks 常用 api"></a>react hooks 常用 api</h3><ul>
+<li><p>基础 hooks</p>
+<ol>
+<li>useState: 状态钩子，为函数组件提供内部状态</li>
+<li>useEffect: 副作用钩子，提供了类似于 componentDidMount 等生命周期钩子的功能</li>
+<li>useContext: 共享钩子，在组件之间共享状态，可以解决 react 逐层通过 props 传递数据</li>
+</ol>
+</li>
+<li><p>额外的 hooks</p>
+<ol>
+<li>useReducer: action 钩子，提供了状态管理，其基本原理是通过用户在页面上发起的 action，从而通过 reduce 方法来改变 state，从而实现页面和状态的通信，使用很像 redux</li>
+<li>useCallBack: 把内联回调函数及依赖项数组作为参数传入 useCallback, 它将返回该回调函数的 memoized 版本, 该回调函数仅在某个依赖项改变时才会更新</li>
+<li>useMemo: 把创建函数和依赖项数组作为参数传入 useMemo, 它仅会在某个依赖项改变时重新计算, 可以作为性能优化的手段。</li>
+<li>useRef: 获取组件的实例，返回一个可变的 ref 对象, 返回的 ref 对象在组件的整个生命周期内保持不变</li>
+<li>useLayoutEffect: 它会在所有 DOM 变更后同步调用 effect</li>
+</ol>
+</li>
+</ul>
+<h2 id="react-fiber"><a href="#react-fiber" class="headerlink" title="react fiber"></a>react fiber</h2><h3 id="什么是-fiber"><a href="#什么是-fiber" class="headerlink" title="什么是 fiber"></a>什么是 fiber</h3><ul>
+<li>fiber 是一种基于浏览器的单线程调度算法</li>
+<li>fiber 是一个执行单元, 每次执行完一个执行单元, react 就会检查还剩多少时间, 如果没有时间则将控制权转让。(利用浏览器的 requestIdleCallback api 实现, 其中如果浏览器一直很忙，则会判断 requestIdleCallback 的 timeout 参数，如果超过 timeout 的值，则会在下一帧强制执行)</li>
+<li>fiber 是一种数据结构, react fiber 就是采用链表实现的, 每个虚拟 dom 都可以表示为一个 fiber</li>
+<li>fiber 实现了自己的组件调用栈, 它以链表的形式遍历组件树, 可以灵活的暂停、继续和丢弃执行的任务</li>
+</ul>
+<blockquote>
+<p>利用 requestIdleCallback 的回调可以充分的通过利用浏览器空闲时间来解决任务调度问题。由于 requestIdleCallback 的兼容性很差，所以 react 采用了 messageChannel 模拟实现了这一 api 的功能。</p>
+</blockquote>
+<blockquote>
+<p>当浏览器很忙的时候，如 1000 / 60 ～ 16ms 时间间隔内都有任务执行，则会通过判断 requestIdleCallback 的 timeout 是否超时和该回调中的任务的优先级来强制在下一帧执行回调中的任务，避免卡顿现象。</p>
+</blockquote>
+<blockquote>
+<p>react 里预订了 5 个优先级等级</p>
+<ol>
+<li>Immediate: 最高优先级, 这个优先级的任务应该被马上执行不能中断</li>
+<li>UserBlocking: 这些任务一般是用户交互的结果, 需要即时得到反馈</li>
+<li>Normal: 不需要用户立即就感受到变化, 比如网络请求</li>
+<li>Low: 这些任务可以延后, 但是最终也需要执行</li>
+<li>Idle: 可以被无限期延后</li>
+</ol>
+</blockquote>
+<h3 id="fiber-解决的问题-背景"><a href="#fiber-解决的问题-背景" class="headerlink" title="fiber 解决的问题(背景)"></a>fiber 解决的问题(背景)</h3><ul>
+<li>为了使 react 渲染过程中可以被中断，可以将控制权交还给浏览器, 可以让位给高优先级的任务，浏览器空闲后再恢复渲染。</li>
+<li>对于计算量比较大的 js 计算或 dom 计算，就不会显得特别卡顿，而是一帧一帧的有规律的执行任务。</li>
+<li>react 16 之前采用的是递归 diff, 想要中断递归是很困难的。</li>
+<li>为了解决这个问题，我们将大型的计算拆分成一个个小型的计算，然后按照执行顺序异步调用，这样就不会长时间霸占线程，UI 也能够在两次计算执行的间隙进行更新，从而给用户及时的反馈。</li>
+</ul>
+<h3 id="fiber-实现原理"><a href="#fiber-实现原理" class="headerlink" title="fiber 实现原理"></a>fiber 实现原理</h3><ul>
+<li>拆分：把渲染过程进行拆分成多个小任务</li>
+<li>检查：每次执行完一个小任务，就去队列中检查是否有新的响应需要处理</li>
+<li>继续执行：如果有就执行优化及更高的响应事件，如果没有继续执行后续任务</li>
+</ul>
+<h3 id="fiber-数据结构"><a href="#fiber-数据结构" class="headerlink" title="fiber 数据结构"></a>fiber 数据结构</h3><p>Fiber 其实指的是一种数据结构，它可以用一个纯 JS 对象来表示：</p>
+<pre><code class="js">const fiber = &#123;
+    stateNode,    // 节点实例
+    child,        // 子节点
+    sibling,      // 兄弟节点
+    return,       // 父节点
+&#125;;
+</code></pre>
+<p>fiber 是个链表，有 child 和 sibing 属性，指向第一个子节点和相邻的兄弟节点，从而构成 fiber tree。return 属性指向其父节点</p>
+<ul>
+<li>更新队列，updateQueue，是一个链表，有 first 和 last 两个属性，指向第一个和最后一个 update 对象</li>
+<li>每个 fiber 有一个属性 updateQueue 指向其对应的更新队列。</li>
+<li>每个 fiber（当前 fiber 可以称为 current）有一个属性 alternate，开始时指向一个自己的 clone 体，update 的变化会先更新到 alternate 上，当更新完毕，alternate 替换 current。</li>
+</ul>
+<h3 id="fiber-的基本规则"><a href="#fiber-的基本规则" class="headerlink" title="fiber 的基本规则"></a>fiber 的基本规则</h3><ul>
+<li><p>调和阶段<br>找出需要更新的工作 (Diff Fiber Tree), 就是一个计算阶段，计算结果可以被缓存，也可被打断</p>
+</li>
+<li><p>交付阶段<br>提交所有更新并渲染，为了防止页面抖动，不能被打断</p>
+</li>
+</ul>
+<h3 id="fiber-的执行流程"><a href="#fiber-的执行流程" class="headerlink" title="fiber 的执行流程"></a>fiber 的执行流程</h3><ol>
+<li>用户操作引起 setState 被调用，进而初始化一些数据结构</li>
+<li>根据优先级插入队列相应位置，初始化两个更新的队列</li>
+<li>开始进行任务分片调度，首先更新每个 fiber 的优先级，当 fiber 返回 null 时找到父级节点，然后将所有变化归到 root</li>
+<li>把当前的更新添加到调度队列中，根据当前是否异步渲染，做异步调用</li>
+<li>判断浏览器空闲时，完成下一个分片的工作，如果没有工作完，将会放弃</li>
+<li>执行调和阶段和调度阶段</li>
+</ol>
+<h2 id="setState"><a href="#setState" class="headerlink" title="setState"></a>setState</h2><h3 id="setState-到底是异步还是同步"><a href="#setState-到底是异步还是同步" class="headerlink" title="setState 到底是异步还是同步"></a>setState 到底是异步还是同步</h3><p>有时表现出异步，有时表现出同步</p>
+<ul>
+<li>setState 只在合成事件和钩⼦函数中是 &quot;异步&quot; 的，在 原⽣事件 和 setTimeout 中都是同步的</li>
+<li>setState 的 &quot;异步&quot; 并不是说内部由异步代码实现，其实本身执⾏的过程和代码都是同步的，只是 合成事件 和 钩⼦函数 的 调⽤顺序在更新之前，导致在合成事件和钩⼦函数中没法⽴⻢拿到更新后的值，形成了所谓的 &quot;异步&quot;，当然可以通过第⼆个参数 setState(partialState, callback)中的 callback 拿到更新后的结果</li>
+<li>setState 的批量更新优化也是建⽴在 &quot;异步&quot;（合成事件、钩⼦函数）之上的，在 原⽣事件 和 setTimeout 中不会批量更新，在 &quot;异步&quot; 中如果对同⼀个值进⾏多次 setState，setState 的批量更新策略会对其进⾏覆盖，取最后⼀次的执⾏，如果是同时 setState 多个不同的值，在更新时会对其进⾏合并批量更新。</li>
+</ul>
+<h3 id="为什么-setState-不设计成同步的"><a href="#为什么-setState-不设计成同步的" class="headerlink" title="为什么 setState 不设计成同步的"></a>为什么 setState 不设计成同步的</h3><ul>
+<li>保持内部的一致性和状态的安全性</li>
+</ul>
+<p>state, props, refs 一致性</p>
+<ul>
+<li>性能优化</li>
+</ul>
+<p>react 会对依据不同的调用源，给不同的 setState 调用分配不同的优先级</p>
+<p>调用源包括：事件处理、网络请求、动画</p>
+<ul>
+<li>更多可能性</li>
+</ul>
+<p>异步获取数据后，统一渲染页面, 保持一致性</p>
+<h2 id="redux"><a href="#redux" class="headerlink" title="redux"></a>redux</h2><h3 id="redux-的⼯作流程"><a href="#redux-的⼯作流程" class="headerlink" title="redux 的⼯作流程"></a>redux 的⼯作流程</h3><ul>
+<li>Store：保存数据的地⽅，你可以把它看成⼀个容器，整个应⽤只能有⼀个 Store；</li>
+<li>State：Store 对象包含所有数据，如果想得到某个时点的数据，就要对 Store ⽣成快照，这种时点的数据集合，就叫 State；</li>
+<li>Action： State 的变化， 会导致 View 的变化。但是，⽤户接触不到 State，只能接触到 View。所以，State 的变化必须是 View 导致的。Action 就是 View 发出的通知，表示 State 应该要发⽣变化了；</li>
+<li>Action Creator：View 要发送多少种消息，就会有多少种 Action。如果都⼿写，会很麻烦，所以我们定义⼀个函数来⽣成 Action，这个函数就叫 Action Creator；</li>
+<li>Reducer：Store 收到 Action 以后，必须给出⼀个新的 State，这样 View 才会发⽣变化。这种 State 的计算过程就叫做 Reducer。Reducer 是⼀个函数，它接受 Action 和当前 State 作为参数，返回⼀个新的 State；</li>
+<li>dispatch：是 View 发出 Action 的唯⼀⽅法。</li>
+</ul>
+<ol>
+<li>首先，用户通过 View 发出 Action，发出方式用到了 dispatch 方法</li>
+<li>Store 调用 Reducer, 传入两个参数: 当前 State 和收到的 Action，Reducer 会返回新的 State</li>
+<li>State ⼀旦有变化，Store 就会调⽤监听函数，来更新 View</li>
+</ol>
+<h3 id="redux-的三个原则"><a href="#redux-的三个原则" class="headerlink" title="redux 的三个原则"></a>redux 的三个原则</h3><ul>
+<li>单个事件来源</li>
+</ul>
+<p>整个应用程序状态存储在单个存储中的对象中</p>
+<ul>
+<li>状态只读</li>
+</ul>
+<p>更改状态的唯一方法就是触发一个动作</p>
+<ul>
+<li>中间件</li>
+</ul>
+<p>action -&gt; reducer =&gt; action -&gt; middlewares -&gt; reducer</p>
+<h2 id="mobx"><a href="#mobx" class="headerlink" title="mobx"></a>mobx</h2><h3 id="mobx-的工作流程"><a href="#mobx-的工作流程" class="headerlink" title="mobx 的工作流程"></a>mobx 的工作流程</h3><p><img src="/images/mobx%E6%B5%81%E7%A8%8B.png" class="lazyload" data-srcset="/images/mobx%E6%B5%81%E7%A8%8B.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="mobx工作流程图"></p>
+<h3 id="mobx-数据流向"><a href="#mobx-数据流向" class="headerlink" title="mobx 数据流向"></a>mobx 数据流向</h3><p>触发 action，在 action 中修改 state，通过 computed 拿到 state 的计算值，自动触发对应的 reactions，这里包含 autorun，渲染视图等。</p>
+<blockquote>
+<p>有一点需要注意：相对于 react 来说，mobx 没有一个全局的状态树，状态分散在各个独立的 store 中。</p>
+</blockquote>
+<h3 id="mobx-的工作原理"><a href="#mobx-的工作原理" class="headerlink" title="mobx 的工作原理"></a>mobx 的工作原理</h3><p>使用 Proxy 来拦截对数据的访问，一旦值发生变化，将会调用 react 的 render 方法来实现重新渲染视图的功能或者触发 autorun 等。</p>
+<h3 id="Mobx-的核心原理"><a href="#Mobx-的核心原理" class="headerlink" title="Mobx 的核心原理"></a>Mobx 的核心原理</h3><p>通过 action 触发 state 的变化，进而触发 state 的衍生对象（computed value &amp; Reactions）</p>
+<h2 id="redux-和-mobx-对比"><a href="#redux-和-mobx-对比" class="headerlink" title="redux 和 mobx 对比"></a>redux 和 mobx 对比</h2><ol>
+<li>Redux 要解决的问题是统一数据流，数据流完全可控并可追踪。要实现该目标，便需要进行相关的约束</li>
+<li>Redux 由此引出 dispatch action reducer 等概念，对 state 的概念进行强约束，然而对于一些项目来说，太过强，便失去了灵活性。Mobx 便是填补此空缺的</li>
+<li>redux 将数据保存在单一的 store 中，mobx 将数据保存在分散的多个 store 中</li>
+<li>redux 使用 plain object 保存数据，需要手动处理变化后的操作；mobx 使用 observable 保存数据，数据变化后自动处理响应的操作</li>
+<li>redux 使用不可变状态，这意味着状态是只读的，不能直接去修改它，而是应该返回一个新的状态，同时使用纯函数；mobx 中的状态是可变的，可以直接对其进行修改</li>
+<li>mobx 相对来说比较简单，在其中有很多的抽象，mobx 更多的使用面向对象的编程思维；redux 会比较复杂，因为其中的函数式编程思想掌握起来不是那么容易，同时需要借助一系列的中间件来处理异步和副作用</li>
+<li>mobx 中有更多的抽象和封装，调试会比较困难，同时结果也难以预测；而 redux 提供能够进行时间回溯的开发工具，同时其纯函数以及更少的抽象，让调试变得更加的容易</li>
+<li>使用 mobx 的 react 感觉很像 vue</li>
+</ol>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://conjuringwxq.github.io/%E9%9D%A2%E8%AF%95%E7%B2%BE%E9%80%89/React/>https://conjuringwxq.github.io/%E9%9D%A2%E8%AF%95%E7%B2%BE%E9%80%89/React/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-03T18:28:30+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2021年8月3日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://conjuringwxq.github.io/%E9%9D%A2%E8%AF%95%E7%B2%BE%E9%80%89/React/&title=React 面试精选 - conjuring&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://conjuringwxq.github.io/%E9%9D%A2%E8%AF%95%E7%B2%BE%E9%80%89/React/&title=React 面试精选 - conjuring&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://conjuringwxq.github.io/%E9%9D%A2%E8%AF%95%E7%B2%BE%E9%80%89/React/&title=React 面试精选 - conjuring&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/%E9%9D%A2%E8%AF%95%E7%B2%BE%E9%80%89/JS/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>JS 面试精选</p>
+          <p class='content'>从 0 到 1 搭建项目的思考
+开发工具
+技术选型
+构建工具
+构建仓库
+依赖选择
+测试策略
+技术架构
+环境信息
+编码规则
+
+前端项目的性能指标
+白屏时间
+首屏时间
+用户可操作时间
+页面总下载时间...</p>
+        </a>
+      
+      
+        <a class='next' href='/%E9%9D%A2%E8%AF%95%E7%B2%BE%E9%80%89/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/'>
+          <p class='title'>操作系统面试精选<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>第一章 引论1. 操作系统定义操作系统是运行在内核态的软件，它执行两个基本上独立的任务。
+
+隐藏计算机底层硬件的实现，为用户及应用程序提供一个资源集的清晰抽象。
+管理计算机硬件资源。
+
+任何操作...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#react-%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-text">react 的优势</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React-%E4%B8%AD-keys-%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">React 中 keys 的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E7%BB%84%E4%BB%B6%E7%9A%84%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93"><span class="toc-text">如何避免组件的重新渲染</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react-%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0"><span class="toc-text">react 组件通信如何实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">react 生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%82%E8%BD%BD%E9%98%B6%E6%AE%B5"><span class="toc-text">挂载阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E9%98%B6%E6%AE%B5"><span class="toc-text">更新阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BD%E9%98%B6%E6%AE%B5"><span class="toc-text">卸载阶段</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react-%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%9C%89%E5%93%AA%E4%BA%9B%E7%BB%86%E8%8A%82%E5%8F%AF%E4%BB%A5%E4%BC%98%E5%8C%96%EF%BC%9F%E5%AE%9E%E9%99%85%E5%BC%80%E5%8F%91%E4%B8%AD%E9%83%BD%E5%81%9A%E8%BF%87%E5%93%AA%E4%BA%9B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-text">react 项目中有哪些细节可以优化？实际开发中都做过哪些性能优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E7%BA%BF%E4%B9%8B%E5%90%8E%E7%9A%84%E9%A6%96%E5%B1%8F%E5%8F%8A%E8%BF%90%E8%A1%8C%E7%8A%B6%E6%80%81"><span class="toc-text">上线之后的首屏及运行状态:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E5%85%B6%E4%BB%96%E7%9A%84%E4%BC%98%E5%8C%96%E7%82%B9"><span class="toc-text">实际项目中开发过程中还有很多其他的优化点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react-%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E8%A7%A3%E5%86%B3%E4%BA%86%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98-%E5%8A%A0%E4%BA%86%E5%93%AA%E4%BA%9B%E4%B8%9C%E8%A5%BF"><span class="toc-text">react 最新版本解决了什么问题 加了哪些东西</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#React-16-x-%E7%9A%84%E4%B8%89%E5%A4%A7%E6%96%B0%E7%89%B9%E6%80%A7-Time-Slicing-Suspense%EF%BC%8Chooks"><span class="toc-text">React 16.x 的三大新特性 Time Slicing, Suspense，hooks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React16-8"><span class="toc-text">React16.8</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react-%E4%BA%8B%E4%BB%B6%E5%90%88%E6%88%90"><span class="toc-text">react 事件合成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#react-%E5%92%8C-%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="toc-text">react 和 原生事件的执行顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react-%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6%E5%8F%AF%E4%BB%A5%E6%B7%B7%E7%94%A8%E4%B9%88"><span class="toc-text">react 事件与原生事件可以混用么</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F-dom-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">虚拟 dom 是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E7%BB%84%E4%BB%B6-%E9%80%BB%E8%BE%91%E5%A4%8D%E7%94%A8"><span class="toc-text">react 如何进行组件&#x2F;逻辑复用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6"><span class="toc-text">高阶组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E5%B1%9E%E6%80%A7%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6"><span class="toc-text">通过属性代理实现高阶组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E5%8F%8D%E5%90%91%E7%BB%A7%E6%89%BF%E5%AE%9E%E7%8E%B0%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6"><span class="toc-text">通过反向继承实现高阶组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HOC-%E5%9C%A8%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF%E4%B8%AD%E6%9C%89%E5%93%AA%E4%BA%9B%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">HOC 在业务场景中有哪些实际应用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react-hooks"><span class="toc-text">react hooks</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-react-hooks-%E5%A5%BD%E5%A4%84%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">使用 react hooks 好处是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React-Hooks-%E7%9A%84%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E5%92%8C%E9%97%AE%E9%A2%98"><span class="toc-text">React Hooks 的使用注意事项和问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react-hooks-%E5%A6%82%E4%BD%95%E4%BF%9D%E5%AD%98%E7%8A%B6%E6%80%81"><span class="toc-text">react hooks 如何保存状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react-hooks-%E5%B8%B8%E7%94%A8-api"><span class="toc-text">react hooks 常用 api</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react-fiber"><span class="toc-text">react fiber</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-fiber"><span class="toc-text">什么是 fiber</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fiber-%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98-%E8%83%8C%E6%99%AF"><span class="toc-text">fiber 解决的问题(背景)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fiber-%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">fiber 实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fiber-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">fiber 数据结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fiber-%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%88%99"><span class="toc-text">fiber 的基本规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fiber-%E7%9A%84%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-text">fiber 的执行流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#setState"><span class="toc-text">setState</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#setState-%E5%88%B0%E5%BA%95%E6%98%AF%E5%BC%82%E6%AD%A5%E8%BF%98%E6%98%AF%E5%90%8C%E6%AD%A5"><span class="toc-text">setState 到底是异步还是同步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-setState-%E4%B8%8D%E8%AE%BE%E8%AE%A1%E6%88%90%E5%90%8C%E6%AD%A5%E7%9A%84"><span class="toc-text">为什么 setState 不设计成同步的</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#redux"><span class="toc-text">redux</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#redux-%E7%9A%84%E2%BC%AF%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-text">redux 的⼯作流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redux-%E7%9A%84%E4%B8%89%E4%B8%AA%E5%8E%9F%E5%88%99"><span class="toc-text">redux 的三个原则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mobx"><span class="toc-text">mobx</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mobx-%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-text">mobx 的工作流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mobx-%E6%95%B0%E6%8D%AE%E6%B5%81%E5%90%91"><span class="toc-text">mobx 数据流向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mobx-%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">mobx 的工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mobx-%E7%9A%84%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86"><span class="toc-text">Mobx 的核心原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#redux-%E5%92%8C-mobx-%E5%AF%B9%E6%AF%94"><span class="toc-text">redux 和 mobx 对比</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+		  
+		  <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="React 面试精选";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  // header 这里无论是否开启pjax都需要
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
+    
+  
+</script>
+
+        </div>
+        
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener external nofollow noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        
+          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+</div>
+        
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename">Volantis</a>
+        作为主题
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2017-2020 XXX</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+        <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+/************这个文件存放不需要重载的全局变量和全局函数*********/
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/******************** Pjax ********************************/
+function VPjax(){
+	this.list=[] // 存放回调函数
+	this.start=()=>{
+	  for(var i=0;i<this.list.length;i++){
+		this.list[i].run();
+	  }
+	}
+	this.push=(fn,name)=>{
+		var f=new PjaxItem(fn,name);
+		this.list.push(f);
+	}
+	// 构造一个可以run的对象
+	function PjaxItem(fn,name){
+		// 函数名称
+		this.name = name || fn.name
+		// run方法
+		this.run=()=>{
+			fn()
+		}
+	}
+}
+volantis.pjax={}
+volantis.pjax.method={
+	complete: new VPjax(),
+	error: new VPjax(),
+	send: new VPjax()
+}
+volantis.pjax={
+	...volantis.pjax,
+	push: volantis.pjax.method.complete.push,
+	error: volantis.pjax.method.error.push,
+	send: volantis.pjax.method.send.push
+}
+/********************脚本懒加载函数********************************/
+// 已经加入了setTimeout
+function loadScript(src, cb) {
+	setTimeout(function() {
+		var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+		var script = document.createElement('script');
+		script.setAttribute('type','text/javascript');
+		if (cb) script.onload = cb;
+		script.setAttribute('src', src);
+		HEAD.appendChild(script);
+	});
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+  loadCSS("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/styles/atom-one-dark.min.css", window.volantis.loadcss);
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+  function Pjax_SCload_fancybox(){
+	if (typeof $.fancybox == "undefined") {
+	 SCload_fancybox();
+    } else {
+	 pjax_fancybox();
+    }
+  }
+  volantis.pjax.push(Pjax_SCload_fancybox)
+  volantis.pjax.send(()=>{
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+  },'fancybox')
+</script>
+
+
+<!-- internal -->
+
+
+
+  
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class='option'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick="document.execCommand('copy')"><i class='fa fa-copy fa-fw'></i>复制文本</a>
+        <hr id='hr-text'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>复制链接</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>在新标签页打开</a>
+        <hr id='hr-href'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>复制图片地址</a>
+        <hr id='hr-src'>
+      </li>
+      
+        <li class='navigation'>
+          <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
+        </li>
+      
+      <hr>
+      
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default ' 
+        
+        
+        
+          onclick="document.execCommand('print')"
+        
+        >
+        <i class='fa fa-print fa-fw'></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default toggle-mode-btn' 
+        
+        
+        
+        >
+        <i class='fas fa-moon fa-fw'></i> Dark mode
+      </a>
+    </li>
+  
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          if ('true' == 'true') {
+            copyText.style.display = 'block';
+            hrText.style.display = 'block';
+          }
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+
+
+<script>
+  function loadIssuesJS() {
+    if ($(".md").find(".issues-api").length == 0) return;
+	
+	  loadScript('/js/issues.js');
+	
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  volantis.pjax.push(()=>{
+	if (typeof IssuesAPI == "undefined") {
+	  loadIssuesJS();
+	}
+  },"IssuesJS")
+</script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: [],
+	maxRPS: 5,
+	hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+	volantis.pjax.push(pjax_initCopyCode)
+</script>
+
+
+
+
+
+
+
+
+  
+  
+<script src="/js/valine.js"></script>
+
+
+<script>
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+    var valine = new Valine();
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":null,"appKey":null,"meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
+      el: '#valine_container',
+      path: path,
+      placeholder: pagePlaceholder,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps,
+    }))
+  }
+  $(function () {
+    pjax_valine();
+  });
+  volantis.pjax.push(pjax_valine);
+</script>
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/js/search/hexo.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+volantis.pjax.push(()=>{
+	document.querySelectorAll('pre code').forEach((block) => {
+	  hljs.highlightBlock(block);
+	});
+},"highlightjs")
+</script>
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI',
+    app_key: 'jfHtEKVE24j0IVCGHbvuFClp',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'https://conjuringwxq.github.io' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'https://conjuringwxq.github.io' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'https://conjuringwxq.github.io' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+var btn=$("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn");
+function bindToggleButton() {
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+volantis.pjax.push(bindToggleButton);
+volantis.pjax.send(()=>{
+	btn.unbind('click');
+},'toggle-mode-btn-unbind');
+</script>
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+ 
+	   
+	    
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+		// 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+		volantis.pjax.method.complete.start();
+      } catch (e) {
+        console.log(e);
+      }
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.error.start();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+ 
+	  
+    </div>
+  </body>
+</html>
