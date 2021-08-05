@@ -551,17 +551,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>插入排序</p>
-          <p class='content'>原理第一个元素默认是已排序元素，取出下一个元素和当前元素比较，如果当前元素大就交换位置。那么此时第一个元素就是当前的最小数，所以下次取出操作从第 3 个元素开始，向前对比，重复之前的操作。
-实现...</p>
+        <a class='prev' href='/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>希尔排序</p>
+          <p class='content'>原理
+先将整个待排序的记录序列分割为若干子序列
+分别进行直接插入排序
+待整个序列中的记录基本有序时，再对全体记录进行直接插入排序
+
+例子
+[35, 33, 42, 10, 14, 19, 27,...</p>
         </a>
       
       
-        <a class='next' href='/%E7%9F%A5%E8%AF%86%E7%82%B9/Vue/KeepAlive/'>
-          <p class='title'>keep-alive<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>keep-alive 的作用在做组件切换的时候，保存一些组件的状态，防止多次渲染，同时也可缓存数据状态。
-生命周期钩子当我们使用 keep-alive 时，会额外增加两个钩子函数，activat...</p>
+        <a class='next' href='/%E7%9F%A5%E8%AF%86%E7%82%B9/React/%E7%BC%96%E5%86%99%20React%20%E7%BB%84%E4%BB%B6%E6%97%B6%E5%B8%B8%E8%A7%81%E7%9A%84%205%20%E4%B8%AA%E9%94%99%E8%AF%AF/'>
+          <p class='title'>编写 React 组件时常见的 5 个错误<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>1. 在不需要重渲染时使用 useStateReact 的一个核心概念是处理状态。你可以通过状态控制整个数据流和渲染过程。每次树被重新渲染时，很可能是因为状态的变化。
+使用 useState h...</p>
         </a>
       
     </div>
