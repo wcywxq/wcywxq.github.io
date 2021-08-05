@@ -562,17 +562,22 @@ function merge(left, right) &#123;
   
     <div class="prev-next">
       
-        <a class='prev' href='/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>插入排序</p>
-          <p class='content'>原理第一个元素默认是已排序元素，取出下一个元素和当前元素比较，如果当前元素大就交换位置。那么此时第一个元素就是当前的最小数，所以下次取出操作从第 3 个元素开始，向前对比，重复之前的操作。
-实现...</p>
+        <a class='prev' href='/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>希尔排序</p>
+          <p class='content'>原理
+先将整个待排序的记录序列分割为若干子序列
+分别进行直接插入排序
+待整个序列中的记录基本有序时，再对全体记录进行直接插入排序
+
+例子
+[35, 33, 42, 10, 14, 19, 27,...</p>
         </a>
       
       
-        <a class='next' href='/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/'>
-          <p class='title'>选择排序<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>思想在冒泡排序上做了优化，减少了交换次数，首轮最大数放在第一项，一轮之后第一项就是有序的，第二轮开始选最大值放第二项，重复此操作。
-原理遍历数组，设置最小值的索引为 0，如果取出的值比当前最小值...</p>
+        <a class='next' href='/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/'>
+          <p class='title'>插入排序<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>原理第一个元素默认是已排序元素，取出下一个元素和当前元素比较，如果当前元素大就交换位置。那么此时第一个元素就是当前的最小数，所以下次取出操作从第 3 个元素开始，向前对比，重复之前的操作。
+实现...</p>
         </a>
       
     </div>

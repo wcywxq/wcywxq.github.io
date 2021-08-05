@@ -17,14 +17,14 @@
   box-shadow: 0 2px 4px 0px rgba(0,0,0,0.1), 0 4px 8px 0px rgba(0,0,0,0.1), 0 8px 16px 0px rgba(0,0,0,0.1);
 }
 @font-face {
-  font-family: 'sxls';
-  src: url("https://cdn.jsdelivr.net/gh/conjuringwxq/cdn-fonts@0.0.2/sxls.otf");
+  font-family: 'Monaco';
+  src: url("https://cdn.jsdelivr.net/gh/conjuringwxq/cdn-fonts@0.0.2/Monaco.ttf");
   font-weight: 'normal';
   font-style: 'normal';
 }
 @font-face {
-  font-family: 'Hack';
-  src: url("https://cdn.jsdelivr.net/gh/conjuringwxq/cdn-fonts@0.0.2/Hack.ttf");
+  font-family: 'Monaco';
+  src: url("https://cdn.jsdelivr.net/gh/conjuringwxq/cdn-fonts@0.0.2/Monaco.ttf");
   font-weight: 'normal';
   font-style: 'normal';
 }
@@ -1317,7 +1317,7 @@ p.p.logo {
 }
 span.p.code,
 p.p.code {
-  font-family: Hack, monospace, courier, sans-serif;
+  font-family: Monaco, monospace, courier, sans-serif;
 }
 span.p.left,
 p.p.left {
@@ -1634,6 +1634,7 @@ pre {
   position: relative;
 }
 .hljs {
+  font-family: Monaco, monospace, courier, sans-serif !important;
   margin: -16px !important;
   padding: 16px !important;
   -webkit-font-smoothing: auto;
@@ -1747,7 +1748,7 @@ pre {
   display: block;
   background: var(--color-block);
   font-size: 0.8125rem;
-  font-family: Hack, monospace, courier, sans-serif;
+  font-family: Monaco, monospace, courier, sans-serif;
   border-radius: 4px;
   line-height: 1.5;
   -webkit-font-smoothing: auto;
@@ -2095,7 +2096,7 @@ pre {
   color: #e24f5a;
 }
 .article mjx-container {
-  font-family: Hack, monospace, courier, sans-serif;
+  font-family: Monaco, monospace, courier, sans-serif;
   padding: 16px 8px;
   border-radius: 4px;
   min-width: 0 !important;
@@ -2257,7 +2258,7 @@ div.fancybox .image-caption:empty {
   -webkit-user-select: none;
   user-select: none;
   -webkit-appearance: none;
-  font-family: Menlo, Hack, monospace, courier, sans-serif;
+  font-family: Menlo, Monaco, monospace, courier, sans-serif;
   font-size: 11px;
   font-weight: bold;
   padding: 4px 8px;
@@ -2498,7 +2499,7 @@ article#comments #valine_container .vcards .vcontent blockquote {
 }
 article#comments #valine_container .vcards .vcontent code {
   color: var(--color-p);
-  font-family: Hack, monospace, courier, sans-serif;
+  font-family: Monaco, monospace, courier, sans-serif;
 }
 article#comments #valine_container .vcards .vcontent pre {
   background: var(--color-codeblock);
@@ -3097,7 +3098,7 @@ article#tag .all-tags ul li span:before {
   overflow: auto;
   background: var(--color-codeblock);
   font-size: 0.8125rem;
-  font-family: Hack, monospace, courier, sans-serif;
+  font-family: Monaco, monospace, courier, sans-serif;
   border: 1px solid #ffebcb;
   padding: 16px;
   border-radius: 4px;
@@ -3115,7 +3116,7 @@ article#tag .all-tags ul li span:before {
   color: rgba(68,68,68,0.9);
 }
 .article code {
-  font-family: sxls, Menlo, Monaco, monospace, sans-serif;
+  font-family: Monaco, Menlo, Monaco, monospace, sans-serif;
 }
 .article code:not([class]) {
   word-break: break-all;

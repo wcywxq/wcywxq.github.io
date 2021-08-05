@@ -20,14 +20,14 @@
   box-shadow: 0 2px 4px 0px rgba(0,0,0,0.1), 0 4px 8px 0px rgba(0,0,0,0.1), 0 8px 16px 0px rgba(0,0,0,0.1);
 }
 @font-face {
-  font-family: 'sxls';
-  src: url("https://cdn.jsdelivr.net/gh/conjuringwxq/cdn-fonts@0.0.2/sxls.otf");
+  font-family: 'Monaco';
+  src: url("https://cdn.jsdelivr.net/gh/conjuringwxq/cdn-fonts@0.0.2/Monaco.ttf");
   font-weight: 'normal';
   font-style: 'normal';
 }
 @font-face {
-  font-family: 'Hack';
-  src: url("https://cdn.jsdelivr.net/gh/conjuringwxq/cdn-fonts@0.0.2/Hack.ttf");
+  font-family: 'Monaco';
+  src: url("https://cdn.jsdelivr.net/gh/conjuringwxq/cdn-fonts@0.0.2/Monaco.ttf");
   font-weight: 'normal';
   font-style: 'normal';
 }
@@ -68,7 +68,7 @@ html {
   color: var(--color-text);
   width: 100%;
   height: 100%;
-  font-family: sxls, Menlo, Monaco, monospace, sans-serif;
+  font-family: Monaco, Menlo, Monaco, monospace, sans-serif;
   font-size: 16px;
 }
 html >::-webkit-scrollbar {
@@ -949,7 +949,7 @@ th {
 }
 .l_header .nav-sub .title {
   font-weight: bold;
-  font-family: sxls, Menlo, Monaco, monospace, sans-serif;
+  font-family: Monaco, Menlo, Monaco, monospace, sans-serif;
   line-height: 1.2;
   max-height: 64px;
   white-space: normal;
