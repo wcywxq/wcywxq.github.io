@@ -673,7 +673,7 @@ typeof false; // boolean
 typeof undefined; // undefined
 </code></pre>
 <h3 id="利用-instanceof-判断引用数据类型"><a href="#利用-instanceof-判断引用数据类型" class="headerlink" title="利用 instanceof 判断引用数据类型"></a>利用 instanceof 判断引用数据类型</h3><pre><code class="js">[1, 2, 3] instanceof Array; // true
-&#123;&#125; instanceof Object; // true 
+&#123;&#125; instanceof Object; // true
 function () &#123;&#125; instanceof Function; // true
 
 &#39;1&#39; instanceof String; // false
@@ -1028,6 +1028,141 @@ elements.image = null; // 正确的使用方式
 <blockquote>
 <p>如果绑定的事件所在的组件没有子元素，那么 e.target === e.currentTarget<br>如果事件绑定在父元素中，且该父元素有子元素。当用 e.currentTarget 时，不管点击父元素所在区域还是子元素(当前事件)，都正确执行；若用 e.target 时，点击父元素所在区域无错，点击子元素区域，执行报错。报错的原因是事件没绑定在子元素上，是在父元素上，子元素要用 e.currentTarget 才正确</p>
 </blockquote>
+<h2 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h2><h3 id="Generator-函数-生成器"><a href="#Generator-函数-生成器" class="headerlink" title="Generator 函数 - 生成器"></a>Generator 函数 - 生成器</h3><p>Generator 是 ES6 标准引入的新的数据类型，Generator 可以理解为一个状态机，内部封装了很多状态，同时返回一个迭代器 Iterator 对象。可以通过这个迭代器遍历相关的值及状态。Generator 的显著特点是可以多次返回，每次的返回值作为迭代器的一部分保存下来，可以被我们显示调用。</p>
+<h3 id="Generator-函数的声明"><a href="#Generator-函数的声明" class="headerlink" title="Generator 函数的声明"></a>Generator 函数的声明</h3><p>一般的函数使用 function 声明，return 作为回调，只可以回调一次。而 Generator 函数使用 function* 定义，除了 return，还可以使用 yield 返回多次</p>
+<pre><code class="js">function* foo(x) &#123;
+  yield x + 1;
+  yield x + 2;
+  return x + 3;
+&#125;
+const result = foo(0); // foo &#123;&lt;suspended&gt;&#125;
+result.next(); // &#123;value: 1, done: false&#125;
+result.next(); // &#123;value: 2, done: false&#125;
+result.next(); // &#123;value: 3, done: true&#125;
+result.next(); // &#123;value: undefined, done: true&#125;
+</code></pre>
+<blockquote>
+<p>在上面的例子中，可以看到，在执行 foo 函数后返回了一个 Generator 函数的实例。它具有 suspended 和 closed, suspended 代表暂停，closed 则为结束，但是这个状态是无法补货的，我们只能通过 Generator 函数提供的方法获取当前的状态。在执行 next 方法后，顺序执行了 yield 的返回值。返回值有 value 和 done 两个状态。value 为返回值，可以是任意类型。done 的状态为 ture/false, true 即为执行完毕。在执行完毕后再次调用返回 <code>&#123; value:undefined, done: true &#125;</code></p>
+</blockquote>
+<blockquote>
+<p>注意: 在遇到 return 的时候，所有剩下的 yield 不再执行，直接返回 <code>&#123; value: undefined, done: true &#125;</code></p>
+</blockquote>
+<h3 id="Generator-函数的方法"><a href="#Generator-函数的方法" class="headerlink" title="Generator 函数的方法"></a>Generator 函数的方法</h3><p>Generator 函数提供了 3 个方法: next / return / throw</p>
+<ul>
+<li>next: 按步执行，每次返回一个只，同时也可以每次传入新的值作为计算</li>
+<li>return: 直接跳过所有步骤，直接返回 <code>&#123; value: undefined, done: true &#125;</code></li>
+<li>throw: 根据函数中书写 try catch 返回 catch 中的内容，如果没有写 try, 则直接抛出异常</li>
+</ul>
+<h3 id="Generator-的遍历"><a href="#Generator-的遍历" class="headerlink" title="Generator 的遍历"></a>Generator 的遍历</h3><p>Generator 函数的返回值是一个带有状态的 Generator 实例。它可以被 for of 调用，进行遍历，并且只能被 for ... of 调用。</p>
+<pre><code class="js">function* foo(x) &#123;
+  console.log(&quot;start&quot;);
+  yield x + 1;
+  console.log(&quot;state 1&quot;);
+  yield x + 2;
+  console.log(&quot;end);
+&#125;
+
+const result = foo(0); // foo &#123;&lt;suspended&gt;&#125;
+
+for (let i of result) &#123;
+  console.log(i);
+&#125;
+
+// start
+// 1
+// state 1
+// 2
+// end
+result.next() // &#123; value: undefined, done: true &#125;
+</code></pre>
+<blockquote>
+<p>调用 for ... of 方法后，在后台调用 next(), 当 done 属性为 true 的时候，循环退出。因此 Generator 函数的实例将顺序执行一遍，再次调用时，状态为已完成</p>
+</blockquote>
+<h3 id="Generator-函数状态的存储和改变"><a href="#Generator-函数状态的存储和改变" class="headerlink" title="Generator 函数状态的存储和改变"></a>Generator 函数状态的存储和改变</h3><p>Generator 函数中 yield 返回的值是可以被变量存储和改变的</p>
+<pre><code class="js">function* foo(x) &#123;
+  let a = yield x + 0;
+  let b = yield a + 2;
+  yield x;
+  yield a;
+  yield b;
+&#125;
+const result = foo(0);
+result.next(); //  &#123;value: 0, done: false&#125;
+result.next(2); // &#123;value: 4, done: false&#125;
+result.next(3); // &#123;value: 0, done: false&#125;
+result.next(4); // &#123;value: 2, done: false&#125;
+result.next(5); // &#123;value: 3, done: false&#125;
+</code></pre>
+<blockquote>
+<p>以上的执行结果中，我们可以看到，在第二步的时候，我们传入 2 这个参数，foo 函数中的 a 的变量的值 0 被替换为 2，并且在第 4 次迭代的时候，返回的是 2。而第三次迭代的时候，传入的 3 参数，替换了 b 的值 4，并在第 5 次迭代的时候返回了 3。所以传入的参数，是替代上一次迭代的生成值。</p>
+</blockquote>
+<h3 id="yield-委托"><a href="#yield-委托" class="headerlink" title="yield* 委托"></a>yield* 委托</h3><p>在 Generator 函数中，我们有时需要将多个迭代器的值合在一起，我们可以使用 yield * 的形式，将执行委托给另外一个 Generator 函数</p>
+<pre><code class="js">function* foo1() &#123;
+  yield 1;
+  yield 2;
+  return &quot;foo1 end&quot;;
+&#125;
+
+function* foo2() &#123;
+  yield 3;
+  yield 4;
+&#125;
+
+function* foo() &#123;
+  yield* foo1();
+  yield* foo2();
+  yield 5;
+&#125;
+
+const result = foo();
+
+console.log(iterator.next()); // &quot;&#123; value: 1, done: false &#125;&quot;
+console.log(iterator.next()); // &quot;&#123; value: 2, done: false &#125;&quot;
+console.log(iterator.next()); // &quot;&#123; value: 3, done: false &#125;&quot;
+console.log(iterator.next()); // &quot;&#123; value: 4, done: false &#125;&quot;
+console.log(iterator.next()); // &quot;&#123; value: 5, done: false &#125;&quot;
+console.log(iterator.next()); // &quot;&#123; value: undefined, done: true &#125;&quot;
+</code></pre>
+<blockquote>
+<p>foo 在执行的时候，首先委托给了 foo1，等 foo1 执行完毕，再委托给 foo2。但是我们发现，”foo1 end” 这一句并没有输出。<br>在整个 Generator 中，return 只能有一次，在委托的时候，所有的 yield<em>都是以函数表达式的形式出现。return 的值是表达式的结果，在委托结束之前其内部都是暂停的，等待到表达式的结果的时候，将结果直接返回给 foo。此时 foo 内部没有接收的变量，所以未打印。<br>如果我们希望捕获这个值，可以使用 yield</em> foo() 的方式进行获取。</p>
+</blockquote>
+<h2 id="async-await-的实现"><a href="#async-await-的实现" class="headerlink" title="async / await 的实现"></a>async / await 的实现</h2><p>理解 async 函数需要先理解 Generator 函数，因为 async 函数是 Generator 函数的语法糖</p>
+<h3 id="实现一个简单的-async-await"><a href="#实现一个简单的-async-await" class="headerlink" title="实现一个简单的 async / await"></a>实现一个简单的 async / await</h3><p>async/await 语法糖就是使用 Generator 函数+自动执行器来运作的。</p>
+<pre><code class="js">// 定义了一个promise，用来模拟异步请求，作用是传入参数++
+function getNum(num) &#123;
+  return new Promise((resolve, reject) =&gt; &#123;
+    setTimeout(() =&gt; &#123;
+      resolve(num + 1);
+    &#125;, 1000);
+  &#125;);
+&#125;
+
+// 自动执行器，如果一个Generator函数没有执行完，则递归调用
+function asyncFun(func) &#123;
+  var gen = func();
+
+  function next(data) &#123;
+    var result = gen.next(data);
+    if (result.done) return result.value;
+    result.value.then(function (data) &#123;
+      next(data);
+    &#125;);
+  &#125;
+
+  next();
+&#125;
+
+// 所需要执行的Generator函数，内部的数据在执行完成一步的promise之后，再调用下一步
+var func = function* () &#123;
+  var f1 = yield getNum(1);
+  var f2 = yield getNum(f1);
+  console.log(f2);
+&#125;;
+asyncFun(func);
+</code></pre>
+<blockquote>
+<p>在执行的过程中，判断一个函数的 promise 是否完成，如果已经完成，将结果传入下一个函数，继续重复此步骤。</p>
+</blockquote>
 
   
   
@@ -1062,10 +1197,10 @@ elements.image = null; // 正确的使用方式
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-31T14:33:38+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-05T12:04:45+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年7月31日</p>
+    <p>本页文档最后更新于：2021年8月5日</p>
   </a>
 </div>
 
@@ -1201,7 +1336,7 @@ react 是用于构建用户界面的 JavaScript 库
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E-0-%E5%88%B0-1-%E6%90%AD%E5%BB%BA%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%80%9D%E8%80%83"><span class="toc-text">从 0 到 1 搭建项目的思考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-text">前端项目的性能指标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-%E5%B8%83%E5%B1%80"><span class="toc-text">flex 布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css-%E4%BC%98%E5%85%88%E7%BA%A7%E9%A1%BA%E5%BA%8F"><span class="toc-text">css 优先级顺序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js-%E5%8E%9F%E5%9E%8B"><span class="toc-text">js 原型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js-%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="toc-text">js 原型链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js-%E5%8E%9F%E5%9E%8B%E7%89%B9%E7%82%B9"><span class="toc-text">js 原型特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js-%E7%9A%84%E5%87%A0%E7%A7%8D%E7%BB%A7%E6%89%BF%E6%96%B9%E5%BC%8F"><span class="toc-text">js 的几种继承方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js-%E7%9A%84%E6%A0%88%E5%92%8C%E5%A0%86"><span class="toc-text">js 的栈和堆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1%E5%92%8C%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7"><span class="toc-text">事件冒泡和事件捕获</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="toc-text">事件的执行顺序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1%E5%92%8C%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">事件冒泡和事件捕获的应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#var%E3%80%81let%E3%80%81const-%E5%AF%B9%E6%AF%94"><span class="toc-text">var、let、const 对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-new-%E5%85%B3%E9%94%AE%E5%AD%97-new-%E7%9A%84%E8%BF%87%E7%A8%8B-new-%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88"><span class="toc-text">实现 new 关键字 (new 的过程&#x2F;new 操作符做了什么)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this-%E6%8C%87%E5%90%91"><span class="toc-text">this 指向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-call%E3%80%81apply%E3%80%81bind"><span class="toc-text">实现 call、apply、bind</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#call"><span class="toc-text">call</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#apply"><span class="toc-text">apply</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bind"><span class="toc-text">bind</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js-%E9%97%AD%E5%8C%85"><span class="toc-text">js 闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#weakMap-weakSet"><span class="toc-text">weakMap&#x2F;weakSet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-JavaScript-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF"><span class="toc-text">什么是 JavaScript 事件循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#node-%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E5%92%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="toc-text">node 中的事件循环和浏览器中的事件循环有什么区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%8B%E4%BB%B6%E9%98%9F%E5%88%97"><span class="toc-text">什么是事件队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E6%A0%88%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">执行栈是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js-%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">js 判断数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E7%A1%AE%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">准确判断数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8-typeof-%E5%88%A4%E6%96%AD%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">利用 typeof 判断基本数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8-instanceof-%E5%88%A4%E6%96%AD%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">利用 instanceof 判断引用数据类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax-%E7%90%86%E8%A7%A3"><span class="toc-text">ajax 理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98"><span class="toc-text">浏览器缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Service-worker"><span class="toc-text">什么是 Service worker</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Service-worker-%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">Service worker 的生命周期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Service-worker-%E7%BB%8F%E5%B8%B8%E9%85%8D%E5%90%88%E5%93%AA%E7%A7%8D%E7%BC%93%E5%AD%98%E4%BD%BF%E7%94%A8"><span class="toc-text">Service worker 经常配合哪种缓存使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6"><span class="toc-text">浏览器缓存机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E4%BD%8D%E7%BD%AE"><span class="toc-text">浏览器缓存位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5"><span class="toc-text">浏览器缓存策略</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%BA%E7%BC%93%E5%AD%98"><span class="toc-text">强缓存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98"><span class="toc-text">协商缓存</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#get-%E5%92%8C-post-%E5%9C%A8%E7%BC%93%E5%AD%98%E6%96%B9%E9%9D%A2%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">get 和 post 在缓存方面的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">浏览器跨域解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8"><span class="toc-text">前端安全</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E5%AF%B9%E6%AF%94%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F"><span class="toc-text">观察者模式对比发布订阅模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E-url-%E8%BE%93%E5%85%A5%E5%88%B0%E9%A1%B5%E9%9D%A2%E6%B8%B2%E6%9F%93%E6%95%B4%E4%B8%AA%E6%B5%81%E7%A8%8B"><span class="toc-text">从 url 输入到页面渲染整个流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http"><span class="toc-text">http</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#webSocket"><span class="toc-text">webSocket</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="toc-text">http 三次握手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B"><span class="toc-text">http 四次挥手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http-1-%E5%92%8C-http-2-%E5%AF%B9%E6%AF%94"><span class="toc-text">http&#x2F;1 和 http&#x2F;2 对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http-3"><span class="toc-text">http&#x2F;3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#https"><span class="toc-text">https</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#import-%E5%92%8C-require-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">import 和 require 的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#commonjs-%E5%92%8C-es6-module-%E5%8C%BA%E5%88%AB"><span class="toc-text">commonjs 和 es6 module 区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise-%E7%9A%84%E4%B8%80%E4%BA%9B%E8%80%83%E7%82%B9"><span class="toc-text">Promise 的一些考点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise-all"><span class="toc-text">Promise.all</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise-%E7%BC%93%E5%AD%98"><span class="toc-text">Promise 缓存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%86%85%E5%AD%98%E5%A4%84%E7%90%86"><span class="toc-text">前端内存处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E7%9A%84%E5%A3%B0%E6%98%8E%E5%91%A8%E6%9C%9F"><span class="toc-text">内存的声明周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js-%E4%B8%AD%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6"><span class="toc-text">js 中的垃圾回收机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="toc-text">引用计数垃圾回收</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%E6%B3%95"><span class="toc-text">标记清除法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0%E5%8E%8B%E7%BC%A9%E6%B3%95"><span class="toc-text">标记压缩法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A2%9E%E9%87%8F%E6%A0%87%E8%AE%B0"><span class="toc-text">增量标记</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E5%8E%9F%E5%9B%A0"><span class="toc-text">js 内存泄漏的几种原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%87%8F%E5%B0%91%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F"><span class="toc-text">如何减少内存泄漏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#e-target-%E5%92%8C-e-currentTarget-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">e.target 和 e.currentTarget 的区别</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E-0-%E5%88%B0-1-%E6%90%AD%E5%BB%BA%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%80%9D%E8%80%83"><span class="toc-text">从 0 到 1 搭建项目的思考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-text">前端项目的性能指标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-%E5%B8%83%E5%B1%80"><span class="toc-text">flex 布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css-%E4%BC%98%E5%85%88%E7%BA%A7%E9%A1%BA%E5%BA%8F"><span class="toc-text">css 优先级顺序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js-%E5%8E%9F%E5%9E%8B"><span class="toc-text">js 原型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js-%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="toc-text">js 原型链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js-%E5%8E%9F%E5%9E%8B%E7%89%B9%E7%82%B9"><span class="toc-text">js 原型特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js-%E7%9A%84%E5%87%A0%E7%A7%8D%E7%BB%A7%E6%89%BF%E6%96%B9%E5%BC%8F"><span class="toc-text">js 的几种继承方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js-%E7%9A%84%E6%A0%88%E5%92%8C%E5%A0%86"><span class="toc-text">js 的栈和堆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1%E5%92%8C%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7"><span class="toc-text">事件冒泡和事件捕获</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="toc-text">事件的执行顺序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1%E5%92%8C%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">事件冒泡和事件捕获的应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#var%E3%80%81let%E3%80%81const-%E5%AF%B9%E6%AF%94"><span class="toc-text">var、let、const 对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-new-%E5%85%B3%E9%94%AE%E5%AD%97-new-%E7%9A%84%E8%BF%87%E7%A8%8B-new-%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88"><span class="toc-text">实现 new 关键字 (new 的过程&#x2F;new 操作符做了什么)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this-%E6%8C%87%E5%90%91"><span class="toc-text">this 指向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-call%E3%80%81apply%E3%80%81bind"><span class="toc-text">实现 call、apply、bind</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#call"><span class="toc-text">call</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#apply"><span class="toc-text">apply</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bind"><span class="toc-text">bind</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js-%E9%97%AD%E5%8C%85"><span class="toc-text">js 闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#weakMap-weakSet"><span class="toc-text">weakMap&#x2F;weakSet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-JavaScript-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF"><span class="toc-text">什么是 JavaScript 事件循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#node-%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E5%92%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="toc-text">node 中的事件循环和浏览器中的事件循环有什么区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%8B%E4%BB%B6%E9%98%9F%E5%88%97"><span class="toc-text">什么是事件队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E6%A0%88%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">执行栈是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js-%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">js 判断数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E7%A1%AE%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">准确判断数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8-typeof-%E5%88%A4%E6%96%AD%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">利用 typeof 判断基本数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8-instanceof-%E5%88%A4%E6%96%AD%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">利用 instanceof 判断引用数据类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax-%E7%90%86%E8%A7%A3"><span class="toc-text">ajax 理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98"><span class="toc-text">浏览器缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Service-worker"><span class="toc-text">什么是 Service worker</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Service-worker-%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">Service worker 的生命周期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Service-worker-%E7%BB%8F%E5%B8%B8%E9%85%8D%E5%90%88%E5%93%AA%E7%A7%8D%E7%BC%93%E5%AD%98%E4%BD%BF%E7%94%A8"><span class="toc-text">Service worker 经常配合哪种缓存使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6"><span class="toc-text">浏览器缓存机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E4%BD%8D%E7%BD%AE"><span class="toc-text">浏览器缓存位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5"><span class="toc-text">浏览器缓存策略</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%BA%E7%BC%93%E5%AD%98"><span class="toc-text">强缓存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98"><span class="toc-text">协商缓存</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#get-%E5%92%8C-post-%E5%9C%A8%E7%BC%93%E5%AD%98%E6%96%B9%E9%9D%A2%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">get 和 post 在缓存方面的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">浏览器跨域解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8"><span class="toc-text">前端安全</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E5%AF%B9%E6%AF%94%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F"><span class="toc-text">观察者模式对比发布订阅模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E-url-%E8%BE%93%E5%85%A5%E5%88%B0%E9%A1%B5%E9%9D%A2%E6%B8%B2%E6%9F%93%E6%95%B4%E4%B8%AA%E6%B5%81%E7%A8%8B"><span class="toc-text">从 url 输入到页面渲染整个流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http"><span class="toc-text">http</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#webSocket"><span class="toc-text">webSocket</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="toc-text">http 三次握手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B"><span class="toc-text">http 四次挥手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http-1-%E5%92%8C-http-2-%E5%AF%B9%E6%AF%94"><span class="toc-text">http&#x2F;1 和 http&#x2F;2 对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http-3"><span class="toc-text">http&#x2F;3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#https"><span class="toc-text">https</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#import-%E5%92%8C-require-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">import 和 require 的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#commonjs-%E5%92%8C-es6-module-%E5%8C%BA%E5%88%AB"><span class="toc-text">commonjs 和 es6 module 区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise-%E7%9A%84%E4%B8%80%E4%BA%9B%E8%80%83%E7%82%B9"><span class="toc-text">Promise 的一些考点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise-all"><span class="toc-text">Promise.all</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise-%E7%BC%93%E5%AD%98"><span class="toc-text">Promise 缓存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%86%85%E5%AD%98%E5%A4%84%E7%90%86"><span class="toc-text">前端内存处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E7%9A%84%E5%A3%B0%E6%98%8E%E5%91%A8%E6%9C%9F"><span class="toc-text">内存的声明周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js-%E4%B8%AD%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6"><span class="toc-text">js 中的垃圾回收机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="toc-text">引用计数垃圾回收</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%E6%B3%95"><span class="toc-text">标记清除法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0%E5%8E%8B%E7%BC%A9%E6%B3%95"><span class="toc-text">标记压缩法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A2%9E%E9%87%8F%E6%A0%87%E8%AE%B0"><span class="toc-text">增量标记</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E5%8E%9F%E5%9B%A0"><span class="toc-text">js 内存泄漏的几种原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%87%8F%E5%B0%91%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F"><span class="toc-text">如何减少内存泄漏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#e-target-%E5%92%8C-e-currentTarget-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">e.target 和 e.currentTarget 的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Generator"><span class="toc-text">Generator</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Generator-%E5%87%BD%E6%95%B0-%E7%94%9F%E6%88%90%E5%99%A8"><span class="toc-text">Generator 函数 - 生成器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generator-%E5%87%BD%E6%95%B0%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="toc-text">Generator 函数的声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generator-%E5%87%BD%E6%95%B0%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">Generator 函数的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generator-%E7%9A%84%E9%81%8D%E5%8E%86"><span class="toc-text">Generator 的遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generator-%E5%87%BD%E6%95%B0%E7%8A%B6%E6%80%81%E7%9A%84%E5%AD%98%E5%82%A8%E5%92%8C%E6%94%B9%E5%8F%98"><span class="toc-text">Generator 函数状态的存储和改变</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yield-%E5%A7%94%E6%89%98"><span class="toc-text">yield* 委托</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#async-await-%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-text">async &#x2F; await 的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84-async-await"><span class="toc-text">实现一个简单的 async &#x2F; await</span></a></li></ol></li></ol>
     </div>
   </section>
 
