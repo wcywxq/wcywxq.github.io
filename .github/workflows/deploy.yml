@@ -1,0 +1,51 @@
+name: publish docs
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 切换分支
+      - name: checkout
+        uses: actions/checkout@master
+
+      # node 版本
+      - name: use node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # 安装 pnpm
+      - name: install pnpm
+        run: npm install -g pnpm
+
+      # 安装依赖
+      - name: install dependencies
+        run: pnpm i
+
+      # 打包
+      - name: build vitepress docs
+        run: pnpm run build
+
+      - name: Deploy to Pages
+        run: |
+          cd .vitepress/dist 
+          git init
+          git config user.name "wcywxq"
+          git config user.email "${{ secrets.GIT_EMAIL }}"
+          git add .
+          git commit -m 'deploy docs'
+          git push -f https://wcywxq:${{ secrets.ACCESS_TOKEN }}@github.com/wcywxq/blog.git master:gh-pages
+          cd -
+
+
+      - name: vitepress-deploy
+        uses: jenkey2011/vuepress-deploy@master
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          TARGET_REPO: username/repo
+          TARGET_BRANCH: master
+          BUILD_SCRIPT: pnpm && pnpm run build
+          BUILD_DIR: docs/.vitepress/dist
