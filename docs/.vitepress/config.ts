@@ -20,16 +20,32 @@ export default defineConfig({
     ],
     sidebar: {
       '/guide/': sidebarGuide(),
-      '/config/': sidebarConfig()
+      // 笔试题
+      '/pen-test/': [
+        {
+          text: '基础 api 实现',
+          items: [
+            { text: '实现 ES6 的 extends 关键字', link: '/pen-test/base-api' }
+          ]
+        },
+        {
+          text: '防抖和节流',
+          collapsible: true,
+          items: [
+            { text: '防抖', link: '/pen-test/debounce' },
+            { text: '节流', link: '/pen-test/throttle' },
+          ]
+        }
+      ]
     },
     footer: {
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2019-present Evan You'
     },
     algolia: {
-      appId: '8J64VVRP8K',
-      apiKey: 'a18e2f4cc5665f6602c5631fd868adfd',
-      indexName: 'vitepress'
+      appId: 'KPHBMC5I0L',
+      apiKey: '67169224e966f63222c6e89bccc5a24f',
+      indexName: 'docs'
     }
   }
 })
@@ -86,20 +102,6 @@ function sidebarGuide() {
           text: 'Migration from VitePress 0.x',
           link: '/guide/migration-from-vitepress-0'
         }
-      ]
-    }
-  ]
-}
-
-function sidebarConfig() {
-  return [
-    {
-      text: 'Config',
-      items: [
-        { text: 'Introduction', link: '/config/introduction' },
-        { text: 'App Configs', link: '/config/app-configs' },
-        { text: 'Theme Configs', link: '/config/theme-configs' },
-        { text: 'Frontmatter Configs', link: '/config/frontmatter-configs' }
       ]
     }
   ]

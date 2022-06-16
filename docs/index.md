@@ -16,7 +16,7 @@ hero:
       link: /stereotyped-writing
     - theme: alt
       text: 笔试题
-      link: /pen-test
+      link: /pen-test/base-api
     - theme: alt
       text: LeetCode
       link: https://github.com/wcywxq/leetcode-brush/tree/master/leetcode/editor/cn
