@@ -2,7 +2,7 @@
 layout: home
 
 title: wcywxq 的学习资料
-titleTemplate: Vite & Vue Powered Static Site Generator
+titleTemplate: web 前端
 
 hero:
   name: 学习资料
