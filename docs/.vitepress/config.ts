@@ -1,0 +1,106 @@
+import { defineConfig } from 'vitepress'
+
+export default defineConfig({
+  title: '学习资料',
+  description: '前端学习资料',
+  lang: 'zh-CN',
+  markdown: {
+    // theme: '' // dark-plus dracula-soft dracula
+  },
+  lastUpdated: true,
+  themeConfig: {
+    // 活动匹配预计是regex字符串，我们可以使用实际的reg exp对象，因为它是可序列化的
+    nav: [
+      { text: '八股文', link: '/stereotyped-writing' },
+      { text: '笔试题', link: '/pen-test' },
+      { text: 'LeetCode', link: '/leetCode' }
+    ],
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/wcywxq' },
+    ],
+    sidebar: {
+      '/guide/': sidebarGuide(),
+      '/config/': sidebarConfig()
+    },
+    footer: {
+      message: 'Released under the MIT License.',
+      copyright: 'Copyright © 2019-present Evan You'
+    },
+    algolia: {
+      appId: '8J64VVRP8K',
+      apiKey: 'a18e2f4cc5665f6602c5631fd868adfd',
+      indexName: 'vitepress'
+    }
+  }
+})
+
+function sidebarGuide() {
+  return [
+    {
+      text: 'Introduction',
+      collapsible: true,
+      items: [
+        { text: 'What is VitePress?', link: '/guide/what-is-vitepress' },
+        { text: 'Getting Started', link: '/guide/getting-started' },
+        { text: 'Configuration', link: '/guide/configuration' },
+        { text: 'Deploying', link: '/guide/deploying' }
+      ]
+    },
+    {
+      text: 'Writing',
+      collapsible: true,
+      items: [
+        { text: 'Markdown', link: '/guide/markdown' },
+        { text: 'Asset Handling', link: '/guide/asset-handling' },
+        { text: 'Frontmatter', link: '/guide/frontmatter' },
+        { text: 'Using Vue in Markdown', link: '/guide/using-vue' },
+        { text: 'API Reference', link: '/guide/api' }
+      ]
+    },
+    {
+      text: 'Theme',
+      collapsible: true,
+      items: [
+        { text: 'Introduction', link: '/guide/theme-introduction' },
+        { text: 'Nav', link: '/guide/theme-nav' },
+        { text: 'Sidebar', link: '/guide/theme-sidebar' },
+        { text: 'Prev Next Link', link: '/guide/theme-prev-next-link' },
+        { text: 'Edit Link', link: '/guide/theme-edit-link' },
+        { text: 'Last Updated', link: '/guide/theme-last-updated' },
+        { text: 'Layout', link: '/guide/theme-layout' },
+        { text: 'Homepage', link: '/guide/theme-homepage' },
+        { text: 'Footer', link: '/guide/theme-footer' },
+        { text: 'Search', link: '/guide/theme-search' },
+        { text: 'Carbon Ads', link: '/guide/theme-carbon-ads' }
+      ]
+    },
+    {
+      text: 'Migrations',
+      collapsible: true,
+      items: [
+        {
+          text: 'Migration from VuePress',
+          link: '/guide/migration-from-vuepress'
+        },
+        {
+          text: 'Migration from VitePress 0.x',
+          link: '/guide/migration-from-vitepress-0'
+        }
+      ]
+    }
+  ]
+}
+
+function sidebarConfig() {
+  return [
+    {
+      text: 'Config',
+      items: [
+        { text: 'Introduction', link: '/config/introduction' },
+        { text: 'App Configs', link: '/config/app-configs' },
+        { text: 'Theme Configs', link: '/config/theme-configs' },
+        { text: 'Frontmatter Configs', link: '/config/frontmatter-configs' }
+      ]
+    }
+  ]
+}
