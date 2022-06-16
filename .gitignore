@@ -1,0 +1,22 @@
+# dependencies
+**/node_modules
+
+# production
+/docs/.vitepress/dist
+
+# misc
+.DS_Store
+npm-debug.log*
+yarn-error.log
+
+/coverage
+.idea
+package-lock.json
+pnpm-lock.yaml
+
+
+# visual studio code
+.history
+*.log
+functions/*
+.temp/**
