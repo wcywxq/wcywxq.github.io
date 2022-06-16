@@ -27,7 +27,7 @@ jobs:
 
       # 打包
       - name: build vitepress docs
-        run: pnpm run build
+        run: pnpm run docs:build
 
       - name: Deploy to Pages
         run: |
@@ -39,13 +39,3 @@ jobs:
           git commit -m 'deploy docs'
           git push -f https://wcywxq:${{ secrets.ACCESS_TOKEN }}@github.com/wcywxq/blog.git master:gh-pages
           cd -
-
-
-      - name: vitepress-deploy
-        uses: jenkey2011/vuepress-deploy@master
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          TARGET_REPO: username/repo
-          TARGET_BRANCH: master
-          BUILD_SCRIPT: pnpm && pnpm run docs:build
-          BUILD_DIR: docs/.vitepress/dist
