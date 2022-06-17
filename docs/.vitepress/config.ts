@@ -6,13 +6,21 @@ export default defineConfig({
   lang: 'zh-CN',
   markdown: {
     // theme: '' // dark-plus dracula-soft dracula
+    toc: {
+      level: [1, 2, 3, 4, 5, 6, 7]
+    },
+    // config: (md) => {
+    //   md.use(require('markdown-it-anchor'))
+    // }
   },
   lastUpdated: true,
   themeConfig: {
+    outlineTitle: '目录',
+    lastUpdatedText: '上次更新时间',
     // 活动匹配预计是regex字符串，我们可以使用实际的reg exp对象，因为它是可序列化的
     nav: [
       { text: '八股文', link: '/stereotyped-writing' },
-      { text: '笔试题', link: '/pen-test' },
+      { text: '笔试题', link: '/pen-test/base-api', activeMatch: '/pen-test' },
       { text: 'LeetCode', link: '/leetCode' }
     ],
     socialLinks: [
