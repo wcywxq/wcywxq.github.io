@@ -2,6 +2,8 @@
 outline: deep
 ---
 
+[[toc]]
+
 # 实现 ES6 的 extends 关键字
 
 ```js

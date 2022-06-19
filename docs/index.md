@@ -13,10 +13,10 @@ hero:
   actions:
     - theme: brand
       text: 八股文
-      link: /stereotyped-writing
+      link: /八股文
     - theme: alt
       text: 笔试题
-      link: /pen-test/base-api
+      link: /笔试题/基础API/extends
     - theme: alt
       text: LeetCode
       link: https://github.com/wcywxq/leetcode-brush/tree/master/leetcode/editor/cn

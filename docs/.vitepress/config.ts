@@ -19,8 +19,8 @@ export default defineConfig({
     lastUpdatedText: '上次更新时间',
     // 活动匹配预计是regex字符串，我们可以使用实际的reg exp对象，因为它是可序列化的
     nav: [
-      { text: '八股文', link: '/stereotyped-writing' },
-      { text: '笔试题', link: '/pen-test/base-api', activeMatch: '/pen-test' },
+      { text: '八股文', link: '/八股文' },
+      { text: '笔试题', link: '/笔试题/基础API', activeMatch: '/笔试题' },
       { text: 'LeetCode', link: '/leetCode' }
     ],
     socialLinks: [
@@ -28,22 +28,35 @@ export default defineConfig({
     ],
     sidebar: {
       '/guide/': sidebarGuide(),
-      // 笔试题
-      '/pen-test/': [
+      '/笔试题/': [
         {
-          text: '基础 api 实现',
+          text: '基础API实现',
           items: [
-            { text: '实现 ES6 的 extends 关键字', link: '/pen-test/base-api' }
+            { text: '实现 ES6 的 extends 关键字', link: '/笔试题/基础API/extends' }
           ]
         },
         {
           text: '防抖和节流',
           collapsible: true,
           items: [
-            { text: '防抖', link: '/pen-test/debounce' },
-            { text: '节流', link: '/pen-test/throttle' },
+            { text: '防抖', link: '/笔试题/防抖和节流/防抖' },
+            { text: '节流', link: '/笔试题/防抖和节流/节流' },
           ]
-        }
+        },
+        {
+          text: '数组',
+          collapsible: true,
+          items: [
+            { text: '数组交集、差集、并集', link: '/笔试题/数组/数组交集、差集、并集' }
+          ]
+        },
+        {
+          text: '字符串',
+          collapsible: true,
+          items: [
+            { text: '实现字符串的 repeat 方法', link: '/笔试题/字符串/实现字符串的 repeat 方法' }
+          ]
+        },
       ]
     },
     footer: {
