@@ -97,7 +97,10 @@ export default defineAppConfig({
     }]
   },
   docs: {
-    github: 'https://github.com/wcywxq'
+    github: 'https://github.com/wcywxq',
+    repo: 'wcywxq.github.io',
+    branch: 'master',
+    base_url: 'content'
   },
   toc: {
     title: '大纲'

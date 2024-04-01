@@ -72,7 +72,7 @@ console.log(page.value.body?.toc?.links);
               {
                 icon: 'i-ph-pen-duotone',
                 label: 'Edit this page on GitHub',
-                to: `https://github.com/${docs.github}/edit/main/docs/${page._file}`,
+                to: `${docs.github}/${docs.repo}/edit/${docs.branch}/${docs.base_url}/${page._file}`,
                 target: '_blank',
               },
             ]"
