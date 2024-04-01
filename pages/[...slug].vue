@@ -11,7 +11,6 @@ const { docs, toc, seo } = useAppConfig();
 const { data: page } = await useAsyncData(route.path, () =>
   queryContent(route.path).findOne()
 );
-console.log(page.value);
 if (!page.value) {
   throw createError({
     statusCode: 404,
@@ -41,7 +40,6 @@ defineOgImage({
 });
 
 const headline = computed(() => findPageHeadline(page.value));
-console.log(page.value.body?.toc?.links);
 </script>
 
 <template>
