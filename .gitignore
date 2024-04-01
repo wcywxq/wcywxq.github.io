@@ -1,22 +1,27 @@
-# dependencies
-**/node_modules
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
 
-# production
-/docs/.vitepress/dist
+# Node dependencies
+node_modules
 
-# misc
-.DS_Store
-npm-debug.log*
-yarn-error.log
-
-/coverage
-.idea
-package-lock.json
-pnpm-lock.yaml
-
-
-# visual studio code
-.history
+# Logs
+logs
 *.log
-functions/*
-.temp/**
+
+# Misc
+.DS_Store
+.fleet
+.idea
+
+# Local env files
+.env
+.env.*
+!.env.example
+
+# VSC
+.history
