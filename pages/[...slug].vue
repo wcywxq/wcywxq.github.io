@@ -56,6 +56,9 @@ const headline = computed(() => findPageHeadline(page.value));
           {{ page.title }}
         </ULink>
       </template>
+      <template v-if="page.subTitle" #description>
+        <p>{{ page.subTitle }}</p>
+      </template>
     </UPageHeader>
 
     <UPageBody prose>
