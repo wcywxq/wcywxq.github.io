@@ -1,52 +1,50 @@
 <script setup lang="ts">
-import { withoutTrailingSlash } from "ufo";
+import { withoutTrailingSlash } from 'ufo'
 
 definePageMeta({
-  layout: "docs",
-});
+  layout: 'docs',
+})
 
-const route = useRoute();
-const { docs, toc, seo } = useAppConfig();
+const route = useRoute()
+const { docs, toc, seo } = useAppConfig()
 
 const { data: page } = await useAsyncData(route.path, () =>
   queryContent(route.path).findOne()
-);
+)
 if (!page.value) {
   throw createError({
-    statusCode: 404,
-    statusMessage: "Page not found",
-    fatal: true,
-  });
+    status: 404,
+    statusText: 'Page not found',
+  })
 }
 
 const { data: surround } = await useAsyncData(`${route.path}-surround`, () =>
   queryContent()
-    .where({ _extension: "md", navigation: { $ne: false } })
-    .only(["title", "description", "_path"])
+    .where({ _extension: 'md', navigation: { $ne: false } })
+    .only(['title', 'description', '_path'])
     .findSurround(withoutTrailingSlash(route.path))
-);
+)
 
 useSeoMeta({
   title: page.value.title,
   ogTitle: `${page.value.title} - ${seo?.siteName}`,
   description: page.value.description,
   ogDescription: page.value.description,
-});
+})
 
 defineOgImage({
-  component: "Docs",
+  component: 'Docs',
   title: page.value.title,
   description: page.value.description,
-});
+})
 
-const headline = computed(() => findPageHeadline(page.value));
+const headline = computed(() => findPageHeadline(page.value!))
 </script>
 
 <template>
   <UPage>
-    <UPageHeader :title="page.title" :links="page.links" :headline="headline">
-      <!-- :description="page.description" -->
-      <template #title v-if="page.url">
+    <UPageHeader :title="page?.title" :links="page?.links" :headline="headline">
+      <template v-if="page?.url" #title>
         <ULink
           :to="page.url"
           active-class="text-primary"
@@ -56,13 +54,13 @@ const headline = computed(() => findPageHeadline(page.value));
           {{ page.title }}
         </ULink>
       </template>
-      <template v-if="page.subTitle" #description>
+      <template v-if="page?.subTitle" #description>
         <p>{{ page.subTitle }}</p>
       </template>
     </UPageHeader>
 
     <UPageBody prose>
-      <ContentRenderer v-if="page.body" :value="page" />
+      <ContentRenderer v-if="page?.body" :value="page" />
 
       <div class="space-y-6">
         <UDivider type="dashed" />
@@ -88,7 +86,7 @@ const headline = computed(() => findPageHeadline(page.value));
       </div>
     </UPageBody>
 
-    <template v-if="page.toc !== false" #right>
+    <template v-if="page?.toc !== false" #right>
       <Toc :title="toc?.title" :links="page.body?.toc?.links">
         <!-- links: {
             wrapper: 'space-y-1 bg-red',
