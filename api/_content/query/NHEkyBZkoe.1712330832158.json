@@ -1,0 +1,1 @@
+[{"_path":"/code/scene/promise/order-print-url-and-retry","title":"顺序打印 url 并支持 retry","description":"已知一个回调形式的 request 接口 (无返回值)，和一个链接数组 urlArr"},null]
