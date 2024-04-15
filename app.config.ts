@@ -49,7 +49,7 @@ export default defineAppConfig({
         }
       }
     },
-    primary: 'amber', // 琥珀色
+    primary: 'sky', // 'amber', // 琥珀色
     gray: 'slate',
     footer: {
       bottom: {
