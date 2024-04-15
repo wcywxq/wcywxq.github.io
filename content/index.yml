@@ -8,7 +8,7 @@ hero:
   links:
     - label: algorithm
       icon: i-cib-leetcode
-      to: "/code/algorithm/leetcode/two-sum"
+      to: "/algorithm"
       size: lg
     - label: wcywxq's github
       icon: i-simple-icons-github
