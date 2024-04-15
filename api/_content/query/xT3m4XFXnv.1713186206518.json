@@ -1,0 +1,1 @@
+[{"_path":"/algorithm/leetcode/merge-intervals","title":"No.56 合并区间","description":"以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [start_i, end_i] 。请你合并所有重叠的区间，并返回 一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间 。"},{"_path":"/algorithm/leetcode/sqrtx","title":"No.69 x 的平方根","description":"给你一个非负整数 x ，计算并返回 x 的 算术平方根 。"}]
