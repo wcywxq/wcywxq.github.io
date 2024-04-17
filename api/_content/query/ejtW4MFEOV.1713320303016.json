@@ -1,0 +1,1 @@
+[{"_path":"/algorithm/leetcode/trapping-rain-water","title":"No.42 接雨水","description":"给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。"},{"_path":"/algorithm/leetcode/maximum-subarray","title":"No.53 最大子序和","description":"给你一个整数数组 nums ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。"}]
