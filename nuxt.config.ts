@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     'nuxt-og-image'
   ],
   ui: {
-    icons: ['heroicons', 'simple-icons', 'cib', 'ph']
+    icons: ['heroicons', 'simple-icons', 'carbon', 'cib', 'ph']
   },
   // fonts: {
   //   families: [{ name: 'Nunito', provider: 'bunny' }],
