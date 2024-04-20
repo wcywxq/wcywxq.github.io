@@ -11,7 +11,8 @@ export default defineNuxtConfig({
   modules: [
     // '@nuxt/fonts',
     '@nuxt/content',
-    '@nuxt/ui'
+    '@nuxt/ui',
+    '@nuxthq/studio'
   ],
   ui: {
     icons: ['heroicons', 'simple-icons', 'carbon', 'cib', 'ph']
