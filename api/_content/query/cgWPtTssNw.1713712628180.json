@@ -1,0 +1,1 @@
+[{"_path":"/frontend-code-assessment/scene/promise/cycle-printing-red-yellow-green","title":"循环打印红-黄-绿","description":"红灯 3s 亮一次，绿灯 1s 亮一次，黄灯 2s 亮一次，如何让 3 种灯不断交替重复亮灯"},{"_path":"/frontend-code-assessment/scene/framework-and-design-mode/event-bus","title":"event bus","description":"Event Bus 事件总线实际上就是创建一个基于发布-订阅模式（Publish/Subscribe）的对象，它可以帮助我们在不同组件或模块之间进行通信。"}]
