@@ -1,0 +1,1 @@
+[{"_path":"/code-assessment/scene/promise/concurrent-scheduler","title":"实现并发调度器","description":"根据输出实现"},{"_path":"/code-assessment/scene/promise/implement-merge-promise-function","title":"实现 mergePromise 函数","description":"实现 mergePromise 函数，传入的数组按照顺序先后执行，返回的数据需要按照次序放到数组 data 中"}]
