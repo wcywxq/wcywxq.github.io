@@ -1,0 +1,1 @@
+[{"_path":"/code-assessment/scene/promise/order-print-url-and-support-retry","title":"保证 url 打印顺序并支持 retry","description":"已知一个回调形式的 request 接口 (无返回值)，和一个链接数组 urlArr"},{"_path":"/code-assessment/scene/promise/use-addremote-to-implement-add","title":"使用 addRemote 实现 add","description":"通过调用 addRemote，实现 add 方法。addRemote 仅能计算两个数字之和，add 可以传入任意多个数字，返回的是这些数字之和"}]
