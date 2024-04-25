@@ -35,9 +35,9 @@ export default defineNuxtConfig({
     },
     highlight: {
       theme: {
-        default: 'slack-ochin',
-        light: 'slack-ochin', // vitesse-light
-        dark: 'ayu-dark', // vitesse-dark
+        default: 'vitesse-light', // 'slack-ochin'
+        light: 'vitesse-light', // 'slack-ochin'
+        dark: 'vitesse-dark', // 'ayu-dark'
       },
       langs: [
         'py',
