@@ -5,7 +5,7 @@ export default <Partial<Config>>{
   theme: {
     extend: {
       fontFamily: {
-        sans: ['sans-serif', ...defaultTheme.fontFamily.sans]
+        sans: ['Nunito', 'sans-serif', ...defaultTheme.fontFamily.sans]
       },
       colors: {
         background: 'rgb(var(--ui-background) / <alpha-value>)',

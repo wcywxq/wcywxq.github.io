@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     }
   },
   modules: [
-    // '@nuxt/fonts',
+    '@nuxt/fonts',
     '@nuxt/content',
     '@nuxt/ui',
     '@nuxthq/studio'
@@ -17,12 +17,12 @@ export default defineNuxtConfig({
   ui: {
     icons: ['heroicons', 'simple-icons', 'carbon', 'cib', 'ph']
   },
-  // fonts: {
-  //   families: [{ name: 'Nunito', provider: 'bunny' }],
-  //   defaults: {
-  //     weights: [400, 500, 600, 700],
-  //   },
-  // },
+  fonts: {
+    families: [{ name: 'Nunito', provider: 'bunny' }],
+    defaults: {
+      weights: [400, 500, 600, 700],
+    },
+  },
   content: {
     markdown: {
       toc: {
