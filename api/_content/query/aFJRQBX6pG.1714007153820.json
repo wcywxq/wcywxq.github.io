@@ -1,0 +1,1 @@
+[{"_path":"/frontend-code-assessment/scene/promise/use-addremote-to-implement-add","title":"使用 addRemote 实现 add","description":"通过调用 addRemote，实现 add 方法。addRemote 仅能计算两个数字之和，add 可以传入任意多个数字，返回的是这些数字之和"},{"_path":"/frontend-code-assessment/scene/promise/cycle-printing-red-yellow-green","title":"循环打印红-黄-绿","description":"红灯 3s 亮一次，绿灯 1s 亮一次，黄灯 2s 亮一次，如何让 3 种灯不断交替重复亮灯"}]
