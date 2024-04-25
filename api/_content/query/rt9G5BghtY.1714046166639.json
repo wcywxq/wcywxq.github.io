@@ -1,0 +1,1 @@
+[{"_path":"/code-assessment/scene/object-is-or-not-circular-reference","title":"对象是否循环引用","description":"循环引用对象本来没有什么问题，但是序列化的时候就会发生问题，比如调用 JSON.stringify() 对该类对象进行序列化，就会报错: Converting circular structure to JSON."},{"_path":"/code-assessment/scene/prototype-chain-output","title":"原型链输出","description":""}]

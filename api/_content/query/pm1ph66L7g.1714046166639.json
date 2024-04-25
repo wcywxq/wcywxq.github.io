@@ -1,0 +1,1 @@
+[{"_path":"/code-assessment/scene/promise/order-print-url-and-support-retry","title":"保证 url 打印顺序并支持 retry","description":"已知一个回调形式的 request 接口 (无返回值)，和一个链接数组 urlArr"},{"_path":"/code-assessment/scene/promise/implement-merge-promise-function","title":"实现 mergePromise 函数","description":"实现 mergePromise 函数，传入的数组按照顺序先后执行，返回的数据需要按照次序放到数组 data 中"}]
