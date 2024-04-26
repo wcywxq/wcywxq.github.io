@@ -1,0 +1,1 @@
+[{"_path":"/code-assessment/scene/promise/order-print-url-and-support-retry","title":"保证 url 打印顺序并支持 retry","description":"已知一个回调形式的 request 接口 (无返回值)，和一个链接数组 urlArr"},{"_path":"/code-assessment/scene/promise/promise-concurrent","title":"实现 Promise 并发","description":""}]

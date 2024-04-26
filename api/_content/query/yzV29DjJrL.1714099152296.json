@@ -1,0 +1,1 @@
+[{"_path":"/algorithm/leetcode/major/kth-largest-element-in-an-array","title":"No.215 数组中的第K个最大元素","description":"给定整数数组 nums 和整数 k，请返回数组中第 k 个最大的元素。"},{"_path":"/algorithm/leetcode/major/product-of-array-except-self","title":"No.238 除自身以外数组的乘积","description":"给你一个整数数组 nums，返回 数组 answer ，其中 answer[i] 等于 nums 中除 nums[i] 之外其余各元素的乘积 。"}]
