@@ -1,0 +1,1 @@
+[{"_path":"/code-assessment/scene/framework-core-implement/event-bus","title":"event bus","description":"Event Bus 事件总线实际上就是创建一个基于发布-订阅模式（Publish/Subscribe）的对象，它可以帮助我们在不同组件或模块之间进行通信。"},{"_path":"/code-assessment/scene/prototype-chain-output","title":"原型链输出","description":""}]
