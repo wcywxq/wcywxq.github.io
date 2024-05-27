@@ -1,0 +1,1 @@
+[{"_path":"/code-assessment/source/is-plain-object","title":"判断朴素对象","description":"朴素对象指的是那些没有附加任何额外行为或方法的普通对象，它们是最基础的对象形态。创建方式一般为对象字面量或 new Object()"},{"_path":"/code-assessment/scene/promise/order-print-url-and-support-retry","title":"保证 url 打印顺序并支持 retry","description":"已知一个回调形式的 request 接口 (无返回值)，和一个链接数组 urlArr"}]
