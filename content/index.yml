@@ -1,9 +1,9 @@
-title: "知识库集合"
-description: 编程相关知识技能文档集.
+title: "Galaxy Knowledge Base"
+description: A collection of knowledge base documents.
 navigation: false
 hero:
-  title: "知识库集合"
-  description: "编程相关知识技能文档集"
+  title: "Galaxy Knowledge Base"
+  description: "A collection of knowledge base documents"
   orientation: vertical
   links:
     - label: algorithm

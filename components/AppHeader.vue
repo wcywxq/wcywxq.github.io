@@ -1,19 +1,17 @@
 <script setup lang="ts">
-import type { NavItem } from "@nuxt/content/dist/runtime/types";
+import type { NavItem } from '@nuxt/content/dist/runtime/types'
 
-const navigation = inject<NavItem[]>("navigation", []);
-const { header } = useAppConfig();
+const navigation = inject<NavItem[]>('navigation', [])
+const { header } = useAppConfig()
 </script>
 
 <template>
   <UHeader>
     <template #logo>
-      <template v-if="header?.logo?.dark || header?.logo?.light">
-        <UColorModeImage v-bind="{ class: 'h-6 w-auto', ...header?.logo }" />
-      </template>
-      <template v-else>
-        Nuxt UI Pro <UBadge label="Docs" variant="subtle" class="mb-0.5" />
-      </template>
+      <div class="transition duration-300 ease hover:text-primary">
+        <UAvatar class="align-middle" src="/logo.svg" alt="Avatar" />
+        Galaxy
+      </div>
     </template>
 
     <template v-if="header?.search" #center>
@@ -23,8 +21,7 @@ const { header } = useAppConfig();
     <template #right>
       <UContentSearchButton
         v-if="header?.search"
-        :label="null"
-        class="lg:hidden"
+        :label="undefined" class="lg:hidden"
       />
 
       <UColorModeButton v-if="header?.colorMode" />
