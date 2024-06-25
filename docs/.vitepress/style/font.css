@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Nunito';
+  src: url('../public/fonts/Nunito.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Agave Nerd Font Mono';
+  src: url('../public/fonts/AgaveNerdFontMono.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --vp-font-family-base: 'Nunito', 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --vp-font-family-mono: 'Agave Nerd Font Mono', ui-monospace, 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+}

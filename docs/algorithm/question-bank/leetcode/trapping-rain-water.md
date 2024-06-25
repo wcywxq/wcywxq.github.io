@@ -1,0 +1,121 @@
+---
+title: No.42 接雨水
+url: https://leetcode.cn/problems/trapping-rain-water
+---
+
+# <a class='!no-underline' :href="$frontmatter.url" target="_blank">{{ $frontmatter.title }}</a>
+
+给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。
+
+示例 1：
+
+![rainwatertrap](https://raw.githubusercontent.com/wcywxq/image-store/master/ssg/code_leetcode_No.42_rainwatertrap.png)
+
+```text
+输入：height = [0,1,0,2,1,0,1,3,2,1,2,1]
+输出：6
+解释：上面是由数组 [0,1,0,2,1,0,1,3,2,1,2,1] 表示的高度图，在这种情况下，可以接 6 个单位的雨水（蓝色部分表示雨水）。
+```
+
+示例 2：
+
+```text
+输入：height = [4,2,0,3,2,5]
+输出：9
+```
+
+提示：
+
+- n == height.length
+- 1 <= n <= 2 \* 10^4
+- 0 <= height\[i\] <= 10^5
+
+## 解题思路
+
+## 实现
+
+### 暴力破解
+
+```js
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+var trap = function (height) {
+  let n = height.length;
+  if (n === 0) return 0;
+  let res = 0;
+  for (let i = 1; i < n - 1; i++) {
+    let l_max = 0;
+    let r_max = 0;
+    for (let j = i; j < n; j++) {
+      r_max = Math.max(r_max, height[j]);
+    }
+    for (let j = i; j >= 0; j--) {
+      l_max = Math.max(l_max, height[j]);
+    }
+    res += Math.min(l_max, r_max) - height[i];
+  }
+  return res;
+};
+```
+
+### 暴力破解优化
+
+```js
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+var trap = function (height) {
+  let n = height.length;
+  if (n === 0) return 0;
+  let res = 0;
+  let l_max = new Array(n);
+  let r_max = new Array(n);
+  l_max[0] = height[0];
+  r_max[n - 1] = height[n - 1];
+  for (let i = 1; i < n; i++) {
+    l_max[i] = Math.max(l_max[i - 1], height[i]);
+  }
+  for (let i = n - 2; i >= 0; i--) {
+    r_max[i] = Math.max(r_max[i + 1], height[i]);
+  }
+  for (let i = 1; i < n - 1; i++) {
+    res += Math.min(l_max[i], r_max[i]) - height[i];
+  }
+  return res;
+};
+```
+
+### 双指针
+
+```js
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+var trap = function (height) {
+  let n = height.length;
+  if (n === 0) return 0;
+  let res = 0;
+  let left = 0;
+  let right = n - 1;
+
+  let l_max = height[left];
+  let r_max = height[right];
+
+  while (left < right) {
+    l_max = Math.max(l_max, height[left]);
+    r_max = Math.max(r_max, height[right]);
+    if (l_max < r_max) {
+      res += l_max - height[left];
+      left++;
+    } else {
+      res += r_max - height[right];
+      right--;
+    }
+  }
+  return res;
+};
+```

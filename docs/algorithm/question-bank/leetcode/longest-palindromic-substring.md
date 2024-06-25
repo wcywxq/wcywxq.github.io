@@ -1,0 +1,123 @@
+---
+title: No.5 最长回文子串
+url: https://leetcode.cn/problems/longest-palindromic-substring
+---
+
+# <a class='!no-underline' :href="$frontmatter.url" target="_blank">{{ $frontmatter.title }}</a>
+
+给你一个字符串 s，找到 s 中最长的回文
+子串
+。
+
+如果字符串的反序与原始字符串相同，则该字符串称为回文字符串。
+
+示例 1：
+
+```text
+输入：s = "babad"
+输出："bab"
+解释："aba" 同样是符合题意的答案。
+```
+
+示例 2：
+
+```text
+输入：s = "cbbd"
+输出："bb"
+```
+
+提示：
+
+- 1 <= s.length <= 1000
+- s 仅由数字和英文字母组成
+
+## 解题思路
+
+## 实现
+
+### 暴力破解 - O(n^3)
+
+```js
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var longestPalindrome = function (s) {
+  if (!s || s.length < 2) return s || "";
+  let len = s.length;
+  let maxLen = 1;
+  let start = 0;
+
+  const isPalindrome = (s, i, j) => {
+    while (i < j) {
+      if (s[i] !== s[j]) return false;
+      i++;
+      j--;
+    }
+    return true;
+  };
+
+  for (let i = 0; i < len - 1; i++) {
+    for (let j = i + 1; j < len; j++) {
+      if (isPalindrome(s, i, j) && j - i + 1 > maxLen) {
+        maxLen = j - i + 1;
+        start = i;
+      }
+    }
+  }
+
+  return s.substring(start, start + maxLen);
+};
+```
+
+### 中心扩散法 - O(n^2)
+
+```js
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var longestPalindrome = function (s) {
+  // 奇数：中心为 1 个字符；偶数：中心为 2 个字符
+  if (!s || s.length < 2) return s || "";
+  let start = 0;
+  let end = 0;
+
+  function expandAroundCenter(s, l, r) {
+    while (l >= 0 && r < s.length && s[l] === s[r]) {
+      l--;
+      r++;
+    }
+    return [l + 1, r - 1];
+  }
+
+  for (let i = 0; i < s.length; i++) {
+    // l = r 时，奇数，中心 1 个字符
+    let [l1, r1] = expandAroundCenter(s, i, i);
+    // l = r + 1 时，偶数，中心 2 个字符
+    let [l2, r2] = expandAroundCenter(s, i, i + 1);
+    if (r1 - l1 > end - start) {
+      start = l1;
+      end = r1;
+    }
+    if (r2 - l2 > end - start) {
+      start = l2;
+      end = r2;
+    }
+  }
+  return s.substring(start, end + 1);
+};
+```
+
+### 动态规划
+
+```js
+/**
+ * 动态规划
+ * @param {string} s
+ * @return {string}
+ */
+var longestPalindrome = function (s) {
+  // TODO
+};
+```

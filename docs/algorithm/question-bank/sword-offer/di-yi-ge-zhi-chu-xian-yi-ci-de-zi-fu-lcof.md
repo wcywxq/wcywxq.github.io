@@ -1,0 +1,51 @@
+---
+title: LCR.169 招式拆解 II
+subTitle: 剑指 offer 50. 第一个只出现一次的字符
+url: https://leetcode.cn/problems/di-yi-ge-zhi-chu-xian-yi-ci-de-zi-fu-lcof
+---
+
+# <a class='!no-underline' :href="$frontmatter.url" target="_blank">{{ $frontmatter.title }}</a>
+
+> {{ $frontmatter.subTitle }}
+
+某套连招动作记作仅由小写字母组成的序列 arr，其中 arr\[i\] 第 i 个招式的名字。请返回第一个只出现一次的招式名称，如不存在请返回空格。
+
+示例 1：
+
+```text
+输入：arr = "abbccdeff"
+输出：'a'
+```
+
+示例 2：
+
+```text
+输入：arr = "ccdd"
+输出：' '
+```
+
+限制：
+
+- 0 <= arr.length <= 50000
+
+## 解题思路
+
+## 实现
+
+```js
+/**
+ * @param {string} s
+ * @return {character}
+ */
+var dismantlingAction = function(s) {
+    if (!s.length) return ' '
+    let map = new Map()
+    for (let i = 0; i < s.length; i++) {
+        let char = s.charAt(i)
+        map.set(char, map.has(char) ? map.get(char) + 1: 1)
+    }
+    let onceList = [...map].filter(([_, v]) => v === 1)
+    if (!onceList.length) return ' '
+    return onceList[0][0]
+};
+```

@@ -1,0 +1,150 @@
+---
+title: No.155 最小栈
+url: https://leetcode.cn/problems/min-stack
+---
+
+# <a class='!no-underline' :href="$frontmatter.url" target="_blank">{{ $frontmatter.title }}</a>
+
+设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。
+
+实现 MinStack 类:
+
+- MinStack() 初始化堆栈对象。
+- void push(int val) 将元素 val 推入堆栈。
+- void pop() 删除堆栈顶部的元素。
+- int top() 获取堆栈顶部的元素。
+- int getMin() 获取堆栈中的最小元素。
+
+示例 1:
+
+```text
+输入：
+["MinStack","push","push","push","getMin","pop","top","getMin"]
+[[],[-2],[0],[-3],[],[],[],[]]
+
+输出：
+[null,null,null,null,-3,null,0,-2]
+
+解释：
+MinStack minStack = new MinStack();
+minStack.push(-2);
+minStack.push(0);
+minStack.push(-3);
+minStack.getMin(); --> 返回 -3.
+minStack.pop();
+minStack.top(); --> 返回 0.
+minStack.getMin(); --> 返回 -2.
+```
+
+提示：
+
+- -2^31 <= val <= 2^31 - 1
+- pop、top 和 getMin 操作总是在 非空栈 上调用
+- push, pop, top, and getMin 最多被调用 3 \* 10^4 次
+
+## 解题思路
+
+## 实现
+
+### 构造辅助栈
+
+```js
+var MinStack = function () {
+  this.x_stack = [];
+  this.min_stack = [Number.MAX_VALUE];
+};
+
+/**
+ * @param {number} val
+ * @return {void}
+ */
+MinStack.prototype.push = function (val) {
+  this.x_stack.push(val);
+  this.min_stack.push(Math.min(val, this.min_stack[this.min_stack.length - 1]));
+};
+
+/**
+ * @return {void}
+ */
+MinStack.prototype.pop = function () {
+  this.x_stack.pop();
+  this.min_stack.pop();
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.top = function () {
+  return this.x_stack[this.x_stack.length - 1];
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.getMin = function () {
+  return this.min_stack[this.min_stack.length - 1];
+};
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * var obj = new MinStack()
+ * obj.push(val)
+ * obj.pop()
+ * var param_3 = obj.top()
+ * var param_4 = obj.getMin()
+ */
+```
+
+### 链表实现
+
+```js
+function Node(val, min, next) {
+  this.val = val || 0;
+  this.min = min || 0;
+  this.next = next || null;
+}
+
+var MinStack = function () {
+  this.head = null;
+};
+
+/**
+ * @param {number} val
+ * @return {void}
+ */
+MinStack.prototype.push = function (val) {
+  if (!this.head) {
+    this.head = new Node(val, val, null);
+  } else {
+    this.head = new Node(val, Math.min(val, this.head.min), this.head);
+  }
+};
+
+/**
+ * @return {void}
+ */
+MinStack.prototype.pop = function () {
+  this.head = this.head.next;
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.top = function () {
+  return this.head.val;
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.getMin = function () {
+  return this.head.min;
+};
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * var obj = new MinStack()
+ * obj.push(val)
+ * obj.pop()
+ * var param_3 = obj.top()
+ * var param_4 = obj.getMin()
+ */
+```

@@ -1,0 +1,98 @@
+---
+title: No.4 寻找两个正序数组的中位数
+url: https://leetcode.cn/problems/median-of-two-sorted-arrays
+---
+
+# <a class='!no-underline' :href="$frontmatter.url" target="_blank">{{ $frontmatter.title }}</a>
+
+给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的 中位数 。
+
+算法的时间复杂度应该为 O(log(m+n)) 。
+
+示例 1：
+
+```text
+输入：nums1 = [1,3], nums2 = [2]
+输出：2.00000
+解释：合并数组 = [1,2,3] ，中位数 2
+```
+
+示例 2：
+
+```text
+输入：nums1 = [1,2], nums2 = [3,4]
+输出：2.50000
+解释：合并数组 = [1,2,3,4] ，中位数 (2 + 3) / 2 = 2.5
+```
+
+提示：
+
+- nums1.length == m
+- nums2.length == n
+- 0 <= m <= 1000
+- 0 <= n <= 1000
+- 1 <= m + n <= 2000
+- -10^6 <= nums1\[i\], nums2\[i\] <= 10^6
+
+## 解题思路
+
+## 实现
+
+### 二分合并数组
+
+```js
+/**
+ * 二分合并数组
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number}
+ */
+var findMedianSortedArrays = function (nums1, nums2) {
+  let arr = nums1.concat(nums2).sort((a, b) => a - b);
+  let len = arr.length;
+  if (len % 2 === 0) {
+    return (arr[(len >> 1) - 1] + arr[len >> 1]) / 2;
+  } else {
+    return arr[(len - 1) >> 1];
+  }
+};
+```
+
+### 二分不合并数组
+
+```js
+/**
+ * 二分查找不合并，直接找到中位数
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number}
+ */
+var findMedianSortedArrays = function (nums1, nums2) {
+  let len1 = nums1.length,
+    len2 = nums2.length;
+  let len = len1 + len2;
+  let mid = len >> 1;
+  let i = 0,
+    j = 0,
+    k = 0;
+  let nums = [];
+  while (i < len1 && j < len2) {
+    if (nums1[i] < nums2[j]) {
+      nums[k++] = nums1[i++];
+    } else {
+      nums[k++] = nums2[j++];
+    }
+  }
+  while (i < len1) {
+    nums[k++] = nums1[i++];
+  }
+  while (j < len2) {
+    nums[k++] = nums2[j++];
+  }
+  if (len % 2 === 0) {
+    return (nums[mid - 1] + nums[mid]) / 2;
+  } else {
+    return nums[mid];
+  }
+};
+```
