@@ -1,0 +1,52 @@
+name: publish vitepress docs
+on:
+  push:
+    branches:
+      - vitepress
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 切换分支
+      - name: checkout repository
+        uses: actions/checkout@master
+
+      # node 版本
+      - name: setup node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # 安装 pnpm
+      - name: install pnpm
+        run: npm install -g pnpm
+
+      # 安装依赖
+      - name: install dependencies
+        run: pnpm i
+
+      # 打包
+      - name: build for production
+        run: |
+          pnpm run docs:build
+
+      - name: deploy to gitHub pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_branch: vp-pages
+          publish_dir: ./dist # 根据你的项目配置，通常是生成的 dist 目录
+          personal_token: ${{ secrets.GITHUB_TOKEN }} # 使用 GITHUB_TOKEN 凭据自动授权
+          user_name: ${{ secrets.GIT_ACCOUNT }}
+          user_email: ${{ secrets.GIT_EMAIL }}
+          commit_message: ${{ github.event.head_commit.message }}
+          keep_files: true
+          allow_empty_commit: false
+        # run: |
+        #   cd .output/public
+        #   git init
+        #   git config user.name "wcywxq"
+        #   git config user.email "${{ secrets.GIT_EMAIL }}"
+        #   git add .
+        #   git commit -m 'deploy docs'
+        #   git push -f https://wcywxq:${{ secrets.ACCESS_TOKEN }}@github.com/wcywxq/wcywxq.github.io.git master:gh-pages
+        #   cd -
