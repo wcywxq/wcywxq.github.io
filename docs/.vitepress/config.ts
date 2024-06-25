@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 import UnoCSS from 'unocss/vite'
-import { nav, sidebar } from './configs'
+import { algoliaOptions, nav, sidebar } from './configs'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -40,7 +40,9 @@ export default defineConfig({
     },
 
     search: {
-      provider: 'local'
+      // provider: 'local'
+      provider: 'algolia',
+      options: algoliaOptions
     },
 
     socialLinks: [

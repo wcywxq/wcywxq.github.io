@@ -18,7 +18,7 @@ hero:
       link: https://www.hello-algo.com/
     - theme: brand
       text: 日常
-      link: /daily/
+      link: /daily/driving-test/subject1
 
 features:
   - icon: 📖
