@@ -35,7 +35,7 @@ export default defineConfig({
     logo: '/logo.svg',
 
     editLink: {
-      pattern: 'https://github.com/wcywxq/wcywxq.github.io/edit/master/docs/:path',
+      pattern: 'https://github.com/wcywxq/wcywxq.github.io/edit/vitepress/docs/:path',
       text: '在 github 上编辑当前页面',
     },
 
