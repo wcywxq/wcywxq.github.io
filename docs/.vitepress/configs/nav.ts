@@ -96,10 +96,6 @@ export const nav: DefaultTheme.Config['nav'] = [
     text: '提效工具',
     items: [
       {
-        text: '导航网站',
-        link: '/tools/navigation-website'
-      },
-      {
         text: '软件',
         items: [
           { text: 'chrome 扩展', link: '/tools/software/chrome' },
@@ -109,7 +105,7 @@ export const nav: DefaultTheme.Config['nav'] = [
           { text: 'windows 生产力', link: '/tools/software/windows' },
         ]
       },
-      { text: '在线工具', link: '/tools/online' },
+      { text: '导航网站', link: '/tools/nav' },
     ],
     // activeMatch: '^/efficiency'
   },

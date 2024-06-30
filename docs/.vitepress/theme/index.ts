@@ -7,6 +7,9 @@ import { useRoute } from 'vitepress'
 import Theme from 'vitepress/theme'
 import { nextTick, onMounted, watch } from 'vue'
 
+// components
+import LinkGridCard from './components/LinkGridCard.vue'
+
 // theme css
 import '../style/font.css'
 // import '../style/main.css'
@@ -18,6 +21,7 @@ import 'virtual:uno.css'
 export default {
   extends: Theme,
   enhanceApp({ app }: EnhanceAppContext) {
+    app.component('LinkGridCard', LinkGridCard)
     app.use(TwoslashFloatingVue)
   },
   setup() {

@@ -11,12 +11,15 @@ hero:
     alt: galaxy
   actions:
     - theme: brand
+      text: 导航网站
+      link: /tools/nav
+    - theme: alt
       text: 前端物料
       link: /material/endorsement/oop/basic-concept
-    - theme: alt
+    - theme: brand
       text: 算法指南
       link: https://www.hello-algo.com/
-    - theme: brand
+    - theme: alt
       text: 日常
       link: /daily/driving-test/subject1
 

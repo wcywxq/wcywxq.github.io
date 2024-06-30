@@ -6,6 +6,9 @@ import { algoliaOptions, nav, sidebar } from './configs'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   vite: {
+    resolve: {
+      extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.vue', '.json']
+    },
     plugins: [
       UnoCSS({
         rules: [
@@ -14,6 +17,9 @@ export default defineConfig({
       })
     ],
   },
+
+  // @vitejs/plugin-vue 配置
+  vue: {},
 
   title: "Galaxy",
 
