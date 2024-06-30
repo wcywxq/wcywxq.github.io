@@ -1,0 +1,1 @@
+import{_ as e,b as a,o as r,a8 as t}from"./chunks/framework.BEMRIPir.js";const m=JSON.parse('{"title":"JS 面试题","description":"","frontmatter":{},"headers":[],"relativePath":"interview/js.md","filePath":"interview/js.md"}'),o={name:"interview/js.md"},s=t("",9),n=[s];function i(h,c,l,u,d,f){return r(),a("div",null,n)}const q=e(o,[["render",i]]);export{m as __pageData,q as default};

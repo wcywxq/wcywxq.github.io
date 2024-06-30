@@ -1,0 +1,1 @@
+import{_ as e,b as a,o,a8 as r}from"./chunks/framework.BEMRIPir.js";const m=JSON.parse('{"title":"性能优化面试题","description":"","frontmatter":{},"headers":[],"relativePath":"interview/wpo.md","filePath":"interview/wpo.md"}'),t={name:"interview/wpo.md"},i=r("",7),l=[i];function n(s,d,h,_,c,p){return o(),a("div",null,l)}const b=e(t,[["render",n]]);export{m as __pageData,b as default};
