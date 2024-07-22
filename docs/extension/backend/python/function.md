@@ -1,3 +1,5 @@
+<style src="./styles/reset.css"></style>
+
 # 函数
 
 ## 工具函数

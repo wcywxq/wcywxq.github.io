@@ -1,0 +1,3 @@
+pre {
+    @apply whitespace-break-spaces overflow-hidden text-ellipsis
+}

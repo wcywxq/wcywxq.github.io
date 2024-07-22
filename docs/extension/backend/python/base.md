@@ -1,3 +1,5 @@
+<style src="./styles/reset.css"></style>
+
 # 基础
 
 ## 输入输出、基本类型、变量
