@@ -7,7 +7,7 @@ url: https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Ob
 
 JSON.stringify() 方法将一个 js 对象或值转换为 json 字符串，如果指定了一个 replacer 函数，则可以选择性地替换值，或者指定的 replacer 是数组，则可选择性地仅包含数组指定的属性。
 
-```js
+```js twoslash
 const jsonstringify = (data) => {
   // 确认一个对象是否存在循环引用
   const isCyclic = (obj) => {

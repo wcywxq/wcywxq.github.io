@@ -17,7 +17,7 @@ export const nav: DefaultTheme.Config['nav'] = [
           },
           {
             text: '业务场景',
-            link: '/material/programming/business-scenarios'
+            link: '/material/programming/business-scenarios/promise-async/order-print-url-and-support-retry'
           },
           {
             text: 'Type-Challenges',

@@ -146,16 +146,74 @@ export const materialSidebar: DefaultTheme.Config['sidebar'] = {
           link: '/material/programming/source-code/set/traverse'
         }
       ]
+    },
+    {
+      text: '深浅拷贝(克隆)',
+      link: '/material/programming/source-code/depth-copy'
+    },
+    {
+      text: '获取通用类型',
+      link: '/material/programming/source-code/get-generic-type'
+    },
+    {
+      text: '是否朴素对象',
+      link: '/material/programming/source-code/is-plain-object'
     }
   ],
   '/material/programming/business-scenarios': [
     {
       text: 'Promise 异步',
-      items: []
+      items: [
+        {
+          "text": "保证 url 打印顺序并支持 retry",
+          "link": "/material/programming/business-scenarios/promise-async/order-print-url-and-support-retry"
+        },
+        {
+          "text": "异步串行",
+          "link": "/material/programming/business-scenarios/promise-async/async-serial"
+        },
+        {
+          "text": "实现 Promise 并发",
+          "link": "/material/programming/business-scenarios/promise-async/implement-promise-concurrency"
+        },
+        {
+          "text": "并发限制图片加载数量",
+          "link": "/material/programming/business-scenarios/promise-async/limit-concurrency-images"
+        },
+        {
+          "text": "并发调度器",
+          "link": "/material/programming/business-scenarios/promise-async/concurrent-scheduler"
+        },
+        {
+          "text": "实现 mergePromise",
+          "link": "/material/programming/business-scenarios/promise-async/implement-merge-promise"
+        },
+        {
+          "text": "使用 addRemote 实现 add",
+          "link": "/material/programming/business-scenarios/promise-async/use-add_remote-to-implement-add"
+        },
+        {
+          "text": "Promise 缓存",
+          "link": "/material/programming/business-scenarios/promise-async/promise-cache"
+        },
+        {
+          "text": "循环打印红-黄-绿",
+          "link": "/material/programming/business-scenarios/promise-async/cycle-printing-red-yellow-green"
+        },
+      ]
     },
     {
       text: '框架核心功能实现',
-      items: []
+      items: [
+        {
+          "text": "EventBus",
+          "link": "/material/programming/business-scenarios/framework-core/event-bus"
+        },
+        {
+          "text": "实现极简 vue",
+          "link": "/material/programming/business-scenarios/framework-core/implement-simple-vue"
+        },
+      ]
     },
     {
       "text": "原型链输出",
@@ -166,72 +224,72 @@ export const materialSidebar: DefaultTheme.Config['sidebar'] = {
       "link": "/material/programming/business-scenarios/arabic-numerals-and-chinese-converted"
     },
     {
-      "text": "计算对象占用字节数",
-      "link": "/material/programming/business-scenarios/calcuate-object-bytes"
-    },
-    {
-      "text": "倒计时",
-      "link": "/material/programming/business-scenarios/countdown"
+      "text": "随机数",
+      "link": "/material/programming/business-scenarios/random-number"
     },
     {
       "text": "日期格式化",
       "link": "/material/programming/business-scenarios/date-format"
     },
     {
-      "text": "实现前端路由",
-      "link": "/material/programming/business-scenarios/frontend-route"
-    },
-    {
-      "text": "图片格式转换",
-      "link": "/material/programming/business-scenarios/image-format-conversion"
-    },
-    {
-      "text": "lodash.get",
-      "link": "/material/programming/business-scenarios/lodash-get"
-    },
-    {
-      "text": "记忆化请求函数 - 可缓存请求函数",
-      "link": "/material/programming/business-scenarios/memorize-request"
-    },
-    {
-      "text": "内容中出现频率最高的字符",
-      "link": "/material/programming/business-scenarios/most-frequent-characters-in-content"
-    },
-    {
-      "text": "对象是否循环引用",
-      "link": "/material/programming/business-scenarios/object-is-or-not-circular-reference"
-    },
-    {
       "text": "解析 url 参数",
       "link": "/material/programming/business-scenarios/parse-url-query"
-    },
-    {
-      "text": "随机数",
-      "link": "/material/programming/business-scenarios/random-number"
-    },
-    {
-      "text": "富文本内容转换",
-      "link": "/material/programming/business-scenarios/rich-text-content-conversion"
-    },
-    {
-      "text": "sku 算法实现",
-      "link": "/material/programming/business-scenarios/sku"
-    },
-    {
-      "text": "整数分割",
-      "link": "/material/programming/business-scenarios/split-number"
     },
     {
       "text": "千分位分隔数字字符串",
       "link": "/material/programming/business-scenarios/thousandth-separated-number-string"
     },
     {
+      "text": "对象是否循环引用",
+      "link": "/material/programming/business-scenarios/object-is-or-not-circular-reference"
+    },
+    {
       "text": "长列表虚拟滚动",
       "link": "/material/programming/business-scenarios/vitrual-scroll-list"
     },
     {
+      "text": "lodash.get",
+      "link": "/material/programming/business-scenarios/lodash-get"
+    },
+    {
+      "text": "sku 算法实现",
+      "link": "/material/programming/business-scenarios/sku"
+    },
+    {
+      "text": "计算对象占用字节数",
+      "link": "/material/programming/business-scenarios/calcuate-object-bytes"
+    },
+    {
+      "text": "记忆化请求函数 - 可缓存请求函数",
+      "link": "/material/programming/business-scenarios/memorize-request"
+    },
+    {
+      "text": "倒计时",
+      "link": "/material/programming/business-scenarios/countdown"
+    },
+    {
+      "text": "实现前端路由",
+      "link": "/material/programming/business-scenarios/frontend-route"
+    },
+    {
+      "text": "内容中出现频率最高的字符",
+      "link": "/material/programming/business-scenarios/most-frequent-characters-in-content"
+    },
+    {
+      "text": "图片格式转换",
+      "link": "/material/programming/business-scenarios/image-format-conversion"
+    },
+    {
       "text": "xhr hook 实现打印日志",
       "link": "/material/programming/business-scenarios/xhr-hook-to-log"
+    },
+    {
+      "text": "整数分割",
+      "link": "/material/programming/business-scenarios/split-number"
+    },
+    {
+      "text": "富文本内容转换",
+      "link": "/material/programming/business-scenarios/rich-text-content-conversion"
     }
   ],
   '/material/programming/type-challenges': [
