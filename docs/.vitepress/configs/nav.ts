@@ -6,7 +6,7 @@ export const nav: DefaultTheme.Config['nav'] = [
     items: [
       {
         text: '八股文',
-        link: '/material/endorsement/oop/basic-concept'
+        link: '/material/endorsement/oop/basic-concept',
       },
       {
         text: '编程',
@@ -25,11 +25,24 @@ export const nav: DefaultTheme.Config['nav'] = [
           }
         ]
       },
+      {
+        text: '书籍',
+        items: [
+          {
+            text: 'ES6',
+            link: 'https://es6.ruanyifeng.com/'
+          }
+        ]
+      },
     ]
   },
   {
     text: '算法',
     items: [
+      {
+        text: '指南',
+        link: 'https://www.hello-algo.com/'
+      },
       {
         text: '基础',
         items: [
