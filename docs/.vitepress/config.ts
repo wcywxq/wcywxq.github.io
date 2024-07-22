@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 import UnoCSS from 'unocss/vite'
+import { transformerDirectives } from 'unocss'
 import { algoliaOptions, nav, sidebar } from './configs'
 
 // https://vitepress.dev/reference/site-config
@@ -13,7 +14,18 @@ export default defineConfig({
       UnoCSS({
         rules: [
           ['text-primary', { color: '#52730d' }]
-        ]
+        ],
+        theme: {
+          breakpoints: {
+            xs: '640px',
+            sm: '768px',
+            md: '960px',
+            lg: '1024px',
+            xl: '1280px',
+            '2xl': '1536px',
+          }
+        },
+        transformers: [transformerDirectives()]
       })
     ],
   },
@@ -34,7 +46,7 @@ export default defineConfig({
       level: [2, 3, 4, 5, 6]
     },
     lineNumbers: true,
-    codeTransformers: [transformerTwoslash()]
+    codeTransformers: [transformerTwoslash()],
   },
 
   themeConfig: {

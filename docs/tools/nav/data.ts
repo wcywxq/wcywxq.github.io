@@ -5,7 +5,7 @@ type NavData = {
   items: NavLink[]
 }
 
-export default [
+export const frontendData: NavData[] = [
   {
     title: 'JavaScript 生态',
     items: [
@@ -650,4 +650,30 @@ export default [
       },
     ],
   },
-] as NavData[]
+]
+
+export const backendData: NavData[] = [
+  {
+    title: '语言',
+    items: [
+      {
+        icon: '',
+        title: 'Python 中文官网',
+        desc: '可以让你快速工作并更有效地集成系统',
+        link: 'https://python.p2hp.com/'
+      },
+      {
+        icon: '',
+        title: 'Go 中文官网',
+        desc: '谷歌支持的开源编程语言',
+        link: 'https://go.p2hp.com/'
+      },
+      {
+        icon: '',
+        title: 'Rust',
+        desc: '一门赋予每个人构建可靠且高效软件能力的语言',
+        link: 'https://www.rust-lang.org/zh-CN/'
+      },
+    ]
+  },
+]

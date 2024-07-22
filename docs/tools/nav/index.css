@@ -1,31 +1,32 @@
-@charset "UTF-8";
-.m-nav-layout {
+.g-nav-layout {
   /* 覆盖全局的 vp-layout-max-width（仅当前页面使用） */
   --vp-layout-max-width: 1660px;
-  /* layout 样式 */
-  /* aside 样式 */
-  /* custom-block */
 }
-.m-nav-layout .container {
-  max-width: var(--vp-layout-max-width) !important;
+
+/* layout 样式 */
+.g-nav-layout .container {
+  @apply !max-w-[var(--vp-layout-max-width)]
 }
-.m-nav-layout .content-container,
-.m-nav-layout .content {
-  max-width: 100% !important;
+.g-nav-layout .content-container,
+.g-nav-layout .content {
+  @apply !max-w-full
 }
-.m-nav-layout .aside {
-  padding-left: 0;
-  max-width: 224px;
+
+/* aside 样式 */
+.g-nav-layout .aside {
+  @apply pl-0 max-w-[224px]
 }
-.m-nav-layout .custom-block .custom-block-title {
-  font-size: var(--vp-custom-block-font-size);
+
+/* custom-block */
+.g-nav-layout .custom-block .custom-block-title {
+  @apply font-size-[var(--vp-custom-block-font-size)]
 }
-.m-nav-layout .custom-block ul {
-  margin: 8px 0;
+.g-nav-layout .custom-block ul {
+  @apply my-2
 }
-.m-nav-layout .custom-block li {
-  margin: 0;
+.g-nav-layout .custom-block li {
+  @apply m-0
 }
-.m-nav-layout .vp-doc h2 {
-  margin-top: 24px;
-}/*# sourceMappingURL=index.css.map */
+.g-nav-layout .vp-doc h2 {
+  @apply mt-6
+}

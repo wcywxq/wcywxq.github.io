@@ -30,8 +30,12 @@ export const nav: DefaultTheme.Config['nav'] = [
         text: '基础',
         items: [
           {
+            text: '数据类型',
+            link: '/algorithm/base/data-type/string'
+          },
+          {
             text: '数据结构',
-            link: '/algorithm/base/data/array'
+            link: '/algorithm/base/data-structure/stack'
           },
           {
             text: '算法分类',

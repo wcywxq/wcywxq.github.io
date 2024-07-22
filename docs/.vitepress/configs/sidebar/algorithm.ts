@@ -3,39 +3,60 @@ import type { DefaultTheme } from 'vitepress'
 export const algorithmSidebar: DefaultTheme.Config['sidebar'] = {
   '/algorithm/base': [
     {
+      text: '数据类型',
+      items: [
+        {
+          text: '字符串 String',
+          link: '/algorithm/base/data-type/string'
+        },
+        {
+          text: '数组 Array',
+          link: '/algorithm/base/data-type/array'
+        },
+        {
+          text: '对象 Object',
+          link: '/algorithm/base/data-type/object'
+        },
+      ],
+    },
+    {
       text: '数据结构',
       items: [
         {
-          text: '数组',
-          link: '/algorithm/base/data/array'
+          text: '栈 Stack',
+          link: '/algorithm/base/data-structure/stack'
         },
         {
-          text: '链表',
-          link: '/algorithm/base/data/linkedlist'
+          text: '队列 Queue',
+          link: '/algorithm/base/data-structure/queue'
         },
         {
-          text: '栈',
-          link: '/algorithm/base/data/stack'
+          text: '链表 LinkList',
+          link: '/algorithm/base/data-structure/link-list'
         },
         {
-          text: '队列',
-          link: '/algorithm/base/data/queue'
+          text: '树 Tree',
+          link: '/algorithm/base/data-structure/tree'
         },
         {
-          text: '哈希表',
-          link: '/algorithm/base/data/hashing'
+          text: '图 Graph',
+          link: '/algorithm/base/data-structure/graph'
         },
         {
-          text: '树',
-          link: '/algorithm/base/data/tree'
+          text: '集合 Set',
+          link: '/algorithm/base/data-structure/set'
         },
         {
-          text: '堆',
-          link: '/algorithm/base/data/heap'
+          text: '字典 Dict',
+          link: '/algorithm/base/data-structure/dict'
         },
         {
-          text: '图',
-          link: '/algorithm/base/data/graph'
+          text: '哈希表 HashTable',
+          link: '/algorithm/base/data-structure/hash-table'
+        },
+        {
+          text: '堆 Heap',
+          link: '/algorithm/base/data-structure/heap'
         },
       ]
     },

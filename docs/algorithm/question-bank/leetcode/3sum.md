@@ -51,7 +51,7 @@ nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。
 
 ### 数组 + 双指针
 
-```js
+```js twoslash
 /**
  * @param {number[]} nums
  * @return {number[][]}

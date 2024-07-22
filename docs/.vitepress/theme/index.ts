@@ -1,27 +1,36 @@
 // .vitepress/theme/index.ts
 import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
-import '@shikijs/vitepress-twoslash/style.css'
+// import '@shikijs/vitepress-twoslash/style.css'
 import mediumZoom from 'medium-zoom'
 import type { EnhanceAppContext } from 'vitepress'
-import { useRoute } from 'vitepress'
-import Theme from 'vitepress/theme'
-import { nextTick, onMounted, watch } from 'vue'
+import { useData, useRoute } from 'vitepress'
+import DefaultTheme from 'vitepress/theme'
+import { h, nextTick, onMounted, watch } from 'vue'
 
 // components
-import LinkGridCard from './components/LinkGridCard.vue'
+import GridCardBlock from './components/GridCardBlock.vue'
+import Latex from './components/Latex.vue'
 
-// theme css
-import '../style/font.css'
-// import '../style/main.css'
-import '../style/media-zoom.css'
-import '../style/vars.css'
-// unocss config
+import '../style/index.css'
 import 'virtual:uno.css'
 
 export default {
-  extends: Theme,
+  extends: DefaultTheme,
+  Layout: () => {
+    const props: Record<string, any> = {}
+    const { frontmatter } = useData()
+    // custom class
+    if (frontmatter.value?.['layout-class']) {
+      props.class = frontmatter.value['layout-class']
+    }
+    return h(DefaultTheme.Layout, props)
+  },
   enhanceApp({ app }: EnhanceAppContext) {
-    app.component('LinkGridCard', LinkGridCard)
+    // components
+    app.component('grid-card-block', GridCardBlock)
+    app.component('Latex', Latex)
+
+    // plugins
     app.use(TwoslashFloatingVue)
   },
   setup() {

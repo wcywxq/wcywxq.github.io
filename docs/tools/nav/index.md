@@ -1,12 +1,26 @@
 ---
-layout: doc
-outline: 2
+layout-class: g-nav-layout
+outline: [2, 3, 4]
 ---
 
 <script setup>
-import navData from './data'
+import { frontendData, backendData } from './data'
 </script>
 
-# 前端导航
+<style src="./index.css"></style>
 
-<LinkGridCard v-for="{title, items} in navData" :title="title" :items="items"/>
+## 前端导航
+
+<grid-card-block
+  v-for="{title, items} in frontendData"
+  :title="title"
+  :items="items"
+/>
+
+## 后端导航
+
+<grid-card-block
+  v-for="{title, items} in backendData"
+  :title="title"
+  :items="items"
+/>
