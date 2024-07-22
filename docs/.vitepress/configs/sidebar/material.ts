@@ -19,9 +19,17 @@ export const materialSidebar: DefaultTheme.Config['sidebar'] = {
       text: 'JS',
       items: [
         {
+          text: '进程和线程',
+          link: '/material/endorsement/js/processes-and-threads'
+        },
+        {
           text: '语法和数据类型',
           link: '/material/endorsement/js/grammar-data-types'
-        }
+        },
+        {
+          text: '事件循环',
+          link: '/material/endorsement/js/event-loop'
+        },
       ]
     }
   ],
