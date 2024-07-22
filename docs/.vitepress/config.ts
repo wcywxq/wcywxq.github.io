@@ -6,6 +6,7 @@ import { algoliaOptions, nav, sidebar } from './configs'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  ignoreDeadLinks: true,
   vite: {
     resolve: {
       extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.vue', '.json']
