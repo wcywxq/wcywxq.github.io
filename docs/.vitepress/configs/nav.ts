@@ -123,6 +123,10 @@ export const nav: DefaultTheme.Config['nav'] = [
       {
         text: '驾考',
         link: '/daily/driving-test/subject1'
+      },
+      {
+        text: '公考',
+        link: '/daily/civil-service-exam/administrative-aptitude-test'
       }
     ]
   },

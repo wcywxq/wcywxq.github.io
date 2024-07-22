@@ -15,5 +15,20 @@ export const dailySidebar: DefaultTheme.Config['sidebar'] = {
         },
       ]
     }
+  ],
+  '/daily/civil-service-exam': [
+    {
+      text: '公考',
+      items: [
+        {
+          text: '行测',
+          link: '/daily/civil-service-exam/administrative-aptitude-test'
+        },
+        {
+          text: '申论',
+          link: '/daily/civil-service-exam/application'
+        },
+      ]
+    }
   ]
 }
