@@ -18,6 +18,10 @@ export const nav: DefaultTheme.Config['nav'] = [
           {
             text: '业务场景',
             link: '/material/programming/business-scenarios'
+          },
+          {
+            text: 'Type-Challenges',
+            link: '/material/programming/type-challenges/medium-tuple-to-union'
           }
         ]
       },

@@ -234,4 +234,10 @@ export const materialSidebar: DefaultTheme.Config['sidebar'] = {
       "link": "/material/programming/business-scenarios/xhr-hook-to-log"
     }
   ],
+  '/material/programming/type-challenges': [
+    {
+      "text": "No.10 元组转合集(联合类型)",
+      "link": "/material/programming/type-challenges/medium-tuple-to-union"
+    },
+  ]
 }
