@@ -31,6 +31,23 @@ export const materialSidebar: DefaultTheme.Config['sidebar'] = {
           link: '/material/endorsement/js/event-loop'
         },
       ]
+    },
+    {
+      text: 'React',
+      items: [
+        {
+          text: 'react18',
+          link: 'https://notes.fe-mm.com/analysis/react/18'
+        },
+        {
+          text: 'fiber',
+          link: '/material/endorsement/react/fiber.md'
+        },
+        {
+          text: '过时的 API',
+          link: 'https://zh-hans.react.dev/reference/react/legacy'
+        },
+      ]
     }
   ],
   '/material/programming/source-code': [
