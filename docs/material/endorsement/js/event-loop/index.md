@@ -88,7 +88,7 @@
 - MutationObserver -  对 dom 变化进行监听
 :::
 
-::: warning 注意
+::: warning
 浏览器认为与用户交互相关的任务优先级可能比延时任务的优先级更高
 :::
 
@@ -105,7 +105,7 @@
 - 执行事件循环的每个阶段
 - 在相应阶段的回调函数执行时或执行完毕后，执行微任务
 
-::: warning 注意
+::: warning
 
 - node < 10：
 
@@ -146,7 +146,7 @@ setImmediate 回调函数在这里执行
 
 一些关闭的回调函数。如：`socket.on('close', ...)`
 
-::: warning 注意
+::: warning
 
 1. 每个阶段都会有一个 FIFO 先进先出的回调队列，都会尽可能地执行完当前阶段中所有的回调，或到达了系统相关限制后，才会进入下一阶段
 2. **poll 阶段执行微任务的时机**：每一个回调执行时执行相应的微任务
@@ -158,7 +158,7 @@ setImmediate 回调函数在这里执行
 1. process.nextTick 注册的回调函数（nextTick task queue）
 2. promise.then 注册的回调函数（promise task queue）
 
-::: tip
+::: info
 node.js 在执行微任务时，优先执行 nextTick task queue 中的任务；执行完后接着执行 promise task queue 中的任务；所以若二者同时处于主线程或事件循环的相同阶段，则：
 process.nextTick 回调函数的优先级 > promise.then 回调函数的优先级
 :::
@@ -223,7 +223,7 @@ new Promise(function (resolve) {
 console.log('script end')
 ```
 
-::: info 解析
+::: info
 
 - 先找到同步任务，输出 script start
 - 遇到第一个 setTimeout，将里面的回调函数放到 timer 队列中

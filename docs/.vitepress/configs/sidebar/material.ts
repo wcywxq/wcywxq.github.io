@@ -3,6 +3,23 @@ import type { DefaultTheme } from 'vitepress'
 export const materialSidebar: DefaultTheme.Config['sidebar'] = {
   '/material/endorsement': [
     {
+      text: '浏览器和网络',
+      items: [
+        {
+          text: '进程和线程',
+          link: '/material/endorsement/browser-network/processes-threads'
+        },
+        {
+          text: 'TCP',
+          link: '/material/endorsement/browser-network/tcp'
+        },
+        {
+          text: 'HTTP',
+          link: '/material/endorsement/browser-network/http'
+        },
+      ]
+    },
+    {
       text: '面向对象',
       items: [
         {
@@ -18,10 +35,6 @@ export const materialSidebar: DefaultTheme.Config['sidebar'] = {
     {
       text: 'JS',
       items: [
-        {
-          text: '进程和线程',
-          link: '/material/endorsement/js/processes-and-threads'
-        },
         {
           text: '语法和数据类型',
           link: '/material/endorsement/js/grammar-data-types'
