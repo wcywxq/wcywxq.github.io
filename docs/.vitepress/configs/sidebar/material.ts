@@ -1,68 +1,69 @@
 import type { DefaultTheme } from 'vitepress'
 
-export const materialSidebar: DefaultTheme.Config['sidebar'] = {
-  '/material/endorsement': [
-    {
-      text: '浏览器和网络',
-      items: [
-        {
-          text: '进程和线程',
-          link: '/material/endorsement/browser-network/processes-threads'
-        },
-        {
-          text: 'TCP',
-          link: '/material/endorsement/browser-network/tcp'
-        },
-        {
-          text: 'HTTP',
-          link: '/material/endorsement/browser-network/http'
-        },
-      ]
-    },
+const materialEndorsementSidebar: DefaultTheme.Config['sidebar'] = {
+  '/material/endorsement/programming-concept': [
     {
       text: '面向对象',
+      link: '/material/endorsement/programming-concept/oop'
+    },
+    {
+      text: '设计模式',
+      link: '/material/endorsement/programming-concept/design-mode'
+    }
+  ],
+  '/material/endorsement/os': [
+    {
+      text: '进程和线程',
+      link: '/material/endorsement/os/processes-threads'
+    },
+  ],
+  '/material/endorsement/browser-network': [
+    {
+      text: 'TCP',
+      link: '/material/endorsement/browser-network/tcp'
+    },
+    {
+      text: 'HTTP',
       items: [
         {
-          text: '基本概念',
-          link: '/material/endorsement/oop/basic-concept'
-        },
-        {
-          text: '设计模式',
-          link: '/material/endorsement/oop/design-mode'
+          text: 'HTTP 请求方法',
+          link: '/material/endorsement/browser-network/http/request-methods'
         }
       ]
     },
-    {
-      text: 'JS',
-      items: [
-        {
-          text: '语法和数据类型',
-          link: '/material/endorsement/js/grammar-data-types'
-        },
-        {
-          text: '事件循环',
-          link: '/material/endorsement/js/event-loop'
-        },
-      ]
-    },
+  ],
+  '/material/endorsement/framework': [
     {
       text: 'React',
       items: [
         {
-          text: 'react18',
-          link: 'https://notes.fe-mm.com/analysis/react/18'
-        },
-        {
           text: 'fiber',
-          link: '/material/endorsement/react/fiber.md'
+          link: '/material/endorsement/framework/react/fiber'
         },
         {
-          text: '过时的 API',
-          link: 'https://zh-hans.react.dev/reference/react/legacy'
-        },
+          text: '常见面试题',
+          link: 'https://notes.fe-mm.com/analysis/react/interview'
+        }
       ]
-    }
-  ],
+    },
+    {
+      text: 'Vue',
+      items: [
+        {
+          text: 'v3 优化内容',
+          link: '/material/endorsement/framework/vue/v3-optimizing-content'
+        }
+      ]
+    },
+    {
+      text: 'Svelte',
+      items: [
+      ]
+    },
+  ]
+}
+
+const materialProgrammingSidebar: DefaultTheme.Config['sidebar'] = {
   '/material/programming/source-code': [
     {
       text: '原生 API',
@@ -336,4 +337,76 @@ export const materialSidebar: DefaultTheme.Config['sidebar'] = {
       "link": "/material/programming/type-challenges/medium-tuple-to-union"
     },
   ]
+}
+
+export const materialSidebar: DefaultTheme.Config['sidebar'] = {
+  '/material/endorsement': [
+    {
+      text: '操作系统',
+      items: [
+        {
+          text: '进程和线程',
+          link: '/material/endorsement/os/processes-threads'
+        }
+      ]
+    },
+    {
+      text: '浏览器和网络',
+      items: [
+        {
+          text: 'TCP',
+          link: '/material/endorsement/browser-network/protocol/tcp'
+        },
+        {
+          text: 'HTTP',
+          link: '/material/endorsement/browser-network/protocol/http'
+        },
+      ]
+    },
+    {
+      text: '面向对象',
+      items: [
+        {
+          text: '基本概念',
+          link: '/material/endorsement/oop/basic-concept'
+        },
+        {
+          text: '设计模式',
+          link: '/material/endorsement/oop/design-mode'
+        }
+      ]
+    },
+    {
+      text: 'JS',
+      items: [
+        {
+          text: '语法和数据类型',
+          link: '/material/endorsement/js/grammar-data-types'
+        },
+        {
+          text: '事件循环',
+          link: '/material/endorsement/js/event-loop'
+        },
+      ]
+    },
+    {
+      text: 'React',
+      items: [
+        {
+          text: 'react18',
+          link: 'https://notes.fe-mm.com/analysis/react/18'
+        },
+        {
+          text: 'fiber',
+          link: '/material/endorsement/react/fiber.md'
+        },
+        {
+          text: '过时的 API',
+          link: 'https://zh-hans.react.dev/reference/react/legacy'
+        },
+      ]
+    }
+  ],
+  ...materialEndorsementSidebar,
+  ...materialProgrammingSidebar
 }

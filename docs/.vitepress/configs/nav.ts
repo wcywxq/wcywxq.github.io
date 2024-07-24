@@ -6,7 +6,52 @@ export const nav: DefaultTheme.Config['nav'] = [
     items: [
       {
         text: '八股文',
-        link: '/material/endorsement/oop/basic-concept',
+        items: [
+          {
+            text: '编程思想',
+            link: '/material/endorsement/programming-concept/oop'
+          },
+          {
+            text: '操作系统',
+            link: '/material/endorsement/os/processes-threads'
+          },
+          {
+            text: '浏览器和网络',
+            link: '/material/endorsement/browser-network/tcp'
+          },
+          {
+            text: 'HTML 基础',
+            link: '/material/endorsement/html'
+          },
+          {
+            text: 'CSS 基础',
+            link: '/material/endorsement/css'
+          },
+          {
+            text: 'JS 基础',
+            link: '/material/endorsement/js'
+          },
+          {
+            text: '框架',
+            link: '/material/endorsement/framework/react/fiber'
+          },
+          {
+            text: '工程化',
+            link: '/material/endorsement/engineering'
+          },
+          {
+            text: 'TS 基础',
+            link: '/material/endorsement/engineering'
+          },
+          {
+            text: '小程序',
+            link: '/material/endorsement/mini-app'
+          },
+          {
+            text: '性能优化',
+            link: '/material/endorsement/performance-optimization'
+          },
+        ]
       },
       {
         text: '编程',
@@ -45,37 +90,11 @@ export const nav: DefaultTheme.Config['nav'] = [
       },
       {
         text: '基础',
-        items: [
-          {
-            text: '数据类型',
-            link: '/algorithm/base/data-type/string'
-          },
-          {
-            text: '数据结构',
-            link: '/algorithm/base/data-structure/stack'
-          },
-          {
-            text: '算法分类',
-            link: '/algorithm/base/category/searching'
-          }
-        ]
+        link: '/algorithm/base/data-type/string'
       },
       {
         text: '题库',
-        items: [
-          {
-            text: '刷题索引',
-            link: '/algorithm/question-bank/brush'
-          },
-          {
-            text: '剑指 Offer',
-            link: '/algorithm/question-bank/sword-offer/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof'
-          },
-          {
-            text: 'LeetCode',
-            link: '/algorithm/question-bank/leetcode/two-sum'
-          }
-        ]
+        link: '/algorithm/question-bank/brush'
       }
     ]
   },
