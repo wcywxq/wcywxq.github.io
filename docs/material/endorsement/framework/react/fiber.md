@@ -5,7 +5,7 @@
 - React15 的 `Stack Reconciler` 方案由于递归不可中断问题，如果 Diff 时间过长（JS 计算时间），会造成页面 UI 的无响应（比如输入框）的表现，vdom 无法应用到 dom 中。
 - 为了解决这个问题，React16 实现了新的基于 requestIdleCallback 的调度器（因为 requestIdleCallback 兼容性和稳定性问题，自己实现了 polyfill），通过任务优先级的思想，在高优先级任务进入的时候，中断 reconciler。
 - 为了适配这种新的调度器，推出了 `Fiber Reconciler`，将原来的树形结构（vdom）转换成 Fiber 链表的形式（child/sibling/return），整个 Fiber 的遍历是基于**循环**而**非递归**，可以随时中断。
-- 更加核心的是，基于 Fiber 的链表结构，对于后续（React 17 lane 架构）的异步渲染和 （可能存在的）worker 计算都有非常好的应用基础
+- 更加核心的是，基于 Fiber 的链表结构，对于后续（React 17 Lane 架构）的异步渲染和 （可能存在的）worker 计算都有非常好的应用基础
 :::
 
 ## Fiber 的含义
@@ -119,7 +119,8 @@ React 中的优先级管理是通过 Schedule 调度器和 Fiber 架构实现。
 
 - Discrete Events：离散事件，例如点击、按键等，这些事件需要立即响应。
 - Continuous Events：连续事件，例如滚动、鼠标移动等，这些事件需要持续响应。
-- Default Events：默认事件，例如一些不太紧急的状态更新。
+- Default Events：默认事件，例如一些不太紧急的状态更新，setTimeout触发的更新任务。
+- Idle Events：闲置事件，优先级最低
 :::
 
 ::: tip Schedule 优先级
@@ -133,7 +134,7 @@ React 中的优先级管理是通过 Schedule 调度器和 Fiber 架构实现。
 
 ### Lane 优先级
 
-在 React 中，Lane 是用来标识更新优先级的**位掩码**，它可以在频繁运算的时候**占用内存少**，**计算速度快**。每个 lane 代表一种优先级级别，React 可以同时处理多个 lane，通过这种方式来管理不同优先级的任务。
+在 React 中，Lane 是用来标识更新优先级的**位掩码**，它可以在频繁运算的时候**占用内存少**，**计算速度快**。每个 Lane 代表一种优先级级别，React 可以同时处理多个 lane，通过这种方式来管理不同优先级的任务。
 
 ::: info
 回想一下我们学校的操场，是不是分为了多个跑道，跑道越往内，距离越近，Lane 模型借助了这个概念，将其分为了 31 个赛道,其中位数越少的赛道，也就是 1 越往右的赛道有优先级就越高，某些相邻的赛道拥有相同的优先级，称为赛道组。
@@ -249,7 +250,7 @@ const TransitionLane3 = 0b0000000000000000000000001000000; // 64
 const TransitionLane4 = 0b0000000000000000000000010000000; // 128
 ```
 
-每个位表示一个独立的优先级 lane。通过按位或（OR）操作，可以将多个优先级 lane 合并在一起：
+每个位表示一个独立的优先级 Lane。通过按位或（OR）操作，可以将多个优先级 Lane 合并在一起：
 
 ```js
 const combinedTransitionLanes = TransitionLane1 | TransitionLane2;
@@ -294,7 +295,7 @@ console.log(
 
 :::
 
-lane 的基本运算就是一些基础的集合运行，主要有以下这些函数：
+Lane 的基本运算就是一些基础的集合运行，主要有以下这些函数：
 
 ```js
 // src/react/packages/react-reconciler/src/ReactFiberLane.old.js
@@ -337,6 +338,121 @@ export function intersectLanes(a: Lanes | Lane, b: Lanes | Lane): Lanes {
 
 ### React 事件优先级
 
+React 事件优先级（Event Priorities）是 React 调度机制的一部分，用于管理和协调用户事件的处理顺序。通过为不同类型的事件分配不同的优先级，React 可以确保关键事件得到及时处理，而低优先级的事件可以在不影响用户体验的情况下延迟处理。
+
+React 事件优先级主要分为以下几类：
+
+- `Discrete Events - 离散事件`：立即响应的用户交互事件，例如点击、按键。这些事件需要快速响应，不能被延迟处理。
+- `Continuous Events - 连续事件`：需要持续响应的事件，例如滚动、拖动。这些事件可以被分段处理，确保流畅的用户体验。
+- `Default Events - 默认事件`：常规优先级的事件，不需要立即响应。例如数据加载、页面渲染。
+- `Idle Events - 空闲事件`：仅在浏览器空闲时执行的事件。例如后台数据同步。
+
+```js
+// src/react/packages/react-reconciler/src/ReactEventPriorities.old.js
+
+// 离散事件优先级，例如：点击事件，input输入等触发的更新任务，优先级最高
+export const DiscreteEventPriority: EventPriority = SyncLane;
+// 连续事件优先级，例如：滚动事件，拖动事件等，连续触发的事件
+export const ContinuousEventPriority: EventPriority = InputContinuousLane;
+// 默认事件优先级，例如：setTimeout触发的更新任务
+export const DefaultEventPriority: EventPriority = DefaultLane;
+// 闲置事件优先级，优先级最低
+export const IdleEventPriority: EventPriority = IdleLane;
+```
+
 ### Schedule 优先级
+
+React 的调度机制使用了一种称为 "优先级 Lane" 的机制来管理任务的优先级。Schedule 调度器会根据不同的优先级来决定任务的执行顺序和时间。
+
+在 React Scheduler 中，有六种主要的优先级类型，每种类型对应一个整数值：
+
+1. `NoPriority - 0`：无优先级，表示不需要立即执行的任务。
+2. `ImmediatePriority - 1`：立即优先级，表示必须立即执行的任务，不能被打断。
+3. `UserBlockingPriority - 2`：用户阻塞优先级，表示需要快速响应但可以被更高优先级任务打断的任务。
+4. `NormalPriority - 3`：正常优先级，表示一般的任务，可以被更高优先级的任务打断。
+5. `LowPriority - 4`：低优先级，表示不紧急的任务，可以在空闲时间处理。
+6. `IdlePriority - 5`：空闲优先级，仅在浏览器空闲时执行的任务。
+
+这些优先级用于 React 调度器决定哪些任务应该首先执行，哪些任务可以延迟执行。
+
+```js
+export const NoPriority = 0; // 无优先级
+export const ImmediatePriority = 1; // 立即执行优先级
+export const UserBlockingPriority = 2; // 用户阻塞操作优先级 点击，输入
+export const NormalPriority = 3; // 正常优先级
+export const LowPriority = 4; // 低优先级
+export const IdlePriority = 5; // 空闲优先级
+```
+
+### 优先级转换关系
+
+在整个 React 应用当中，它们 key 分为四种优先级，它们分别有如下优先级：
+
+1. 事件优先级: 按照用户事件的交互紧急程度,划分的优先级;
+2. 更新优先级：事件导致 React 产生的更新对象 update 的优先级;
+3. 任务优先级：产生更新对象之后,React 去执行一个更新任务,这个任务所持有的优先级;
+4. 调度优先级: Schedule 依据 React 更新任务生成一个调度任务,这个调度任务所持有的优先级;
+
+前三者属于 React 的优先级机制，第四个属于 Scheduler 的优先级机制，Scheduler 内部有自己的优先级机制，虽然与 React 有所区别，但等级的划分基本一致。
+
+::: details 优先级转换
+
+Lane 优先级转换为 React 事件优先级如下代码所示：
+
+```js
+// src/react/packages/react-reconciler/src/ReactEventPriorities.old.js
+
+// lanes模型优先级转换为事件优先级
+export function lanesToEventPriority(lanes: Lanes): EventPriority {
+  const lane = getHighestPriorityLane(lanes);
+  if (!isHigherEventPriority(DiscreteEventPriority, lane)) {
+    return DiscreteEventPriority;
+  }
+  if (!isHigherEventPriority(ContinuousEventPriority, lane)) {
+    return ContinuousEventPriority;
+  }
+  if (includesNonIdleWork(lane)) {
+    return DefaultEventPriority;
+  }
+  return IdleEventPriority;
+}
+```
+
+React 事件优先级转换为 Scheduler 优先级如下代码所示：
+
+```js
+// ...
+// 并发模式 异步优先级
+let schedulerPriorityLevel;
+switch (lanesToEventPriority(nextLanes)) {
+  case DiscreteEventPriority:
+    schedulerPriorityLevel = ImmediateSchedulerPriority;
+    break;
+  case ContinuousEventPriority:
+    schedulerPriorityLevel = UserBlockingSchedulerPriority;
+    break;
+  case DefaultEventPriority:
+    schedulerPriorityLevel = NormalSchedulerPriority;
+    break;
+  case IdleEventPriority:
+    schedulerPriorityLevel = IdleSchedulerPriority;
+    break;
+  default:
+    schedulerPriorityLevel = NormalSchedulerPriority;
+    break;
+}
+// 保存调度单元 Scheduler 所创建的 task 对象
+newCallbackNode = scheduleCallback(
+  schedulerPriorityLevel,
+  performConcurrentWorkOnRoot.bind(null, root),
+);
+// ...
+```
+
+它主要是在 src/react/packages/react-reconciler/src/ReactFiberWorkLoop.old.js 文件中的 ensureRootIsScheduled 函数。
+
+lanesToEventPriority 函数就是上面 Lane 优先级转换为 React 事件优先级的函数，先将 lane 的优先级转换为 React 事件的优先级，然后再根据 React 事件的优先级转换为 Scheduler 的优先级。
+
+:::
 
 [相关内容](https://notes.fe-mm.com/analysis/react/18.2.0/base/Fiber)
