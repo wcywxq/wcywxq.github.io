@@ -2,33 +2,27 @@
 
 ::: tip 简述
 
-- React15 的 `Stack Reconciler` 方案由于递归不可中断问题，如果 Diff 时间过长（JS 计算时间），会造成页面 UI 的无响应（比如输入框）的表现，vdom 无法应用到 dom 中。
+- React15 的 `Stack Reconciler` 方案由于递归不可中断和恢复的问题，如果 Diff 时间过长（JS 计算时间），会造成页面 UI 的无响应（比如输入框）的表现，vdom 无法应用到 dom 中。
 - 为了解决这个问题，React16 实现了新的基于 requestIdleCallback 的调度器（因为 requestIdleCallback 兼容性和稳定性问题，自己实现了 polyfill），通过任务优先级的思想，在高优先级任务进入的时候，中断 reconciler。
 - 为了适配这种新的调度器，推出了 `Fiber Reconciler`，将原来的树形结构（vdom）转换成 Fiber 链表的形式（child/sibling/return），整个 Fiber 的遍历是基于**循环**而**非递归**，可以随时中断。
-- 更加核心的是，基于 Fiber 的链表结构，对于后续（React 17 Lane 架构）的异步渲染和 （可能存在的）worker 计算都有非常好的应用基础
+- 更加核心的是，基于 Fiber 的链表结构，对于后续（React 17 Lanes 架构）的优先级算法（异步渲染）和 （可能存在的）worker 计算都有非常好的应用基础
 :::
 
 ## Fiber 的含义
 
 Fiber 具有三层含义：
 
-- **架构**
-
-::: tip
+::: tip 1. 架构
 
 - React 15 的 Reconciler（协调器）采用递归的方式进行，数据保存在递归调用栈中，所以被称为：`Stack Reconciler`
 - React 16 的 Reconciler（协调器）基于 Fiber 节点实现，被称为：`Fiber Reconciler`
 :::
 
-- **静态数据结构**
-
-::: tip
+::: tip 2. 静态数据结构
 每个 Fiber 节点 对应一个 React element，保存了该组件的类型（函数组件/类组件/原生组件...）、对应的 DOM 节点等信息
 :::
 
-- **动态工作单元**
-
-::: tip
+::: tip 3. 动态工作单元
 每个 Fiber 节点都保存了本次更新中该组件改变的状态、要执行的工作（需要被删除/被插入页面中/被更新...）
 :::
 
@@ -101,6 +95,112 @@ function FiberNode(
 :::
 
 ## Fiber 双缓存
+
+::: tip 简述
+
+- 当我们用 canvas 绘制动画时，每一帧绘制前都会调用 ctx.clearRect 清除上一帧的画面，如果当前帧画面计算量比较大，导致清除上一帧画面到绘制当前帧画面之间有较长间隙，就会出现白屏。
+- 为了解决这个问题，我们可以在内存中绘制当前帧动画，绘制完毕后直接用当前帧替换上一帧画面，由于省去了两帧替换间的计算时间，不会出现从白屏到出现画面的闪烁情况。
+- 这种在内存中构建并直接替换的技术叫做双缓存
+- React 使用 "双缓存" 来完成 Fiber 树的构建与替换 —————————— 对应着 DOM 树的创建与更新
+:::
+
+### 双缓存构建
+
+在 React 中最多会同时存在两棵 Fiber 树：
+
+- **当前屏幕**上显示内容对应的 Fiber 树叫做 current Fiber 树
+- 正在**内存中**构建的 Fiber 树叫做 workInProgress Fiber 树
+
+React 应用的根节点通过使 current 指针在不同 Fiber 树的 rootFiber 间切换来完成 current Fiber 树 指向的切换
+
+当 workInProgress Fiber 树构建完成交给 Renderer 渲染在页面上后，React 会将应用根节点的 current 指针指向 workInProgress Fiber 树，此时 workInProgress Fiber 树 就变为 current Fiber 树
+
+每次状态更新都会产生新的 workInProgress Fiber 树，通过 current 与 workInProgress 的替换，完成 DOM 更新
+
+::: info
+
+- current Fiber 树 中的 Fiber 节点 被称为 current fiber
+- workInProgress Fiber 树 中的 Fiber 节点 被称为 workInProgress fiber
+- current Fiber 树中的 Fiber 节点都有 alternate 属性指向 workInProgress Fiber 树中对应的 Fiber 节点
+
+```js
+currentFiber.alternate === workInProgressFiber
+workInProgressFiber.alternate === currentFiber
+```
+
+:::
+
+### mount 挂载阶段
+
+::: details 例子
+
+```jsx
+function App() {
+  const [num, add] = useState(0)
+  return <p onClick={() => add(num + 1)}>{num}</p>
+}
+
+ReactDOM.render(<App />, document.getElementById('root'))
+```
+
+:::
+
+::: details 第一步
+首次执行 ReactDOM.render 时会创建 fiberRootNode（源码中叫 fiberRoot）和 rootFiber
+
+- fiberRootNode 是整个应用的根节点
+- rootFiber 是 `<App/>` 所在组件树的根节点
+
+  ::: info 为什么要区分 fiberRootNode 与 rootFiber
+  因为在一个 React 应用中我们可以多次调用 ReactDOM.render 来渲染不同的组件树，这时它们会拥有不同的 rootFiber。但是整个应用的根节点只有一个那就是 fiberRootNode
+
+这时 fiberRootNode 的 current 指针会指向当前页面上已渲染内容对应 Fiber 树（即 current Fiber 树）
+
+![fiber-mount-step1.png](./pictures/fiber-mount-step1.png)
+
+```js
+fiberRootNode.current = rootFiber
+```
+
+由于是首屏渲染，页面中还没有挂载任何 DOM，所以 fiberRootNode.current 指向的 rootFiber 是没有任何子 Fiber 节点的（即 current Fiber 树为空）
+
+:::
+
+::: details 第二步
+接下来进入 render 阶段，根据组件返回的 JSX 在内存中依次创建 Fiber 节点并连接在一起构建 Fiber 树，其被称为 workInProgress Fiber 树（下图中右侧为内存中构建的树，左侧为页面显示的树）
+
+在构建 workInProgress Fiber 树 时会尝试复用 current Fiber 树 中已有的 Fiber 节点 内的属性，在首屏渲染时只有 rootFiber 存在对应的 current fiber（即 rootFiber.alternate）
+
+![fiber-mount-step2.png](./pictures/fiber-mount-step2.png)
+:::
+
+::: details 第三步
+图中右侧已构建完的 workInProgress Fiber 树会在 commit 阶段 渲染到页面
+
+此时 DOM 更新为右侧树对应的界面。fiberRootNode 的 current 指针指向 workInProgress Fiber 树使其变更为 current Fiber 树（即下图所示）
+
+![fiber-mount-step3.png](./pictures/fiber-mount-step3.png)
+:::
+
+### update 更新阶段
+
+::: details 第一步
+
+当我们点击 p 节点 触发状态改变时，会开启一次新的 render 阶段并构建一棵新的 workInProgress Fiber 树
+
+![fiber-update-step1.png](./pictures/fiber-update-step1.png)
+
+和 mount 时一样，workInProgress fiber 的创建会复用 current Fiber 树中对应的节点数据。另外，决定是否复用的过程就是 Diff 算法
+
+:::
+
+::: details 第二步
+
+workInProgress Fiber 树 在 render 阶段完成构建后进入 commit 阶段渲染到页面上。在渲染完毕后 workInProgress Fiber 树变更为 current Fiber 树
+
+![fiber-update-step2.png](./pictures/fiber-update-step2.png)
+
+:::
 
 ## 优先级分类
 
