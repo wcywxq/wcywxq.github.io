@@ -86,7 +86,7 @@
 
 ### 图片定高或不定高垂直水平居中
 
-<iframe src="https://codesandbox.io/embed/m6lkcd?view=editor+%2B+preview&module=%2Findex.html"
+<iframe src="https://codesandbox.io/embed/f5vqtg?view=editor+%2B+preview"
      style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
      title="图片定高或不定高垂直水平居中"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
