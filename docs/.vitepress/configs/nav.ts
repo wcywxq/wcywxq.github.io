@@ -25,7 +25,7 @@ export const nav: DefaultTheme.Config['nav'] = [
           },
           {
             text: 'CSS 基础',
-            link: '/material/endorsement/css'
+            link: '/material/endorsement/css/center'
           },
           {
             text: 'JS 基础',
