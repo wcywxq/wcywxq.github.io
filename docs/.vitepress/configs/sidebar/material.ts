@@ -68,7 +68,11 @@ const materialEndorsementSidebar: DefaultTheme.Config['sidebar'] = {
         {
           text: '居中',
           link: '/material/endorsement/css/center.md'
-        }
+        },
+        {
+          text: '布局',
+          link: '/material/endorsement/css/layout.md'
+        },
       ]
     }
   ]
