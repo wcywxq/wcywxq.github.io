@@ -113,11 +113,109 @@ let excludeInfo: ExcludeInfo = 200
 
 ### Extract<T, U>
 
+```ts twoslash
+type Extract<T, U> = T extends U ? T : never
+```
+
+::: details 使用场景
+
+```ts twoslash
+type Message = string | number | boolean | Date
+type ExtractMessage = Extract<Message, boolean | number | Function>
+// 等价于
+type ExtractMessageNew = number | boolean
+```
+
+:::
+
 ### Omit<T, K>
+
+```ts twoslash
+type Omit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>
+```
+
+::: details 使用场景
+
+```ts twoslash
+interface Student {
+  name: string
+  age: number
+  classes: string
+  school: string
+}
+type PersonAttributes = 'name' | 'age'
+type OmitStudent = Omit<Student, PersonAttributes>
+// 等价于
+type OmitStudentNew = {
+  class: string
+  school: string
+}
+```
+
+:::
 
 ### NonNullable
 
+```ts twoslash
+type NonNullable<T> = T extends null | undefined ? never : T
+```
+
+::: details 使用场景
+
+```ts twoslash
+type A = string | number | undefined
+type B = NonNullable<A> // string | number
+
+// @errors: 2322
+function fn<T extends string | undefined>(x: T, y: NonNullable<T>) {
+  let s1: string = x
+  let s2: string = y
+}
+```
+
+:::
+
 ### Parameters
+
+```ts twoslash
+// 此处使用 infer P 将参数定位待推断类型
+// T 符合函数特征时，返回参数类型，否则返回 never
+type Parameters<T extends (...args: any) => any> = T extends (...args: infer P) => any ? P : never
+```
+
+::: details 使用场景
+
+```ts twoslash
+interface Person {
+  name: string
+  age: number
+  nationality: string
+  id_card: string
+}
+
+interface Func {
+  (person: Person, count: number): boolean
+}
+
+type P = Parameters<Func>
+//   ^?
+```
+
+```ts twoslash
+// 快速获取未知函数的参数类型
+function add (a: number, b: number) {
+  return a + b
+}
+// 其他库导入的函数，获取其参数类型
+type FuncParams = Parameters<typeof add>
+// 内置函数
+type FillParams = Parameters<typeof Array.prototype.fill>
+//   ^?
+// 等价于
+type FillParamsNew = [value: any, start?: number | undefined, end?: number | undefined]
+```
+
+:::
 
 ### ConstructorParameters
 
