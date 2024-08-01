@@ -2,22 +2,21 @@
 
 ## 总览
 
-| 名称                  | 描述                                                                   |
-| :-------------------- | :--------------------------------------------------------------------- |
-| Partial               | 将类型 T 的所有属性标记为**可选属性**                                  |
-| Required              | 与 Partial 相反，Required 将类型 T 的所有属性标记为**必选属性**        |
-| Readonly              | 将所有属性标记为 readonly, 即**不能修改**                              |
-| Pick<T, K>            | 从 T 中过滤出属性 K                                                    |
-| Record<K, T>          | 标记对象的 key value 类型                                              |
-| Exclude<T, U>         | 移除 T 中的 U 属性                                                     |
-| Extract<T, U>         | Exclude 的反操作，取 T，U 两者的交集属性                               |
-| Omit<T, K>            | 移除 T 中的 U 属性                                                     |
-| Exclude<T, U>         | 传入一个类型，和这个类型的几个属性，把传入的属性省略掉，组成一个新类型 |
-| NonNullable           | 排除类型 T 的 null \| undefined 属性                                   |
-| Parameters            | 获取一个函数的所有参数类型                                             |
-| ConstructorParameters | 类似于 Parameters\<T>, ConstructorParameters 获取一个类的构造函数参数  |
-| ReturnType            | 获取函数类型 T 的返回类型                                              |
-| InstanceType          | 获取一个类的返回类型                                                   |
+| 名称                                            | 描述                                                                  |
+| :---------------------------------------------- | :-------------------------------------------------------------------- |
+| [Partial](#partial)                             | 将类型 T 的所有属性标记为**可选属性**                                 |
+| [Required](#required)                           | 与 Partial 相反，Required 将类型 T 的所有属性标记为**必选属性**       |
+| [Readonly](#readonly)                           | 将所有属性标记为 readonly, 即**不能修改**                             |
+| [Pick<T, K>](#pick-t-k)                         | 从 T 中过滤出属性 K                                                   |
+| [Record<K, T>](#record-k-t)                     | 标记对象的 key value 类型                                             |
+| [Exclude<T, U>](#exclude-t-u)                   | 移除 T 中的 U 属性                                                    |
+| [Extract<T, U>](#extract-t-u)                   | Exclude 的反操作，取 T，U 两者的交集属性                              |
+| [Omit<T, K>](#omit-t-k)                         | 移除 T 中的 U 属性                                                    |
+| [NonNullable](#nonnullable)                     | 排除类型 T 的 null \| undefined 属性                                  |
+| [Parameters](#parameters)                       | 获取一个函数的所有参数类型                                            |
+| [ConstructorParameters](#constructorparameters) | 类似于 Parameters\<T>, ConstructorParameters 获取一个类的构造函数参数 |
+| [ReturnType](#returntype)                       | 获取函数类型 T 的返回类型                                             |
+| [InstanceType](#instancetype)                   | 获取一个类的返回类型                                                  |
 
 ## 目录
 
@@ -29,7 +28,7 @@ type Partial<T> = {
 }
 ```
 
-::: details 使用场景
+::: info 使用场景
 
 ```ts twoslash
 // 账号属性
@@ -81,7 +80,25 @@ type Pick<T, K extends keyof T> = {
 }
 ```
 
-::: details 使用场景
+::: info 使用场景
+
+```ts twoslash
+// 账号属性
+enum Vip {
+  not = 0, // 非 vip
+  advanced = 1 // 高级 vip
+}
+
+interface AccountInfo {
+  name: string
+  age: number
+  email: string
+  vip?: Vip
+}
+
+type CoreInfo = Pick<AccountInfo, 'name' | 'email'>
+//   ^?
+```
 
 :::
 
@@ -93,19 +110,51 @@ type Record<K extends keyof any, T> = {
 }
 ```
 
+::: info 使用场景
+
+```ts twoslash
+// 账号属性
+enum Vip {
+  not = 0, // 非 vip
+  advanced = 1 // 高级 vip
+}
+
+interface AccountInfo {
+  name: string
+  age: number
+  email: string
+  vip?: Vip
+}
+
+const accountMap: Record<number, AccountInfo> = {
+  10001: {
+    name: 'xx',
+    age: 0,
+    email: 'xxxxx',
+    vip: Vip.not
+  },
+}
+const user: Record<'name' | 'email', string> = {
+  name: '',
+  email: '',
+}
+```
+
+:::
+
 ### Exclude<T, U>
 
 ```ts twoslash
 type Exclude<T, U> = T extends U ? never: T
 ```
 
-::: details 使用场景
+::: info 使用场景
 
 ```ts twoslash
+// @errors: 2322
 type message = string | number
 type ExcludeInfo = Exclude<message, number>
 
-// @errors: 2322
 let excludeInfo: ExcludeInfo = 200
 ```
 
@@ -117,13 +166,12 @@ let excludeInfo: ExcludeInfo = 200
 type Extract<T, U> = T extends U ? T : never
 ```
 
-::: details 使用场景
+::: info 使用场景
 
 ```ts twoslash
 type Message = string | number | boolean | Date
 type ExtractMessage = Extract<Message, boolean | number | Function>
-// 等价于
-type ExtractMessageNew = number | boolean
+//   ^?
 ```
 
 :::
@@ -134,7 +182,7 @@ type ExtractMessageNew = number | boolean
 type Omit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>
 ```
 
-::: details 使用场景
+::: info 使用场景
 
 ```ts twoslash
 interface Student {
@@ -145,11 +193,7 @@ interface Student {
 }
 type PersonAttributes = 'name' | 'age'
 type OmitStudent = Omit<Student, PersonAttributes>
-// 等价于
-type OmitStudentNew = {
-  class: string
-  school: string
-}
+//   ^?
 ```
 
 :::
@@ -160,13 +204,13 @@ type OmitStudentNew = {
 type NonNullable<T> = T extends null | undefined ? never : T
 ```
 
-::: details 使用场景
+::: info 使用场景
 
 ```ts twoslash
+// @errors: 2322
 type A = string | number | undefined
 type B = NonNullable<A> // string | number
 
-// @errors: 2322
 function fn<T extends string | undefined>(x: T, y: NonNullable<T>) {
   let s1: string = x
   let s2: string = y
@@ -183,7 +227,7 @@ function fn<T extends string | undefined>(x: T, y: NonNullable<T>) {
 type Parameters<T extends (...args: any) => any> = T extends (...args: infer P) => any ? P : never
 ```
 
-::: details 使用场景
+::: info 使用场景
 
 ```ts twoslash
 interface Person {
@@ -211,14 +255,33 @@ type FuncParams = Parameters<typeof add>
 // 内置函数
 type FillParams = Parameters<typeof Array.prototype.fill>
 //   ^?
-// 等价于
-type FillParamsNew = [value: any, start?: number | undefined, end?: number | undefined]
 ```
 
 :::
 
 ### ConstructorParameters
 
+```ts twoslash
+type ConstructorParameters<T extends new (...args: any) => any> = T extends new (...args: infer P) => any ? p : never
+```
+
+::: info 使用场景
+
+```ts twoslash
+type DateConstrParams = ConstructorParameters<typeof Date>
+//   ^?
+```
+
+:::
+
 ### ReturnType
 
+```ts twoslash
+type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => infer R ? R : any
+```
+
 ### InstanceType
+
+```ts twoslash
+type InstanceType<T extends new (...args: any) => any> = T extends new (...args: any) => infer R ? R : any
+```
