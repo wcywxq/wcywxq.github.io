@@ -258,6 +258,10 @@ const materialProgrammingSidebar: DefaultTheme.Config['sidebar'] = {
           "link": "/material/programming/business-scenarios/promise-async/use-add_remote-to-implement-add"
         },
         {
+          "text": "options 调用转换为 promise 调用",
+          "link": "/material/programming/business-scenarios/promise-async/options-calls-to-promise-calls"
+        },
+        {
           "text": "Promise 缓存",
           "link": "/material/programming/business-scenarios/promise-async/promise-cache"
         },
