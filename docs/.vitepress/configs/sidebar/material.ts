@@ -75,6 +75,17 @@ const materialEndorsementSidebar: DefaultTheme.Config['sidebar'] = {
         },
       ]
     }
+  ],
+  '/material/endorsement/ts': [
+    {
+      text: 'TypeScript',
+      items: [
+        {
+          text: 'TS 内置类型',
+          link: '/material/endorsement/ts/built-in-types'
+        },
+      ]
+    }
   ]
 }
 

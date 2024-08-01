@@ -41,7 +41,7 @@ export const nav: DefaultTheme.Config['nav'] = [
           },
           {
             text: 'TS 基础',
-            link: '/material/endorsement/engineering'
+            link: '/material/endorsement/ts/built-in-types'
           },
           {
             text: '小程序',
