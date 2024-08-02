@@ -1,6 +1,29 @@
 import type { DefaultTheme } from 'vitepress'
 
 export const extensionSidebar: DefaultTheme.Config['sidebar'] = {
+  '/extension/native-app': [
+    {
+      text: '原生 app',
+      items: [
+        {
+          text: 'React Native',
+          link: '/extension/native-app/react-native'
+        },
+        {
+          text: 'Flutter',
+          link: '/extension/native-app/flutter'
+        },
+        {
+          text: 'Android',
+          link: '/extension/native-app/android'
+        },
+        {
+          text: 'IOS',
+          link: '/extension/native-app/ios'
+        },
+      ]
+    }
+  ],
   '/extension/backend': [
     {
       text: 'Python',

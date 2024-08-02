@@ -102,6 +102,27 @@ export const nav: DefaultTheme.Config['nav'] = [
     text: '扩展',
     items: [
       {
+        text: '原生 app',
+        items: [
+          {
+            text: 'React Native',
+            link: '/extension/native-app/react-native'
+          },
+          {
+            text: 'Flutter',
+            link: '/extension/native-app/flutter'
+          },
+          {
+            text: 'Android',
+            link: '/extension/native-app/android'
+          },
+          {
+            text: 'IOS',
+            link: '/extension/native-app/ios'
+          },
+        ]
+      },
+      {
         text: '后端',
         items: [
           {
