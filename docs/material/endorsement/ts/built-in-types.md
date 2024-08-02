@@ -262,7 +262,7 @@ type FillParams = Parameters<typeof Array.prototype.fill>
 ### ConstructorParameters
 
 ```ts twoslash
-type ConstructorParameters<T extends new (...args: any) => any> = T extends new (...args: infer P) => any ? p : never
+type ConstructorParameters<T extends new (...args: any) => any> = T extends new (...args: infer P) => any ? P : never
 ```
 
 ::: info 使用场景
