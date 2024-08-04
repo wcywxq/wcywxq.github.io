@@ -52,7 +52,65 @@ const materialEndorsementSidebar: DefaultTheme.Config['sidebar'] = {
         {
           text: 'v3 优化内容',
           link: '/material/endorsement/framework/vue/v3-optimizing-content'
-        }
+        },
+        {
+          text: '响应式原理',
+          link: '/material/endorsement/framework/vue/reactive'
+        },
+        {
+          text: '模版编译原理',
+          link: '/material/endorsement/framework/vue/template-compilation'
+        },
+        {
+          text: 'Composition API',
+          items: []
+        },
+        {
+          text: '生命周期',
+          link: '/material/endorsement/framework/vue/lifecycle'
+        },
+        {
+          text: '组件间通信',
+          link: '/material/endorsement/framework/vue/onents'
+        },
+        {
+          text: '事件绑定机制',
+          link: '/material/endorsement/framework/vue/event-binding'
+        },
+        {
+          text: '自定义指令',
+          link: '/material/endorsement/framework/vue/custom-directives'
+        },
+        {
+          text: '服务端渲染',
+          link: '/material/endorsement/framework/vue/ssr'
+        },
+        {
+          text: '数据共享',
+          items: [
+            {
+              text: 'Vuex',
+              link: '/material/endorsement/framework/vue/vuex'
+            },
+            {
+              text: 'Pinia',
+              link: '/material/endorsement/framework/vue/pinia'
+            }
+          ]
+        },
+        {
+          text: 'v2',
+          items: [
+            {
+              text: 'data 函数',
+              link: '/material/endorsement/framework/vue/v2/data'
+            },
+            {
+              text: 'mixins 和 extends',
+              link: '/material/endorsement/framework/vue/v2/mixins-extends'
+            },
+          ]
+        },
       ]
     },
     {
